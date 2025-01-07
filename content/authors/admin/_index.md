@@ -37,10 +37,10 @@ profiles:
   #   url: https://twitter.com/GetResearchDev
   # - icon: brands/instagram
   #   url: https://www.instagram.com/
-  # - icon: brands/github
-  #   url: https://github.com/gcushen
-  # - icon: brands/linkedin
-  #   url: https://www.linkedin.com/
+  - icon: brands/github
+    url: https://github.com/jichuantang
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/jichuan-tang-1281b1218/
   # - icon: academicons/google-scholar
   #   url: https://scholar.google.com/
   # - icon: academicons/orcid
