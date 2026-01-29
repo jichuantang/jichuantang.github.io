@@ -179,7 +179,11 @@ cite {
 
 /* About sidebar: slightly more compact to give the main column more room */
 .about-sidebar {
-  font-size: 0.9rem;
+  font-size: 0.87rem;
+}
+
+.about-sidebar .nowrap {
+  white-space: nowrap;
 }
 
 .about-sidebar #title {
@@ -192,7 +196,7 @@ cite {
 }
 
 .about-sidebar #contact-table {
-  font-size: 0.9rem;
+  font-size: 0.87rem;
 }
 
 .about-sidebar h3 {
