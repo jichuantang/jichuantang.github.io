@@ -186,25 +186,36 @@ cite {
   white-space: nowrap;
 }
 
+/* Global styles set p/table/ul/li to 1rem; override for the sidebar */
+.about-sidebar p,
+.about-sidebar table,
+.about-sidebar tr,
+.about-sidebar td,
+.about-sidebar ul,
+.about-sidebar li,
+.about-sidebar a {
+  font-size: 0.82rem;
+}
+
 .about-sidebar #title {
   font-size: 1.02rem;
   margin-top: 1.4rem;
 }
 
 .about-sidebar #program {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .about-sidebar #contact-table {
-  font-size: 0.87rem;
+  font-size: 0.82rem;
 }
 
 .about-sidebar h3 {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
 }
 
 .about-sidebar #education {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
 }
 
 .about-sidebar #education li {
