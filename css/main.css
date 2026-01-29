@@ -179,11 +179,16 @@ cite {
 
 /* About sidebar: slightly more compact to give the main column more room */
 .about-sidebar {
-  font-size: 0.87rem;
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
-.about-sidebar .nowrap {
-  white-space: nowrap;
+/* Only force single-line labels on wider screens to avoid overlap on narrow widths */
+@media (min-width: 992px) {
+  .about-sidebar .nowrap {
+    white-space: nowrap;
+  }
 }
 
 /* Global styles set p/table/ul/li to 1rem; override for the sidebar */
@@ -194,28 +199,28 @@ cite {
 .about-sidebar ul,
 .about-sidebar li,
 .about-sidebar a {
-  font-size: 0.82rem;
+  font-size: 0.78rem !important;
 }
 
 .about-sidebar #title {
-  font-size: 1.02rem;
+  font-size: 0.95rem;
   margin-top: 1.4rem;
 }
 
 .about-sidebar #program {
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .about-sidebar #contact-table {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 }
 
 .about-sidebar h3 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 .about-sidebar #education {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 }
 
 .about-sidebar #education li {
