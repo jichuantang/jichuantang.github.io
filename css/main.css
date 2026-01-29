@@ -177,6 +177,43 @@ cite {
   }
 }
 
+/* School logos row (homepage): keep in one line on narrow screens */
+.school-logos {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.school-logos img {
+  flex: 0 1 auto;
+  max-height: 90px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .school-logos {
+    gap: 12px;
+  }
+
+  .school-logos img {
+    max-height: 64px;
+  }
+}
+
+@media (max-width: 575px) {
+  .school-logos img {
+    max-height: 48px;
+  }
+}
+
 /* About sidebar: slightly more compact to give the main column more room */
 .about-sidebar {
   font-size: 0.82rem;
