@@ -178,24 +178,36 @@ cite {
 }
 
 /* About sidebar: slightly more compact to give the main column more room */
+.about-sidebar {
+  font-size: 0.9rem;
+}
+
+.about-sidebar #title {
+  font-size: 1.02rem;
+  margin-top: 1.4rem;
+}
+
+.about-sidebar #program {
+  font-size: 0.95rem;
+}
+
+.about-sidebar #contact-table {
+  font-size: 0.9rem;
+}
+
+.about-sidebar h3 {
+  font-size: 1.35rem;
+}
+
+.about-sidebar #education {
+  font-size: 0.9rem;
+}
+
+.about-sidebar #education li {
+  margin-bottom: 0.7rem;
+}
+
 @media (min-width: 768px) {
-  .about-sidebar {
-    font-size: 0.95rem;
-  }
-
-  .about-sidebar #title {
-    font-size: 1.05rem;
-    margin-top: 1.5rem;
-  }
-
-  .about-sidebar h3 {
-    font-size: 1.45rem;
-  }
-
-  .about-sidebar #education li {
-    margin-bottom: 0.75rem;
-  }
-
   .about-sidebar img.img-thumbnail {
     width: 88%;
   }
