@@ -58,23 +58,31 @@
          align-items: flex-start;
       }
 
-      .news-thumb {
-         flex: 0 0 180px;
-         width: 180px;
-         height: 135px;
-         border-radius: 6px;
-         overflow: hidden;
+      .news-images {
+         display: flex;
+         gap: 8px;
+         flex-shrink: 0;
+         align-items: flex-start;
       }
 
-      .news-thumb img {
-         width: 100%;
-         height: 100%;
+      .news-images a {
+         display: block;
+         flex-shrink: 0;
+      }
+
+      .news-images img {
+         height: 140px;
+         width: auto;
          object-fit: cover;
-         transition: transform 0.3s ease;
+         border-radius: 6px;
+         border: 1px solid var(--border);
+         cursor: pointer;
+         transition: transform 0.3s ease, opacity 0.3s ease;
       }
 
-      .news-thumb:hover img {
-         transform: scale(1.05);
+      .news-images img:hover {
+         opacity: 0.9;
+         transform: scale(1.03);
       }
 
       .news-body {
@@ -112,28 +120,7 @@
          margin-bottom: 0.6rem;
       }
 
-      .news-gallery {
-         display: flex;
-         flex-wrap: wrap;
-         gap: 12px;
-         margin-top: 0.8rem;
-      }
 
-      .news-gallery img {
-         max-width: 260px;
-         height: auto;
-         max-height: 180px;
-         object-fit: cover;
-         border-radius: 6px;
-         border: 1px solid var(--border);
-         cursor: pointer;
-         transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-
-      .news-gallery img:hover {
-         opacity: 0.9;
-         transform: scale(1.02);
-      }
 
       .news-tags {
          margin-top: 0.6rem;
@@ -157,16 +144,13 @@
             flex-direction: column;
          }
 
-         .news-thumb {
-            flex: none;
+         .news-images {
+            flex-wrap: wrap;
             width: 100%;
-            height: 180px;
          }
 
-         .news-gallery img {
-            max-width: 100%;
-            height: auto;
-            max-height: 160px;
+         .news-images img {
+            height: 120px;
          }
       }
    </style>
@@ -196,9 +180,12 @@
 
             <!-- News Item: Winter School -->
             <div class="news-item has-thumbnail">
-               <a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer" class="news-thumb">
-                  <img src="img/winter_school_2026_group.jpg" alt="UPR-ND Winter School 2026" loading="lazy">
-               </a>
+               <div class="news-images">
+                  <a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">
+                     <img src="img/winter_school_2026_group.jpg" alt="UPR-ND Winter School 2026" loading="lazy">
+                  </a>
+                  <img src="img/upr_sai_poster.png" alt="Poster presentation" loading="lazy">
+               </div>
                <div class="news-body">
                   <div class="news-date">
                      <i class="fas fa-calendar-alt"></i> January 2026
@@ -211,9 +198,6 @@
                         <span class="news-tag">Winter School</span>
                         <span class="news-tag">Tutorial</span>
                         <span class="news-tag">Mentorship</span>
-                     </div>
-                     <div class="news-gallery">
-                        <img src="img/upr_sai_poster.png" alt="Poster presentation" loading="lazy">
                      </div>
                   </div>
                </div>
@@ -239,8 +223,9 @@
 
             <!-- News Item: EMI Conference -->
             <div class="news-item has-thumbnail">
-               <div class="news-thumb">
+               <div class="news-images">
                   <img src="img/emi_2025_presentation.jpg" alt="Presenting at EMI 2025" loading="lazy">
+                  <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025" loading="lazy">
                </div>
                <div class="news-body">
                   <div class="news-date">
@@ -254,9 +239,6 @@
                         <span class="news-tag">Conference</span>
                         <span class="news-tag">Deep Learning</span>
                         <span class="news-tag">Research</span>
-                     </div>
-                     <div class="news-gallery">
-                        <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025" loading="lazy">
                      </div>
                   </div>
                </div>
@@ -380,8 +362,7 @@
          $("li#news a").addClass("hvr-bubble-bottom");
 
          // Optional: Add click functionality for gallery images
-         $('.news-gallery img').click(function() {
-            // You can add lightbox functionality here if desired
+         $('.news-images img').click(function() {
             var src = $(this).attr('src');
             window.open(src, '_blank');
          });
