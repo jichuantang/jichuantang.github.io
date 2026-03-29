@@ -1,10 +1,10 @@
 /* Global page and element settings ----------------------------------------------------- */
 :root {
-  --text: #1f2937;
-  --muted: #6b7280;
-  --heading: #111827;
-  --accent: #1f6feb;
-  --border: #e5e7eb;
+  --text: #334155;
+  --muted: #64748b;
+  --heading: #1e293b;
+  --accent: #2563eb;
+  --border: #e2e8f0;
   --panel: #f8fafc;
 }
 
@@ -34,11 +34,11 @@ body {
 
 /* Colors */
 .dark-blue {
-  color: #20364c !important;
+  color: var(--heading) !important;
 }
 
 #badge-more {
-  background-color: #1585cf;
+  background-color: var(--accent);
   color: white;
   cursor: pointer;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 .university {
-  color: gray;
+  color: var(--muted);
 }
 
 /* Typography */
@@ -78,7 +78,7 @@ h1 {
 
 h2, h3 {
   margin: 0 0 1.5rem !important;
-  color: var(--muted);
+  color: var(--heading);
 }
 
 h2 {
@@ -95,7 +95,7 @@ h4 {
 }
 
 h4, h5, h6 {
-  color: var(--muted) !important;
+  color: var(--text) !important;
 }
 
 h5 {
@@ -109,12 +109,12 @@ h6 {
 .panel-heading h5 {
   font-style: italic;
   font-weight: 500;
-  color: #1585cf !important;
+  color: var(--accent) !important;
 }
 
 #projects .panel-heading h5 {
   font-weight: 500;
-  color: darkslategray !important;
+  color: var(--heading) !important;
 }
 
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
@@ -288,7 +288,7 @@ blockquote footer {
 }
 
 .publications strong {
-  color: #20364c;
+  color: var(--heading);
 }
 
 .publications .btn-xs {
@@ -367,7 +367,7 @@ nav {
 .navbar-inverse .navbar-nav>li>a:focus {
   background: white !important;
   border-radius: 1px;
-  color: #20364c !important;
+  color: var(--heading) !important;
 }
 
 .navbar-default .navbar-nav>li>a:active {
@@ -417,12 +417,12 @@ nav {
 
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
-    color: darkslategray !important;
+    color: var(--text) !important;
   }
 }
 
 .navbar-inverse {
-  background: #20364c;
+  background: var(--heading);
 }
 
 .navbar-brand {
@@ -496,14 +496,14 @@ nav {
 
 #link-to-docs,
 #link-to-teaching-philosophy {
-  color: #1585cf;
+  color: var(--accent);
 }
 
 #link-to-docs:hover,
 #link-to-docs:active,
 #link-to-docs:visited,
 #link-to-docs:focus {
-  border: 1px solid #1585cf !important;
+  border: 1px solid var(--accent) !important;
   padding-bottom: 6px !important;
   background: transparent !important;
 }
@@ -542,7 +542,7 @@ footer {
 }
 
 .social-icons li a {
-  color: #1585cf;
+  color: var(--accent);
 }
 
 .social-icons li a:hover {
@@ -730,7 +730,7 @@ footer {
 }
 
 #projects .panel-heading h5 {
-  color: black;
+  color: var(--heading);
   font-style: normal;
   font-weight: 500;
   font-size: 1.2rem;
@@ -792,12 +792,12 @@ dd {
   font-weight: 900;
   content: "\f068";
   float: right;
-  color: silver;
+  color: var(--muted);
 }
 
 .panel-heading .accordion-plus-toggle.collapsed:before {
   content: "\f067";
-  color: silver;
+  color: var(--muted);
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
@@ -808,14 +808,14 @@ dd {
   font-weight: 900;
   content: "\f078";
   float: right;
-  color: silver;
+  color: var(--muted);
 }
 
 .panel-heading .accordion-arrow-toggle.collapsed:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f054";
-  color: silver;
+  color: var(--muted);
 }
 
 /* sets the link to the width of the entire panel title */
@@ -834,7 +834,7 @@ dd {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #1585cf;
+  background-color: var(--accent);
   color: white;
   padding: 12px 6px 12px 6px;
   border-radius: 4px 0 0 4px;
@@ -843,7 +843,7 @@ dd {
 }
 
 #topper:hover {
-  background-color: #1585cf;
+  background-color: var(--accent);
   opacity: .8;
 }
 
