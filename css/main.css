@@ -825,6 +825,31 @@ dd {
 
 /* Back to top button */
 
+/* ---- University logos row ---- */
+.uni-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+
+.uni-logos img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+  filter: grayscale(20%);
+}
+
+.uni-logos img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
 /* Back to top button ----------------------------------------------------- */
 #topper {
   display: none;
@@ -891,6 +916,14 @@ dd {
   #topper {
       bottom: 60px;
       right: 10px;
+  }
+
+  .uni-logos {
+      gap: 1.2rem;
+      flex-wrap: wrap;
+  }
+  .uni-logos img {
+      height: 36px;
   }
   
   /* Make embedded iframes (like CV) more accessible */
