@@ -566,9 +566,41 @@ footer {
   margin-left: 2rem;
 }
 
+/* Global panel / card style — shared across projects, publications, news */
 .panel {
   border-color: var(--border);
+  border-radius: 6px;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.panel:hover {
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.25s ease;
+}
+
+.panel-body {
+  background-color: #f6f7fb;
+}
+
+.panel-title {
+  font-weight: 600 !important;
+}
+
+.panel-heading {
+  border-radius: 6px 6px 0 0;
+}
+
+/* News items — match global panel styling */
+.news-item {
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  background-color: #fafafa;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.news-item:hover {
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12) !important;
+  transition: box-shadow 0.25s ease;
 }
 
 #links .panel {
