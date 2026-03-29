@@ -678,14 +678,14 @@ footer {
 }
 
 .project-title {
-  font-family: "Montserrat", Helvetica, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--heading);
-  text-transform: none;
-  letter-spacing: 0;
-  line-height: 1.5;
-  margin: 0;
+  font-family: "Montserrat", Helvetica, sans-serif !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  color: var(--heading) !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
 }
 
 .project-figures .thumbnail {
