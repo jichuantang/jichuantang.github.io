@@ -673,17 +673,33 @@ footer {
 
 /* Project item spacing and title style */
 #projects .news-item {
-  margin-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.4rem;
 }
 
-#projects .news-title {
-  text-transform: none !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  color: var(--heading) !important;
-  letter-spacing: 0 !important;
-  line-height: 1.45;
-  margin-bottom: 0;
+.project-title {
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--heading);
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.project-figures .thumbnail {
+  margin-bottom: 0.5rem;
+}
+
+.project-figures .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.project-figures .row > [class*="col-"] {
+  max-width: 50%;
 }
 
 #links .panel {
