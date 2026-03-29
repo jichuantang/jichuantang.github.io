@@ -48,69 +48,122 @@
 
    <style>
       .news-item {
-         margin-bottom: 30px;
-         padding: 20px;
+         margin-bottom: 1.5rem;
+         padding: 1.2rem 1.4rem;
+      }
+
+      .news-item.has-thumbnail {
+         display: flex;
+         gap: 1.5rem;
+         align-items: flex-start;
+      }
+
+      .news-thumb {
+         flex: 0 0 180px;
+         width: 180px;
+         height: 135px;
+         border-radius: 6px;
+         overflow: hidden;
+      }
+
+      .news-thumb img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         transition: transform 0.3s ease;
+      }
+
+      .news-thumb:hover img {
+         transform: scale(1.05);
+      }
+
+      .news-body {
+         flex: 1;
+         min-width: 0;
       }
 
       .news-date {
-         color: #666;
-         font-style: italic;
-         margin-bottom: 10px;
+         color: var(--muted);
+         font-size: 0.82rem;
+         margin-bottom: 0.4rem;
+         letter-spacing: 0.3px;
+      }
+
+      .news-date i {
+         margin-right: 0.3em;
       }
 
       .news-title {
-         font-weight: bold;
-         margin-bottom: 15px;
-         color: #20364c;
+         font-weight: 600;
+         font-size: 1.05rem;
+         margin-bottom: 0.5rem;
+         color: var(--heading);
+         line-height: 1.4;
       }
 
       .news-content {
-         margin-bottom: 15px;
+         margin-bottom: 0;
          line-height: 1.6;
+         font-size: 0.92rem;
+         color: var(--text);
       }
 
-      .news-image {
-         max-width: 100%;
-         height: auto;
-         border-radius: 5px;
-         margin: 10px 0;
+      .news-content p {
+         margin-bottom: 0.6rem;
       }
 
       .news-gallery {
          display: flex;
          flex-wrap: wrap;
          gap: 10px;
-         margin: 15px 0;
+         margin-top: 0.8rem;
       }
 
       .news-gallery img {
-         max-width: 200px;
-         height: 150px;
+         max-width: 180px;
+         height: 120px;
          object-fit: cover;
          border-radius: 5px;
+         border: 1px solid var(--border);
          cursor: pointer;
+         transition: opacity 0.3s ease;
       }
 
       .news-gallery img:hover {
-         opacity: 0.8;
-         transition: opacity 0.3s ease;
+         opacity: 0.85;
+      }
+
+      .news-tags {
+         margin-top: 0.6rem;
       }
 
       .news-tag {
          display: inline-block;
-         background-color: #1585cf;
-         color: white;
-         padding: 4px 8px;
+         background-color: #eef2ff;
+         color: var(--accent);
+         padding: 3px 10px;
          border-radius: 12px;
-         font-size: 12px;
-         margin-right: 5px;
-         margin-bottom: 5px;
+         font-size: 0.72rem;
+         font-weight: 500;
+         margin-right: 4px;
+         margin-bottom: 4px;
+         letter-spacing: 0.2px;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 600px) {
+         .news-item.has-thumbnail {
+            flex-direction: column;
+         }
+
+         .news-thumb {
+            flex: none;
+            width: 100%;
+            height: 180px;
+         }
+
          .news-gallery img {
-            max-width: 100px;
-            height: 75px;
+            max-width: 120px;
+            height: 90px;
          }
       }
    </style>
@@ -138,23 +191,27 @@
       <div class="row">
          <div class="col-sm-12">
 
-            <!-- News Item New -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> January 2026
-               </div>
-               <h4 class="news-title">UPR SAI Winter School</h4>
-               <div class="news-content">
-                  <p>Attended the 2026 UPR-ND Winter School for Scientific Artificial Intelligence at University of Puerto Rico Mayagüez. Delivered an applied tutorial titled "Neural Operators for Engineering Applications", presented a research poster, and mentored undergraduate hackathon participants in the development of personalized AI agents.
-                  [<a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">Read SAI coverage</a>]</p>
-                  <div class="news-tags">
-                     <span class="news-tag">Winter School</span>
-                     <span class="news-tag">Tutorial</span>
-                     <span class="news-tag">Mentorship</span>
+            <!-- News Item: Winter School -->
+            <div class="news-item has-thumbnail">
+               <a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer" class="news-thumb">
+                  <img src="img/winter_school_2026_group.jpg" alt="UPR-ND Winter School 2026" loading="lazy">
+               </a>
+               <div class="news-body">
+                  <div class="news-date">
+                     <i class="fas fa-calendar-alt"></i> January 2026
                   </div>
-                  <div class="news-gallery">
-                     <img src="img/winter_school_2026_group.jpg" alt="Group photo at UPR-ND Winter School 2026" loading="lazy">
-                     <img src="img/upr_sai_poster.png" alt="Poster presentation at UPR-ND Winter School 2026" loading="lazy">
+                  <h4 class="news-title">UPR SAI Winter School</h4>
+                  <div class="news-content">
+                     <p>Attended the 2026 UPR-ND Winter School for Scientific Artificial Intelligence at University of Puerto Rico Mayagüez. Delivered an applied tutorial titled "Neural Operators for Engineering Applications", presented a research poster, and mentored undergraduate hackathon participants.
+                     [<a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">SAI coverage</a>]</p>
+                     <div class="news-tags">
+                        <span class="news-tag">Winter School</span>
+                        <span class="news-tag">Tutorial</span>
+                        <span class="news-tag">Mentorship</span>
+                     </div>
+                     <div class="news-gallery">
+                        <img src="img/upr_sai_poster.png" alt="Poster presentation" loading="lazy">
+                     </div>
                   </div>
                </div>
             </div>
@@ -177,23 +234,27 @@
                <!-- <img src="img/deeponet_research.jpg" alt="Deep Operator Network Research" class="news-image"> -->
             </div>
 
-            <!-- News Item 3 -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> May 2025
+            <!-- News Item: EMI Conference -->
+            <div class="news-item has-thumbnail">
+               <div class="news-thumb">
+                  <img src="img/emi_2025_presentation.jpg" alt="Presenting at EMI 2025" loading="lazy">
                </div>
-               <h4 class="news-title">EMI Conference Presentation</h4>
-               <div class="news-content">
-                  <p>Successfully presented my research on "Using deep operators to create spatio-temporal surrogates for dynamical systems under uncertainty" at the Engineering Mechanics Institute Conference (EMI 2025) in Anaheim, CA.</p>
-                  <p>What excites me most is having a precious photo with my Master's and PhD advisors toghther. They have been the guiding lights of my academic and research journey.</p>
-                  <div class="news-tags">
-                     <span class="news-tag">Conference</span>
-                     <span class="news-tag">Deep Learning</span>
-                     <span class="news-tag">Research</span>
+               <div class="news-body">
+                  <div class="news-date">
+                     <i class="fas fa-calendar-alt"></i> May 2025
                   </div>
-                  <div class="news-gallery">
-                     <img src="img/emi_2025_presentation.jpg" alt="Presenting research at EMI 2025 Conference" loading="lazy">
-                     <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025 Conference" loading="lazy">
+                  <h4 class="news-title">EMI Conference Presentation</h4>
+                  <div class="news-content">
+                     <p>Presented research on "Using deep operators to create spatio-temporal surrogates for dynamical systems under uncertainty" at the Engineering Mechanics Institute Conference (EMI 2025) in Anaheim, CA.</p>
+                     <p>What excites me most is having a precious photo with my Master's and PhD advisors together. They have been the guiding lights of my academic and research journey.</p>
+                     <div class="news-tags">
+                        <span class="news-tag">Conference</span>
+                        <span class="news-tag">Deep Learning</span>
+                        <span class="news-tag">Research</span>
+                     </div>
+                     <div class="news-gallery">
+                        <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025" loading="lazy">
+                     </div>
                   </div>
                </div>
             </div>
