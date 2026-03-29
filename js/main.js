@@ -76,5 +76,13 @@ $(document).ready(function() {
 
      });
 
+     // Project +/- toggle for descriptions
+     $(document).on("click", ".project-toggle", function() {
+        var $item = $(this).closest(".news-item");
+        var $details = $item.find(".project-details");
+        $details.slideToggle(200);
+        $(this).text($(this).text() === "+" ? "\u2212" : "+");
+     });
+
 
 });

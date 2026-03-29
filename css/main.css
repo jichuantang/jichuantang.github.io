@@ -287,17 +287,6 @@ blockquote footer {
   padding-left: 0;
 }
 
-.publications li {
-  margin-bottom: 0.8rem;
-  padding-bottom: 0.2rem;
-  border-bottom: none;
-  line-height: 1.55;
-}
-
-.publications li:last-child {
-  border-bottom: none;
-}
-
 .publications strong {
   color: #20364c;
 }
@@ -639,6 +628,47 @@ footer {
 .news-item:hover {
   box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12) !important;
   transition: box-shadow 0.25s ease;
+}
+
+/* Project +/- toggle */
+.project-toggle {
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.35em;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  user-select: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.project-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.project-figures {
+  margin-top: 0.8rem;
+}
+
+/* Publication spacing */
+.publications li {
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.publications li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 #links .panel {
