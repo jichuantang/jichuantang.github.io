@@ -671,6 +671,21 @@ footer {
   border-bottom: none;
 }
 
+/* Project item spacing and title style */
+#projects .news-item {
+  margin-bottom: 0.9rem;
+}
+
+#projects .news-title {
+  text-transform: none !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--heading) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+
 #links .panel {
   box-shadow: none;
 }
