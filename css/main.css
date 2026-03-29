@@ -9,7 +9,7 @@
 }
 
 html {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 @media (min-width: 768px) {
@@ -679,7 +679,7 @@ footer {
 
 .project-title {
   font-family: "Montserrat", Helvetica, sans-serif !important;
-  font-size: 0.92rem !important;
+  font-size: 0.95rem !important;
   font-weight: 600 !important;
   color: var(--heading) !important;
   text-transform: none !important;
@@ -896,5 +896,29 @@ dd {
   /* Make embedded iframes (like CV) more accessible */
   iframe {
       max-height: 500px;
+  }
+
+  /* Make sidebar text readable on mobile */
+  .about-sidebar {
+      font-size: 0.95rem;
+  }
+  .about-sidebar p,
+  .about-sidebar table,
+  .about-sidebar tr,
+  .about-sidebar td,
+  .about-sidebar ul,
+  .about-sidebar li,
+  .about-sidebar a {
+      font-size: 0.95rem !important;
+  }
+  .about-sidebar #title {
+      font-size: 1.15rem;
+  }
+  .about-sidebar #program {
+      font-size: 1rem;
+  }
+  .about-sidebar #contact-table,
+  .about-sidebar #education {
+      font-size: 0.95rem;
   }
 }
