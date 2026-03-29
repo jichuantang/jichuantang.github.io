@@ -576,6 +576,27 @@ footer {
   transition: box-shadow 0.25s ease;
 }
 
+/* Suppress inner panel chrome when panel is sole child of a section-card */
+.section-card > .panel {
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+.section-card > .panel:hover {
+  box-shadow: none;
+}
+.section-card > .panel > .panel-heading {
+  background: none;
+  padding: 0;
+  border-bottom: none;
+}
+.section-card > .panel > .panel-collapse > .panel-body,
+.section-card > .panel > .panel-body {
+  background: none;
+  padding: 0;
+  padding-top: 0.8rem;
+}
+
 @media (max-width: 767px) {
   .section-card {
     padding: 1.2rem 1rem;
@@ -583,10 +604,6 @@ footer {
 }
 
 /* ===== Local panel / inner card style (accordions, items) ============== */
-/* Projects page --------------------------------------------------------- */
-#projects .panel {
-  margin-left: 2rem;
-}
 
 .panel {
   border-color: var(--border);
