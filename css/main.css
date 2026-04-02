@@ -672,9 +672,24 @@ footer {
 }
 
 /* Project item spacing and title style */
+#projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
 #projects .news-item {
-  margin-bottom: 1.5rem;
+  flex: 1 1 calc(50% - 0.75rem);
+  max-width: calc(50% - 0.75rem);
+  margin-bottom: 0;
   padding: 1.2rem 1.4rem;
+}
+
+@media (max-width: 767px) {
+  #projects .news-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 .project-title {
