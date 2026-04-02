@@ -707,6 +707,10 @@ footer {
   margin-bottom: 0.5rem;
 }
 
+.project-figures .thumbnail img {
+  width: 100%;
+}
+
 .project-figures .row {
   display: flex;
   flex-wrap: wrap;
