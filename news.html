@@ -9,111 +9,149 @@
    <meta name="description" content="Latest news and updates from Jichuan Tang's academic and research journey.">
    <title>Jichuan Tang - News</title>
 
-   <!-- Favicons -->
+   <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
+   <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+   <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+   <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+   <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+   <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+   <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+   <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+   <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-   <meta name="theme-color" content="#20364c">
+   <meta name="msapplication-TileColor" content="#ffffff">
+   <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+   <meta name="theme-color" content="#ffffff">
 
-   <!-- Open Graph -->
-   <meta property="og:title" content="Jichuan Tang - News & Events">
-   <meta property="og:description" content="Latest news and updates from Jichuan Tang's academic and research journey.">
-   <meta property="og:type" content="website">
-   <meta property="og:url" content="https://jichuantang.github.io/news.html">
-   <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
-   <meta name="twitter:card" content="summary">
+   <!-- Bootstrap CSS files-->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-   <!-- Bootstrap 5 -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+   <!-- jQuery UI CSS (optional) -->
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
    <!-- Google web fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
 
-   <!-- Font Awesome 6 -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+   <!-- Font Awesome Web Icons -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-   <!-- Academicons -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+   <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css">
 
    <!-- Local styles -->
    <link rel="stylesheet" href="css/main.css">
-
-   <!-- Theme: prevent flash -->
    <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')})()</script>
 
    <style>
       .news-item {
-         margin-bottom: 30px;
-         padding: 20px;
-         border: 1px solid #e0e0e0;
-         border-radius: 8px;
-         background-color: #fafafa;
+         margin-bottom: 1.5rem;
+         padding: 1.2rem 1.4rem;
       }
 
-      .news-item:hover {
-         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-         transition: box-shadow 0.3s ease;
+      .news-item.has-thumbnail {
+         display: flex;
+         gap: 1.5rem;
+         align-items: flex-start;
+      }
+
+      .news-images {
+         display: flex;
+         gap: 8px;
+         flex-shrink: 0;
+         align-items: flex-start;
+      }
+
+      .news-images a {
+         display: block;
+         flex-shrink: 0;
+      }
+
+      .news-images img {
+         height: 140px;
+         width: auto;
+         object-fit: cover;
+         border-radius: 6px;
+         border: 1px solid var(--border);
+         cursor: pointer;
+         transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .news-images img:hover {
+         opacity: 0.9;
+         transform: scale(1.03);
+      }
+
+      .news-body {
+         flex: 1;
+         min-width: 0;
       }
 
       .news-date {
-         color: #666;
-         font-style: italic;
-         margin-bottom: 10px;
+         color: var(--muted);
+         font-size: 0.82rem;
+         margin-bottom: 0.4rem;
+         letter-spacing: 0.3px;
+      }
+
+      .news-date i {
+         margin-right: 0.3em;
       }
 
       .news-title {
-         font-weight: bold;
-         margin-bottom: 15px;
-         color: #20364c;
+         font-weight: 600;
+         font-size: 1.05rem;
+         margin-bottom: 0.5rem;
+         color: var(--heading);
+         line-height: 1.4;
       }
 
       .news-content {
-         margin-bottom: 15px;
+         margin-bottom: 0;
          line-height: 1.6;
+         font-size: 0.95rem;
+         color: var(--text);
       }
 
-      .news-image {
-         max-width: 100%;
-         height: auto;
-         border-radius: 5px;
-         margin: 10px 0;
+      .news-content p {
+         margin-bottom: 0.6rem;
       }
 
-      .news-gallery {
-         display: flex;
-         flex-wrap: wrap;
-         gap: 10px;
-         margin: 15px 0;
-      }
 
-      .news-gallery img {
-         max-width: 200px;
-         height: 150px;
-         object-fit: cover;
-         border-radius: 5px;
-         cursor: pointer;
-      }
 
-      .news-gallery img:hover {
-         opacity: 0.8;
-         transition: opacity 0.3s ease;
+      .news-tags {
+         margin-top: 0.6rem;
       }
 
       .news-tag {
          display: inline-block;
-         background-color: #1585cf;
-         color: white;
-         padding: 4px 8px;
+         background-color: #eef2ff;
+         color: var(--accent);
+         padding: 3px 10px;
          border-radius: 12px;
-         font-size: 12px;
-         margin-right: 5px;
-         margin-bottom: 5px;
+         font-size: 0.72rem;
+         font-weight: 500;
+         margin-right: 4px;
+         margin-bottom: 4px;
+         letter-spacing: 0.2px;
       }
 
-      @media (max-width: 768px) {
-         .news-gallery img {
-            max-width: 100px;
-            height: 75px;
+      @media (max-width: 600px) {
+         .news-item.has-thumbnail {
+            flex-direction: column;
+         }
+
+         .news-images {
+            flex-wrap: wrap;
+            width: 100%;
+         }
+
+         .news-images img {
+            height: 120px;
          }
       }
    </style>
@@ -125,14 +163,15 @@
    <!-- navbar include -->
    <div w3-include-html="navbar.html"></div>
 
-   <div class="spacer-div-3 d-none d-sm-block"></div>
+   <div class="spacer-div-3 hidden-xs"></div>
 
    <!-- Main content -->
    <div id="main-container" class="container">
 
+      <div class="section-card">
       <div class="row">
          <div class="col-sm-12">
-            <h1>News & Events</h1>
+            <h3>News & Events</h3>
             <p>Latest updates, achievements, and memorable moments from my academic journey.</p>
          </div>
       </div>
@@ -140,22 +179,27 @@
       <div class="row">
          <div class="col-sm-12">
 
-            <!-- News Item New -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> January 2026
+            <!-- News Item: Winter School -->
+            <div class="news-item has-thumbnail">
+               <div class="news-images">
+                  <a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">
+                     <img src="img/winter_school_2026_group.jpg" alt="UPR-ND Winter School 2026" loading="lazy">
+                  </a>
+                  <img src="img/upr_sai_poster.png" alt="Poster presentation" loading="lazy">
                </div>
-               <h4 class="news-title">UPR SAI Winter School</h4>
-               <div class="news-content">
-                  <p>Attended the 2026 UPR-ND Winter School for Scientific Artificial Intelligence at University of Puerto Rico Mayagüez. Delivered an applied tutorial titled "Neural Operators for Engineering Applications", presented a research poster, and mentored undergraduate hackathon participants in the development of personalized AI agents.</p>
-                  <div class="news-tags">
-                     <span class="news-tag">Winter School</span>
-                     <span class="news-tag">Tutorial</span>
-                     <span class="news-tag">Mentorship</span>
+               <div class="news-body">
+                  <div class="news-date">
+                     <i class="fas fa-calendar-alt"></i> January 2026
                   </div>
-                  <div class="news-gallery">
-                     <img src="img/winter_school_2026_group.jpg" alt="Group photo at UPR-ND Winter School 2026" loading="lazy">
-                     <img src="img/upr_sai_poster.png" alt="Poster presentation at UPR-ND Winter School 2026" loading="lazy">
+                  <h4 class="news-title">UPR SAI Winter School</h4>
+                  <div class="news-content">
+                     <p>Attended the 2026 UPR-ND Winter School for Scientific Artificial Intelligence at University of Puerto Rico Mayagüez. Delivered an applied tutorial titled "Neural Operators for Engineering Applications", presented a research poster, and mentored undergraduate hackathon participants.
+                     [<a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">SAI coverage</a>]</p>
+                     <div class="news-tags">
+                        <span class="news-tag">Winter School</span>
+                        <span class="news-tag">Tutorial</span>
+                        <span class="news-tag">Mentorship</span>
+                     </div>
                   </div>
                </div>
             </div>
@@ -178,23 +222,25 @@
                <!-- <img src="img/deeponet_research.jpg" alt="Deep Operator Network Research" class="news-image"> -->
             </div>
 
-            <!-- News Item 3 -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> May 2025
+            <!-- News Item: EMI Conference -->
+            <div class="news-item has-thumbnail">
+               <div class="news-images">
+                  <img src="img/emi_2025_presentation.jpg" alt="Presenting at EMI 2025" loading="lazy">
+                  <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025" loading="lazy">
                </div>
-               <h4 class="news-title">EMI Conference Presentation</h4>
-               <div class="news-content">
-                  <p>Successfully presented my research on "Using deep operators to create spatio-temporal surrogates for dynamical systems under uncertainty" at the Engineering Mechanics Institute Conference (EMI 2025) in Anaheim, CA.</p>
-                  <p>What excites me most is having a precious photo with my Master's and PhD advisors toghther. They have been the guiding lights of my academic and research journey.</p>
-                  <div class="news-tags">
-                     <span class="news-tag">Conference</span>
-                     <span class="news-tag">Deep Learning</span>
-                     <span class="news-tag">Research</span>
+               <div class="news-body">
+                  <div class="news-date">
+                     <i class="fas fa-calendar-alt"></i> May 2025
                   </div>
-                  <div class="news-gallery">
-                     <img src="img/emi_2025_presentation.jpg" alt="Presenting research at EMI 2025 Conference" loading="lazy">
-                     <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025 Conference" loading="lazy">
+                  <h4 class="news-title">EMI Conference Presentation</h4>
+                  <div class="news-content">
+                     <p>Presented research on "Using deep operators to create spatio-temporal surrogates for dynamical systems under uncertainty" at the Engineering Mechanics Institute Conference (EMI 2025) in Anaheim, CA.</p>
+                     <p>What excites me most is having a precious photo with my Master's and PhD advisors together. They have been the guiding lights of my academic and research journey.</p>
+                     <div class="news-tags">
+                        <span class="news-tag">Conference</span>
+                        <span class="news-tag">Deep Learning</span>
+                        <span class="news-tag">Research</span>
+                     </div>
                   </div>
                </div>
             </div>
@@ -286,25 +332,43 @@
 
          </div>
       </div>
+      </div> <!-- /.section-card -->
 
    </div>
 
    <!-- Back-to-top button -->
-   <a role="button" id="topper" data-bs-toggle="tooltip" data-bs-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
    <!-- footer include -->
    <div w3-include-html="footer.html"></div>
 
-   <!-- Bootstrap 5 Bundle -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+   <!-- jQuery -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-   <!-- HTML includes -->
+   <!-- Bootstrap JS Library -->
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+   <!-- html file include script | used for navbar and footer -->
    <script src="js/w3data.js"></script>
+   <script>
+      w3IncludeHTML()
+   </script>
 
    <!-- Local scripts -->
    <script src="js/main.js"></script>
 
-   <script>w3IncludeHTML(function() { if (typeof initPage === 'function') initPage(); });</script>
+   <script>
+      $(document).ready(function() {
+         $("li#news a").addClass("active");
+         $("li#news a").addClass("hvr-bubble-bottom");
+
+         // Optional: Add click functionality for gallery images
+         $('.news-images img').click(function() {
+            var src = $(this).attr('src');
+            window.open(src, '_blank');
+         });
+      });
+   </script>
 
 </body>
 
