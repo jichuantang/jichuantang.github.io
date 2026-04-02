@@ -9,42 +9,37 @@
   <meta name="description" content="Jichuan Tang - Ph.D. student in Civil Engineering at the University of Notre Dame. specializing in structural dynamics, control theory, and smart sensing technologies.">
   <title>Jichuan Tang - Home.</title>
 
-  <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
-  <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#20364c">
 
-  <!-- Bootstrap CSS files-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jichuan Tang - Civil Engineering Researcher">
+  <meta property="og:description" content="Ph.D. student in Civil Engineering at the University of Notre Dame, specializing in structural dynamics, control theory, and scientific AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jichuantang.github.io/">
+  <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
+  <meta name="twitter:card" content="summary">
 
-  <!-- jQuery UI CSS (optional) -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
   <!-- Google web fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome Web Icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 
-  <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css">
+  <!-- Academicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!-- Local styles -->
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- Theme: prevent flash of wrong theme -->
+  <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')})()</script>
 
 </head>
 
@@ -53,26 +48,22 @@
   <!-- navbar include -->
   <div w3-include-html="navbar.html"></div>
 
-  <div class="spacer-div-3 hidden-xs"></div>
+  <div class="spacer-div-3 d-none d-sm-block"></div>
 
   <!-- Main content    -->
   <div id="main-container" class="container">
 
-      <!--
-    <div class="section-card">
     <div class="row">
       <div class="col-sm-12">
 
-         <h1>Research Like a Champion Today. </h1> 
+        <!-- <h1>Research Like a Champion Today. </h1> -->
 
         <div class="row intro-hero">
           <div class="col-sm-8">
-             
             <blockquote>
               My heart is in the work! <cite class="quote-author" title="source title">--- Andrew Carnegie</cite><br>
               For more on this quote, check the <a href="https://www.cmu.edu/about/today-we-work/index.html" title="link to teaching philosophy" target="_blank">webpage</a>.
             </blockquote>
-            
             <blockquote>
               Wind rises from the tip of the duckweed; waves form between minute ripples.
               <small>
@@ -81,24 +72,23 @@
             </blockquote>
           </div>
           <div class="col-sm-4">
-            <img src="img/intro.png" class="img-responsive center-block" alt="Intro Figure" style="width: 100%; border-radius: 5px;">
+            <picture>
+              <source srcset="img/intro.avif" type="image/avif">
+              <img src="img/intro.png" class="img-fluid mx-auto d-block" alt="Intro Figure" style="width: 100%; border-radius: 5px;">
+            </picture>
           </div>
         </div>
       </div>
     </div>
-    </div>
-      -->
     
-    <div class="section-card">
     <div class="row">
       <div class="col-sm-12">
         <h3 style="margin-top: 10px;"><span>About me</span></h3>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-4 col-md-3 about-sidebar">
-        <img class="center-block img img-responsive img-thumbnail" src="img/tang.jpg" alt="Image of Jichuan Tang">
+    <div class="row fade-in">
+        <img class="mx-auto d-block img img-fluid img-thumbnail" src="img/tang.jpg" alt="Image of Jichuan Tang">
 
         <p id="title">Ph.D. student<br>
           <span id="program">Civil Engineering</span>
@@ -163,7 +153,7 @@
           </ul>
 
           <div style="margin-top: 20px;">
-             <img src="img/vision.png" class="img-responsive center-block" alt="Vision Figure" style="width: 100%; border-radius: 5px;">
+             <img src="img/vision.png" class="img-fluid mx-auto d-block" alt="Vision Figure" style="width: 100%; border-radius: 5px;">
           </div>
 
 
@@ -186,28 +176,35 @@
         <!-- <span class="badge" id="badge-more">more</span> -->
       </div>
     </div>
-    </div> <!-- /.section-card About -->
+
+    <div class="row">
+      <div class="col-sm-12 school-logos" aria-label="Affiliations">
+        <img src="img/notre_dame.png" alt="University of Notre Dame" class="img-fluid" loading="lazy">
+        <img src="img/tju.png" alt="Tianjin University" class="img-fluid" loading="lazy">
+        <img src="img/ntu.png" alt="Nanyang Technological University" class="img-fluid" loading="lazy">
+        <img src="img/szu.png" alt="Shenzhen University" class="img-fluid" loading="lazy">
+      </div>
+    </div>
   </div>
 <!-- ################################################ -->
-  <div class="container">
+  <div id="main-container" class="container">
 
     <div class="row">
       <div class="col-sm-12">
 
-        <div class="section-card">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 30px; margin-bottom: 20px;">
           <h3 style="margin: 0;"><span>Awards</span></h3>
           <span class="badge expander" style="cursor: pointer;">show all</span>
         </div>
 
-        <h4 class="gray"><em>University of Notre Dame</em></h4>
+        <h4 class="gray fade-in"><em>University of Notre Dame</em></h4>
 
         <div class="panel-group" id="accordion-one" role="tablist" aria-multiselectable="false">
 
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading-5477158">
               <h5 class="panel-title">
-                <a role="button" data-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-parent="#accordion-one" href="#collapse-5477158" aria-expanded="false" aria-controls="collapse-5477158"> Scientific Artificial Intelligence (SAI) Fellow</a>
+                <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-one" href="#collapse-5477158" aria-expanded="false" aria-controls="collapse-5477158"> Scientific Artificial Intelligence (SAI) Fellow</a>
               </h5>
             </div>
             <div id="collapse-5477158" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-5477158">
@@ -220,7 +217,7 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading-uprnd">
               <h5 class="panel-title">
-                <a role="button" data-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-parent="#accordion-one" href="#collapse-uprnd" aria-expanded="false" aria-controls="collapse-uprnd"> UPR-ND Winter School for Scientific Artificial Intelligence (SAI)</a>
+                <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-one" href="#collapse-uprnd" aria-expanded="false" aria-controls="collapse-uprnd"> UPR-ND Winter School for Scientific Artificial Intelligence (SAI)</a>
               </h5>
             </div>
             <div id="collapse-uprnd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-uprnd">
@@ -231,14 +228,14 @@
         </div>
 
       <!-- ####################### -->
-      <h4 class="push-down-3 gray"><em>Tianjin University</em></h4>
+      <h4 class="push-down-3 gray"><em>Tianjin Univeristy</em></h4>
 
       <div class="panel-group" id="accordion-two" role="tablist" aria-multiselectable="false">
 
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="heading-5764911">
             <h5 class="panel-title">
-              <a role="button" data-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-parent="#accordion-two" href="#collapse-5764911" aria-expanded="false" aria-controls="collapse-5764911">Advanced Individual Award in Science and Technology Innovation</a>
+              <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-5764911" aria-expanded="false" aria-controls="collapse-5764911">Advanced Individual Award in Science and Technology Innovation</a>
             </h5>
           </div>
           <div id="collapse-5764911" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-5764911">
@@ -250,7 +247,7 @@
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading-147620b">
           <h5 class="panel-title">
-            <a role="button" data-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-parent="#accordion-two" href="#collapse-147620b" aria-expanded="false" aria-controls="collapse-147620b">Graduate with Honors (Summa Cum Laude)</a>
+              <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-147620b" aria-expanded="false" aria-controls="collapse-147620b">Graduate with Honors (Summa Cum Laude)</a>
           </h5>
         </div>
         <div id="collapse-147620b" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-147620b">
@@ -262,7 +259,7 @@
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="heading-5477158b">
         <h5 class="panel-title">
-          <a role="button" data-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-parent="#accordion-two" href="#collapse-5477158b" aria-expanded="false" aria-controls="collapse-5477158b">Chinese government Scholarship (CSC)</a>
+          <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-5477158b" aria-expanded="false" aria-controls="collapse-5477158b">Chinese government Scholarship (CSC)</a>
         </h5>
       </div>
       <div id="collapse-5477158b" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-5477158b">
@@ -274,7 +271,7 @@
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="heading-merit">
         <h5 class="panel-title">
-          <a role="button" data-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-parent="#accordion-two" href="#collapse-merit" aria-expanded="false" aria-controls="collapse-merit">Merit-based Scholarship</a>
+          <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-merit" aria-expanded="false" aria-controls="collapse-merit">Merit-based Scholarship</a>
         </h5>
       </div>
       <div id="collapse-merit" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-merit">
@@ -286,60 +283,60 @@
 
   <h4 class="push-down-3 gray"><em>Hubei University of Technology</em></h4>
 
-    <div class="panel-group" id="accordion-three" role="tablist" aria-multiselectable="false">
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading-outstanding">
-          <h5 class="panel-title">
-            <a role="button" data-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-parent="#accordion-three" href="#collapse-outstanding" aria-expanded="false" aria-controls="collapse-outstanding">Outstanding Bachelor Graduate Award</a>
-          </h5>
-        </div>
-        <div id="collapse-outstanding" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-outstanding">
-          <div class="panel-body">Awarded in 2019.
-          </div>
+  <div class="panel-group" id="accordion-three" role="tablist" aria-multiselectable="false">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading-outstanding">
+        <h5 class="panel-title">
+          <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-three" href="#collapse-outstanding" aria-expanded="false" aria-controls="collapse-outstanding">Outstanding Bachelor Graduate Award</a>
+        </h5>
+      </div>
+      <div id="collapse-outstanding" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-outstanding">
+        <div class="panel-body">Awarded in 2019.
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- University Logos -->
-    <div class="row" style="margin-top: 2rem;">
-      <div class="col-sm-12 school-logos" aria-label="Affiliations">
-        <img src="img/notre_dame.png" alt="University of Notre Dame" class="img-responsive" loading="lazy">
-        <img src="img/tju.png" alt="Tianjin University" class="img-responsive" loading="lazy">
-        <img src="img/ntu.png" alt="Nanyang Technological University" class="img-responsive" loading="lazy">
-        <img src="img/szu.png" alt="Shenzhen University" class="img-responsive" loading="lazy">
-      </div>
-    </div>
-    </div> <!-- /.section-card Awards -->
-      </div> <!-- /.col-sm-12 -->
-    </div> <!-- /.row -->
-  </div> <!-- /.container -->
+  <!-- ##########################       -->
   <!-- Back-to-top button -->
-  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+  <a role="button" id="topper" data-bs-toggle="tooltip" data-bs-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
 
   <!-- footer include -->
   <div w3-include-html="footer.html"></div>
 
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Bootstrap 5 Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-  <!-- Bootstrap JS Library -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-  <!-- html file include script | used for navbar and footer -->
+  <!-- HTML includes -->
   <script src="js/w3data.js"></script>
-  <script>
-    w3IncludeHTML()
-  </script>
 
   <!-- Local scripts -->
   <script src="js/main.js"></script>
 
-  <script>
-    $(document).ready(function() {
-      $("li#about a").addClass("active");
-      $("li#about a").addClass("hvr-bubble-bottom");
-    });
+  <script>w3IncludeHTML(function() { if (typeof initPage === 'function') initPage(); });</script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jichuan Tang",
+    "jobTitle": "Ph.D. Student, Civil Engineering",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "University of Notre Dame"
+    },
+    "url": "https://jichuantang.github.io/",
+    "sameAs": [
+      "https://github.com/jichuantang",
+      "https://www.linkedin.com/in/jichuan-tang-1281b1218/",
+      "https://www.researchgate.net/profile/Jichuan-Tang/",
+      "https://scholar.google.com/citations?user=e0d84u0AAAAJ"
+    ],
+    "knowsAbout": ["Structural Dynamics", "Control Theory", "Scientific Machine Learning", "Deep Learning", "Structural Health Monitoring"]
+  }
   </script>
 
 </body>

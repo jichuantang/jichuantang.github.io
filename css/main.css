@@ -1,26 +1,27 @@
 /* Global page and element settings ----------------------------------------------------- */
 :root {
-  --text: #334155;
-  --muted: #64748b;
-  --heading: #1e293b;
-  --accent: #2563eb;
-  --border: #e2e8f0;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --heading: #111827;
+  --accent: #1f6feb;
+  --border: #e5e7eb;
   --panel: #f8fafc;
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1200px) {
   html {
-    font-size: 16px;
+    font-size: 19px;
   }
 }
 
@@ -34,11 +35,11 @@ body {
 
 /* Colors */
 .dark-blue {
-  color: var(--heading) !important;
+  color: #20364c !important;
 }
 
 #badge-more {
-  background-color: var(--accent);
+  background-color: #1585cf;
   color: white;
   cursor: pointer;
 }
@@ -59,7 +60,7 @@ body {
 }
 
 .university {
-  color: var(--muted);
+  color: gray;
 }
 
 /* Typography */
@@ -78,7 +79,7 @@ h1 {
 
 h2, h3 {
   margin: 0 0 1.5rem !important;
-  color: var(--heading);
+  color: var(--muted);
 }
 
 h2 {
@@ -95,7 +96,7 @@ h4 {
 }
 
 h4, h5, h6 {
-  color: var(--text) !important;
+  color: var(--muted) !important;
 }
 
 h5 {
@@ -109,12 +110,12 @@ h6 {
 .panel-heading h5 {
   font-style: italic;
   font-weight: 500;
-  color: var(--accent) !important;
+  color: #1585cf !important;
 }
 
 #projects .panel-heading h5 {
   font-weight: 500;
-  color: var(--heading) !important;
+  color: darkslategray !important;
 }
 
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
@@ -209,6 +210,11 @@ cite {
 }
 
 @media (max-width: 575px) {
+  .school-logos {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
   .school-logos img {
     max-height: 48px;
   }
@@ -287,8 +293,19 @@ blockquote footer {
   padding-left: 0;
 }
 
+.publications li {
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.2rem;
+  border-bottom: none;
+  line-height: 1.55;
+}
+
+.publications li:last-child {
+  border-bottom: none;
+}
+
 .publications strong {
-  color: var(--heading);
+  color: #20364c;
 }
 
 .publications .btn-xs {
@@ -349,47 +366,51 @@ iframe {
 }
 
 /* Format the nav  ---------------------------------------------------------- */
-nav {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+.navbar {
+  background: #20364c;
+  border-radius: 0;
+  padding: 0.8rem 0;
+  transition: box-shadow 0.3s ease, padding 0.3s ease;
 }
 
-.navbar-default .navbar-nav>li>a {
-  color: var(--heading);
+.navbar-scrolled {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  padding: 0.4rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem !important;
   font-weight: 500;
+  color: white !important;
 }
 
-.nav .montserrat:hover,
-.nav .montserrat:focus-within,
-.nav .montserrat:focus,
-.navbar-inverse .navbar-nav>li>a:hover,
-.navbar-inverse .navbar-nav>li>a:focus-within,
-.navbar-inverse .navbar-nav>li>a:focus {
-  background: white !important;
-  border-radius: 1px;
-  color: var(--heading) !important;
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0.9rem !important;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
 }
 
-.navbar-default .navbar-nav>li>a:active {
-  background: white !important;
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 @media only screen and (min-width: 768px) {
-  .navbar-default .navbar-nav>.open>a {
-    background: white !important;
-    border-right: 1px solid lightgray;
-    border-top: 1px solid lightgray;
-    border-left: 1px solid lightgray;
-  }
-
-  /* hover effects */
-  /* Bubble Bottom */
+  /* Bubble Bottom hover effect */
   .hvr-bubble-bottom {
     display: inline-block;
     vertical-align: bottom;
-    -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
   }
 
@@ -399,58 +420,30 @@ nav {
     z-index: -1;
     content: '';
     border-style: solid;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
+    transition: transform 0.3s;
     left: calc(50% - 10px);
     bottom: 0;
     border-width: 10px 10px 0 10px;
-    border-color: white transparent transparent transparent;
+    border-color: rgba(255,255,255,0.2) transparent transparent transparent;
   }
 
-  .hvr-bubble-bottom:hover:before, .hvr-bubble-bottom:focus:before, .hvr-bubble-bottom:active:before {
-    -webkit-transform: translateY(10px);
+  .hvr-bubble-bottom:hover:before,
+  .hvr-bubble-bottom:focus:before,
+  .hvr-bubble-bottom:active:before {
     transform: translateY(10px);
   }
 }
 
-@media (max-width: 767px) {
-  .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
-    color: var(--text) !important;
-  }
+#theme-toggle {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  transition: color 0.2s;
 }
 
-.navbar-inverse {
-  background: var(--heading);
-}
-
-.navbar-brand {
-  font-size: 1.5rem !important;
-  font-weight: 500;
+#theme-toggle:hover {
   color: white !important;
-}
-
-/* Navbar link size */
-.navbar-default .navbar-nav>li>a {
-  font-size: 1rem !important;
-}
-
-.navbar-inverse .navbar-nav>li>a {
-  color: white;
-}
-
-.navbar {
-  border-radius: 0;
-}
-
-.active {
-  /* background: white; */
-  border-radius: 2px;
-}
-
-.navbar .dropdown-menu {
-  margin-right: -1px;
 }
 
 /* Utility classes for positioning content ----------------------------------- */
@@ -496,14 +489,14 @@ nav {
 
 #link-to-docs,
 #link-to-teaching-philosophy {
-  color: var(--accent);
+  color: #1585cf;
 }
 
 #link-to-docs:hover,
 #link-to-docs:active,
 #link-to-docs:visited,
 #link-to-docs:focus {
-  border: 1px solid var(--accent) !important;
+  border: 1px solid #1585cf !important;
   padding-bottom: 6px !important;
   background: transparent !important;
 }
@@ -542,7 +535,7 @@ footer {
 }
 
 .social-icons li a {
-  color: var(--accent);
+  color: #1585cf;
 }
 
 .social-icons li a:hover {
@@ -550,156 +543,14 @@ footer {
   text-decoration: none !important;
 }
 
-/* ===== Global section card — wraps entire page sections ================ */
-.section-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  padding: 1.8rem 2rem;
-  margin-bottom: 2rem;
+/* Projects page --------------------------------------------------------- */
+#projects .panel {
+  margin-left: 2rem;
 }
-
-.section-card:hover {
-  box-shadow: 3px 3px 14px rgba(0, 0, 0, 0.10);
-  transition: box-shadow 0.25s ease;
-}
-
-/* Suppress inner panel chrome when panel is sole child of a section-card */
-.section-card > .panel {
-  border: none;
-  box-shadow: none;
-  margin-bottom: 0;
-}
-.section-card > .panel:hover {
-  box-shadow: none;
-}
-.section-card > .panel > .panel-heading {
-  background: none;
-  padding: 0;
-  border-bottom: none;
-}
-.section-card > .panel > .panel-collapse > .panel-body,
-.section-card > .panel > .panel-body {
-  background: none;
-  padding: 0;
-  padding-top: 0.8rem;
-}
-
-@media (max-width: 767px) {
-  .section-card {
-    padding: 1.2rem 1rem;
-  }
-}
-
-/* ===== Local panel / inner card style (accordions, items) ============== */
 
 .panel {
   border-color: var(--border);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-}
-
-.panel:hover {
-  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.25s ease;
-}
-
-.panel-body {
-  background-color: #f6f7fb;
-}
-
-.panel-title {
-  font-weight: 600 !important;
-}
-
-.panel-heading {
-  border-radius: 6px 6px 0 0;
-}
-
-/* News items — match card styling */
-.news-item {
-  border: 1px solid var(--border) !important;
-  border-radius: 6px !important;
-  background-color: #fafafa;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-}
-
-.news-item:hover {
-  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12) !important;
-  transition: box-shadow 0.25s ease;
-}
-
-/* Project +/- toggle */
-.project-toggle {
-  display: inline-block;
-  width: 1.4em;
-  height: 1.4em;
-  line-height: 1.35em;
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--accent);
-  border: 1.5px solid var(--accent);
-  border-radius: 3px;
-  cursor: pointer;
-  margin-right: 0.5em;
-  vertical-align: middle;
-  user-select: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.project-toggle:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-.project-figures {
-  margin-top: 0.8rem;
-}
-
-/* Publication spacing */
-.publications li {
-  margin-bottom: 1.2rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.publications li:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-/* Project item spacing and title style */
-#projects .news-item {
-  margin-bottom: 1.5rem;
-  padding: 1.2rem 1.4rem;
-}
-
-.project-title {
-  font-family: "Montserrat", Helvetica, sans-serif !important;
-  font-size: 0.95rem !important;
-  font-weight: 600 !important;
-  color: var(--heading) !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  line-height: 1.5 !important;
-  margin: 0 !important;
-}
-
-.project-figures .thumbnail {
-  margin-bottom: 0.5rem;
-}
-
-.project-figures .row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.project-figures .row > [class*="col-"] {
-  max-width: 50%;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
 }
 
 #links .panel {
@@ -730,7 +581,7 @@ footer {
 }
 
 #projects .panel-heading h5 {
-  color: var(--heading);
+  color: black;
   font-style: normal;
   font-weight: 500;
   font-size: 1.2rem;
@@ -768,18 +619,8 @@ dd {
   display: block;
 }
 
-/* Narrow the viewport ----------------------------------------------- */
-/* Customize container */
-@media only screen and (min-width: 767px) {
-  .container {
-    max-width: 780px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
+/* Customize container width */
 @media only screen and (min-width: 768px) {
-
-  /* Remove the padding we set earlier */
   .container {
     max-width: 1120px;
   }
@@ -792,12 +633,12 @@ dd {
   font-weight: 900;
   content: "\f068";
   float: right;
-  color: var(--muted);
+  color: silver;
 }
 
 .panel-heading .accordion-plus-toggle.collapsed:before {
   content: "\f067";
-  color: var(--muted);
+  color: silver;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
@@ -808,14 +649,14 @@ dd {
   font-weight: 900;
   content: "\f078";
   float: right;
-  color: var(--muted);
+  color: silver;
 }
 
 .panel-heading .accordion-arrow-toggle.collapsed:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f054";
-  color: var(--muted);
+  color: silver;
 }
 
 /* sets the link to the width of the entire panel title */
@@ -834,7 +675,7 @@ dd {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: var(--accent);
+  background-color: #1585cf;
   color: white;
   padding: 12px 6px 12px 6px;
   border-radius: 4px 0 0 4px;
@@ -843,7 +684,7 @@ dd {
 }
 
 #topper:hover {
-  background-color: var(--accent);
+  background-color: #1585cf;
   opacity: .8;
 }
 
@@ -897,28 +738,171 @@ dd {
   iframe {
       max-height: 500px;
   }
+}
 
-  /* Make sidebar text readable on mobile */
-  .about-sidebar {
-      font-size: 0.95rem;
-  }
-  .about-sidebar p,
-  .about-sidebar table,
-  .about-sidebar tr,
-  .about-sidebar td,
-  .about-sidebar ul,
-  .about-sidebar li,
-  .about-sidebar a {
-      font-size: 0.95rem !important;
-  }
-  .about-sidebar #title {
-      font-size: 1.15rem;
-  }
-  .about-sidebar #program {
-      font-size: 1rem;
-  }
-  .about-sidebar #contact-table,
-  .about-sidebar #education {
-      font-size: 0.95rem;
-  }
+/* Bootstrap 5 panel compatibility (BS3 panels removed in BS5) -------------- */
+.panel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.panel-default {
+  border-color: var(--border);
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-radius: 6px 6px 0 0;
+  background: var(--panel);
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.panel-footer {
+  padding: 10px 15px;
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 6px 6px;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.panel-title > a {
+  display: block;
+}
+
+.panel-group {
+  margin-bottom: 20px;
+}
+
+.panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 6px;
+}
+
+.panel-group .panel + .panel {
+  margin-top: 5px;
+}
+
+/* BS5 thumbnail compatibility */
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.thumbnail:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Fade-in on scroll animation --------------------------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card/panel hover lift --------------------------------------------------- */
+.panel:hover,
+.news-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Dark mode --------------------------------------------------------------- */
+[data-theme="dark"] {
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --heading: #f3f4f6;
+  --accent: #58a6ff;
+  --border: #374151;
+  --panel: #1e293b;
+}
+
+[data-theme="dark"] body {
+  background: #0f172a;
+  color: var(--text);
+}
+
+[data-theme="dark"] .navbar {
+  background: #0d1b2a !important;
+}
+
+[data-theme="dark"] .panel {
+  background: var(--panel);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .panel-heading {
+  background: #162033;
+}
+
+[data-theme="dark"] .news-item {
+  background-color: var(--panel);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .img-thumbnail {
+  border-color: var(--border);
+  background: var(--panel);
+}
+
+[data-theme="dark"] .thumbnail {
+  border-color: var(--border);
+  background: var(--panel);
+}
+
+[data-theme="dark"] footer hr {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .publications strong {
+  color: var(--heading);
+}
+
+[data-theme="dark"] iframe {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .badge {
+  background-color: #1d4ed8;
+}
+
+[data-theme="dark"] .btn-default,
+[data-theme="dark"] .btn-outline-secondary {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .university {
+  color: var(--muted);
+}
+
+[data-theme="dark"] blockquote {
+  background: var(--panel);
+  border-left-color: var(--accent);
+}
+
+[data-theme="dark"] #projects .panel-body {
+  background-color: #162033;
 }

@@ -9,44 +9,53 @@
    <meta name="description" content="Projects and research by Jichuan Tang, covering multi-fidelity models, smart transportation, and structural health monitoring.">
    <title>Jichuan Tang - Projects</title>
 
-   <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
-   <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
-   <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
-   <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
-   <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
-   <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
-   <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
-   <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
-   <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+   <!-- Favicons -->
    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
-   <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-   <meta name="msapplication-TileColor" content="#ffffff">
-   <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-   <meta name="theme-color" content="#ffffff">
+   <meta name="theme-color" content="#20364c">
 
-   <!-- Bootstrap CSS files-->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+   <!-- Open Graph -->
+   <meta property="og:title" content="Jichuan Tang - Research Projects">
+   <meta property="og:description" content="Projects and research by Jichuan Tang, covering multi-fidelity models, smart transportation, and structural health monitoring.">
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://jichuantang.github.io/projects.html">
+   <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
+   <meta name="twitter:card" content="summary">
 
-   <!-- jQuery UI CSS (optional) -->
-   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+   <!-- Bootstrap 5 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
    <!-- Google web fonts -->
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-   <!-- Font Awesome Web Icons -->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   <!-- Font Awesome 6 -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 
-   <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css">
+   <!-- Academicons -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
    <!-- Local styles -->
    <link rel="stylesheet" href="css/main.css">
 
-   <!-- Panel styles now in main.css -->
+   <!-- Theme: prevent flash -->
+   <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')})()</script>
+
+   <style>
+
+      .panel-body {
+         background-color: #f6f7fb;
+      }
+
+      #projects .panel:hover {
+         box-shadow: 3px 3px 10px lightgray;
+      }
+
+      .panel-title {
+         font-weight: bold !important;
+      }
+
+   </style>
 
 </head>
 
@@ -55,176 +64,218 @@
    <!-- navbar include -->
    <div w3-include-html="navbar.html"></div>
 
-   <div class="spacer-div-3 hidden-xs"></div>
+   <div class="spacer-div-3 d-none d-sm-block"></div>
    
 <!-- ################################# -->
    <!-- Main content    -->
  
    <div id="main-container" class="container">
 
-      <div class="section-card">
-
-         <h3>Projects</h3>
-         <p>I focus on challenges that require a fusion of data analytics, structural dynamics and mechanics, and computational or numerical models.</p>
-
-         <div id="projects">
-
-         <!-- Project 1: DeepONets -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Using DeepONets to Create Spatio-temporal Surrogates for Dynamical Systems
-            </p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Proposed Spatio-temporal full-field DeepONet yields multiple dynamical outputs in single pass.</li>
-                  <li>Maximized surrogate expressiveness by enhancing branch-trunk interactions and addressing dynamical inter-dependencies by inherently encoding spatial correlations.</li>
-                  <li>Employed three DeepONet architectures to predict cable-stayed bridge model dynamics, demonstrating that Full-field DeepONet provides most accurate predictions with greatest efficiency.</li>
-               </ul>
-            </div>
+      <div class="row">
+         <div class="col-sm-12">
+            <h1>Projects</h1>
+            <p>We focus on challenges that require a fusion of data analytics, structural dynamics and mechanics, and computational or numerical models.</p>
          </div>
+      </div>
 
-         <!-- Project 2: Multi-Fidelity -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Leveraging Multi-Fidelity Models for Computational Shock Response Prediction
-            </p>
-            <div class="project-details" style="display:none;">
+      <div class="row push-down-4" id="projects">
+
+      <p class='text-end'><span class="badge expander">show all</span></p>
+
+      <!-- Using DeepONets (New) -->
+      <div class="panel panel-default">
+         <div class="panel-heading" role="tab" id="heading-deeponet-new">
+            <h5 class="panel-title">
+            <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-deeponet-new" aria-expanded="false" aria-controls="collapse-deeponet-new">Using DeepONets to Create Spatio-temporal Surrogates for Dynamical Systems</a>
+            </h5>
+         </div>
+         <div id="collapse-deeponet-new" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-deeponet-new">
+            <div class="panel-body">    
                <ul>
-                  <li>Performed model analysis of ship structures to impulsive loading inputs, and discerned the full discrepancies between the low- and high-fidelity models.</li>
-                  <li>Conducted a comprehensive parametric study of proposed approaches of Deep Operator Networks (DeepONets) and Recurrent Neural Networks (e.g., RNN, LSTM and GRU) for residual modeling of the dynamical system.</li>
-                  <li>Implemented multi-fidelity surrogates by leveraging strategies of transfer leanring and residual learning.</li>
+                  <li>Proposed Spatio-temporal full-field DeepONet yields multiple dynamical outputs in single pass.</li> 
+                  <li>Maximized surrogate expressiveness by enhancing branch-trunk interactions and addressing dynamical inter-dependencies by inherently encoding spatial correlations.</li> 
+                  <li>Employed three DeepONet architectures to predict cable-stayed bridge model dynamics, demonstrating that Full-field DeepONet provides most accurate predictions with greatest efficiency.</li> 
                </ul>
-            </div>
-            <div class="project-figures">
-               <div class="row">
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/deeponet.png" class="thumbnail">
-                      <img src="img/deeponet.png" class="img-responsive" loading="lazy"></a>
-                  </div>
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/gru.png" class="thumbnail">
-                      <img src="img/gru.png" class="img-responsive" loading="lazy">
-                    </a>
-                  </div>
+         </div>
+      </div>
+      <!-- Placeholder for image if needed -->
+      <!-- <div class="panel-body"> ... </div> -->
+      </div>
+
+      <!-- <div class="col-sm-8 col-md-12"> -->
+         <div class="panel panel-default">
+               <div class="panel-heading" role="tab" id="heading-8774401">
+                  <h5 class="panel-title">
+                  <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-8774401" aria-expanded="false" aria-controls="collapse-8774401">Leveraging Multi-Fidelity Models for Computational Shock Response Prediction</a>
+                  </h5>
+               </div>
+               <div id="collapse-8774401" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-8774401">
+                  <div class="panel-body">    
+                     <ul>
+                        <li>Performed model analysis of ship structures to impulsive loading inputs, and discerned the full discrepancies
+                           between the low- and high-fidelity models.</li> 
+                        <li>Conducted a comprehensive parametric study of proposed approaches of Deep Operator Networks (DeepONets)
+                           and Recurrent Neural Networks (e.g., RNN, LSTM and GRU) for residual modeling of the dynamical system. </li> 
+                        <li>Implemented multi-fidelity surrogates by leveraging strategies of transfer leanring and residual learning.</li> 
+                     </ul>
                </div>
             </div>
+            <!-- </div> -->
+            <!-- figure Gallery -->
+            <!-- <div class="panel-body"><img src="img/deeponet.png" class="img img-responsive img-thumbnail"></div> -->
+            <!-- <div class="text-center"><img src="img/deeponet.png" class="img img-responsive img-thumbnail"></div> -->
+            <div class="row">
+               <div class="col-8 col-md-6">
+                 <a href="img/deeponet.png" class="thumbnail">
+                   <img src="img/deeponet.png"  class="img-fluid" loading="lazy"></a>
+               </div>
+               <div class="col-8 col-md-6">
+                 <a href="img/gru.png" class="thumbnail">
+                   <img src="img/gru.png" class="img-fluid" loading="lazy">
+                 </a>
+               </div>
+            <!-- End of figure Gallery -->
          </div>
+      </div>
 
-         <!-- Project 3: Transportation -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Urban Smart Transportation and Safety Maintenance
-            </p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Conducted denoising calibration and performance evaluation of MEMS accelerometers in low-frequency noise impact and validated its adaptability to different noise sources by using Generative adversarial networks (GANs), with comparison to empirical modal decomposition and wavelet transform methods.</li>
-                  <li>Developed a LabVIEW-based host computer for MEMS accelerometer server and performed durability testing (e.g., temperature, salt spray).</li>
-                  <li>Debugged hardware links of synchronization systems (e.g., encoders, synchronization boxes, trigger boxes) on tunnel diagnosis vehicles for hidden disease detection.</li>
-               </ul>
-            </div>
-            <div class="project-figures">
-               <div class="row">
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/mems.jpg" class="thumbnail">
-                      <img src="img/mems.jpg" class="img-responsive">
-                    </a>
-                  </div>
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/sensor.jpg" class="thumbnail">
-                      <img src="img/sensor.jpg" class="img-responsive">
-                    </a>
-                  </div>
+
+      <!-- <div class="col-sm-8 col-md-12"> -->
+         <div class="panel panel-default">
+            <!-- <div class="panel panel-default"> -->
+               <div class="panel-heading" role="tab" id="heading-5764911">
+                  <h5 class="panel-title">
+                  <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-5764911" aria-expanded="false" aria-controls="collapse-5764911">Urban Smart Transportation and Safety Maintenance</a>
+                  </h5>
+               </div>
+               <div id="collapse-5764911" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-5764911">
+                  <div class="panel-body">    
+                     <ul>
+                        <li>Conducted denoising calibration and performance evaluation of MEMS accelerometers in low-frequency noise
+                           impact and validated its adaptability to different noise sources by using Generative adversarial networks (GANs),
+                           with comparison to empirical modal decomposition and wavelet transform methods.
+                        <li>Developed a LabVIEW-based host computer for MEMS accelerometer server and performed durability testing
+                           (e.g., temperature, salt spray).
+                        <li>Debugged hardware links of synchronization systems (e.g., encoders, synchronization boxes, trigger boxes) on
+                           tunnel diagnosis vehicles for hidden disease detection.
+                     </ul>
                </div>
             </div>
+            <!-- </div> -->
+            <!-- <div class="panel-body"><img src="img/mems.jpg" class="img img-responsive img-thumbnail"></div> -->
+            <div class="row">
+               <div class="col-8 col-md-6">
+                 <a href="img/mems.jpg" class="thumbnail">
+                   <img src="img/mems.jpg"  class="img-fluid" loading="lazy">
+                 </a>
+               </div>
+               <div class="col-8 col-md-6">
+                 <a href="img/sensor.jpg" class="thumbnail">
+                   <img src="img/sensor.jpg" class="img-fluid" loading="lazy">
+                 </a>
+               </div>
          </div>
+      </div>
 
-         <!-- Project 4: Footbridge RL -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Human-induced Vibration Control of Footbridge with Reinforcement Learning
-            </p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Constructed the dynamics model for the coupled system of concrete pedestrian bridge, human and semi-active tuned mass damper (STMD) considering human-induced vibration.</li>
-                  <li>Introduced the twin delayed deep deterministic policy gradient (TD3) algorithm for RL agent to enhance STMD and reduce vibration under both periodic and random human-induced dynamic loading.</li>
-                  <li>Investigated the influence of model hyperparameters (e.g., learning rate, discount factor) on control performance and proposed a general scheme of RL-based control for pedestrian bridge with STMD.</li>
-               </ul>
-            </div>
-            <div class="project-figures">
-               <div class="row">
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/bridge_rl_control.png" class="thumbnail">
-                      <img src="img/bridge_rl_control.png" class="img-responsive">
-                    </a>
-                  </div>
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/rl_flow_chart.png" class="thumbnail">
-                      <img src="img/rl_flow_chart.png" class="img-responsive">
-                    </a>
+
+      <!-- <div class="col-sm-8 col-md-12"> -->
+         <div class="panel panel-default">
+            <!-- <div class="panel-heading">
+               <h5 class="panel-title">Human-induced Vibration Control of Footbridge with Reinforcement Learning</h5>
+            </div> -->
+            <div class="panel panel-default">
+               <div class="panel-heading" role="tab" id="heading-147620b">
+                  <h5 class="panel-title">
+                  <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-147620b" aria-expanded="false" aria-controls="collapse-147620b">Human-induced Vibration Control of Footbridge with Reinforcement Learning</a>
+                  </h5>
+               </div>
+               <div id="collapse-147620b" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-147620b">
+                  <div class="panel-body">    
+                     <ul>
+                        <li>Constructed the dynamics model for the coupled system of concrete pedestrian bridge, human and semi-active
+                           tuned mass damper (STMD) considering human-induced vibration.
+                        <li>Introduced the twin delayed deep deterministic policy gradient (TD3) algorithm for RL agent to enhance STMD
+                           and reduce vibration under both periodic and random human-induced dynamic loading.
+                        <li>Investigated the influence of model hyperparameters (e.g., learning rate, discount factor) on control performance
+                           and proposed a general scheme of RL-based control for pedestrian bridge with STMD.
+                     </ul>
                   </div>
                </div>
-            </div>
-         </div>
-
-         <!-- Project 5: RTHS -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               RL-based Control Method for Real-Time Hybrid Simulation
-            </p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Developed digital twin model of underwater shaking table based on Simulink to simulate structural behaviors under wave and earthquake loads with high accuracy, verified by physical experimental data.</li>
-                  <li>Trained RL agent as controller with deep deterministic policy gradient (DDPG) algorithm to improve the time-delay and tracking error in the worst condition by 6.54% and 7.52% compared to model-based controller, and by 123.48% and 89.95% compared to no compensation method.</li>
-                  <li>Extended DDPG with feedforward (FF) compensation as a novel RL method to more accurately and robustly control the transfer system with model uncertainty in RTHS and reached only 3.28% maximum pertuation while PI and FF controller reached 5.88% and 10.57%.</li>
-               </ul>
-            </div>
-            <div class="project-figures">
+               <!-- </div> -->
+               <!-- <div class="panel-body"><img src="img/bridge_rl_control.png" class="img img-responsive img-thumbnail"></div> -->
                <div class="row">
-                  <div class="col-xs-8 col-md-12">
-                    <a href="img/rl_rths.jpg" class="thumbnail">
-                      <img src="img/rl_rths.jpg" class="img-responsive">
-                    </a>
+                  <div class="col-8 col-md-6">
+                  <a href="img/bridge_rl_control.png" class="thumbnail">
+                     <img src="img/bridge_rl_control.png"  class="img-fluid" loading="lazy">
+                  </a>
                   </div>
-                  <div class="col-xs-8 col-md-12">
-                    <a href="img/shaking_table_test.jpg" class="thumbnail">
-                      <img src="img/shaking_table_test.jpg" class="img-responsive">
-                    </a>
+                  <div class="col-8 col-md-6">
+                  <a href="img/rl_flow_chart.png" class="thumbnail">
+                     <img src="img/rl_flow_chart.png" class="img-fluid" loading="lazy">
+                  </a>
                   </div>
+               <!-- <div class="panel-footer"> # </div> -->
                </div>
             </div>
+
+      <!-- <div class="col-sm-8 col-md-12"> -->
+         <div class="panel panel-default">
+            <!-- <div class="panel panel-default"> -->
+               <div class="panel-heading" role="tab" id="heading-4195490">
+                  <h5 class="panel-title">
+                  <a role="button" data-bs-toggle="collapse" class="accordion-toggle accordion-plus-toggle collapsed" data-bs-parent="#accordion-two" href="#collapse-4195490" aria-expanded="false" aria-controls="collapse-4195490">RL-based Control Method for Real-Time Hybrid Simulation</a>
+                  </h5>
+               </div>
+               <div id="collapse-4195490" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-4195490">
+                  <div class="panel-body">    
+                     <ul>
+                        <li>Developed digital twin model of underwater shaking table based on Simulink to simulate structural behaviors
+                           under wave and earthquake loads with high accuracy, verified by physical experimental data.
+                        <li>Trained RL agent as controller with deep deterministic policy gradient (DDPG) algorithm to improve the time-
+                           delay and tracking error in the worst condition by 6.54% and 7.52% compared to model-based controller, and by
+                           123.48% and 89.95% compared to no compensation method.
+                        <li>Extended DDPG with feedforward (FF) compensation as a novel RL method to more accurately and robustly
+                           control the transfer system with model uncertainty in RTHS and reached only 3.28% maximum pertuation while
+                           PI and FF controller reached 5.88% and 10.57%.
+                     </ul>
+               </div>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="panel-body"><img src="img/rl_rths.jpg" class="img img-responsive img-thumbnail"></div> -->
+            <div class="row">
+            <div class="col-8 col-md-12">
+               <a href="img/rl_rths.jpg" class="thumbnail">
+                 <img src="img/rl_rths.jpg"  class="img-fluid" loading="lazy">
+               </a>
+             </div>
+             <div class="col-8 col-md-12">
+               <a href="img/shaking_table_test.jpg" class="thumbnail">
+                 <img src="img/shaking_table_test.jpg" class="img-fluid" loading="lazy">
+               </a>
+             </div>
          </div>
+      <!-- </div> -->
 
-         </div> <!-- /#projects -->
+   <!-- .row -->
+   </div>
 
-      </div> <!-- /.section-card -->
-
-   </div> <!-- /.container -->
+<!-- ################################# -->
 
    <!-- Back-to-top button -->
-   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+   <a role="button" id="topper" data-bs-toggle="tooltip" data-bs-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
    <!-- footer include -->
    <div w3-include-html="footer.html"></div>
 
-   <!-- jQuery -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <!-- Bootstrap 5 Bundle -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-   <!-- Bootstrap JS Library -->
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-   <!-- html file include script | used for navbar and footer -->
+   <!-- HTML includes -->
    <script src="js/w3data.js"></script>
-   <script>
-      w3IncludeHTML()
-   </script>
 
    <!-- Local scripts -->
    <script src="js/main.js"></script>
+
+   <script>w3IncludeHTML(function() { if (typeof initPage === 'function') initPage(); });</script>
 
 
 </body>
