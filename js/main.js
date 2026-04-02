@@ -1,11 +1,3 @@
-/* Dark mode: apply saved theme before DOM renders */
-(function () {
-  var saved = localStorage.getItem('theme');
-  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-
 $(document).ready(function() {
 
   // Scroll to top button ----------------------------------------------------------
