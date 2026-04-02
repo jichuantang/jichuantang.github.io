@@ -713,10 +713,6 @@ footer {
   align-items: flex-start;
 }
 
-.project-figures .row > [class*="col-"] {
-  max-width: 50%;
-}
-
 #links .panel {
   box-shadow: none;
 }
