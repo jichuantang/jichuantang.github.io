@@ -89,9 +89,17 @@ $(document).ready(function() {
         var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         $("#theme-toggle i").attr("class", isDark ? "fas fa-sun" : "fas fa-moon");
      }
-     updateThemeIcon();
 
-     $("#theme-toggle").on("click", function(e) {
+     // Periodic check to update icon because navbar is loaded asynchronously
+     var checkNavbar = setInterval(function() {
+        if ($("#theme-toggle i").length) {
+           updateThemeIcon();
+           clearInterval(checkNavbar);
+        }
+     }, 50);
+
+     // Event delegation to handle dynamically loaded navbar
+     $(document).on("click", "#theme-toggle", function(e) {
         e.preventDefault();
         var isDark = document.documentElement.getAttribute('data-theme') !== 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
