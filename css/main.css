@@ -747,6 +747,47 @@ footer hr {
   margin: 0 !important;
 }
 
+.project-subtitle {
+  font-size: 0.82rem !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  margin: 0.3rem 0 0 2.4em !important;
+  line-height: 1.4 !important;
+  font-style: italic;
+}
+
+/* Publication status badges */
+.pub-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 4px;
+  vertical-align: middle;
+  letter-spacing: 0.3px;
+}
+
+.pub-badge-review {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.pub-badge-published {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+[data-theme="dark"] .pub-badge-review {
+  background: #78350f;
+  color: #fef3c7;
+}
+
+[data-theme="dark"] .pub-badge-published {
+  background: #064e3b;
+  color: #d1fae5;
+}
+
 .project-figures .thumbnail {
   margin-bottom: 0.5rem;
 }
