@@ -33,6 +33,30 @@ body {
   line-height: 1.7;
 }
 
+/* Fade-in animation for page content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-card {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.section-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.section-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
 /* Colors */
 .dark-blue {
   color: var(--heading) !important;
@@ -366,13 +390,14 @@ nav {
 .navbar-inverse .navbar-nav>li>a:hover,
 .navbar-inverse .navbar-nav>li>a:focus-within,
 .navbar-inverse .navbar-nav>li>a:focus {
-  background: white !important;
+  background: transparent !important;
   border-radius: 1px;
-  color: var(--heading) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  opacity: 0.85;
 }
 
 .navbar-default .navbar-nav>li>a:active {
-  background: white !important;
+  background: transparent !important;
 }
 
 @media only screen and (min-width: 768px) {
@@ -407,7 +432,7 @@ nav {
     left: calc(50% - 10px);
     bottom: 0;
     border-width: 10px 10px 0 10px;
-    border-color: white transparent transparent transparent;
+    border-color: transparent transparent transparent transparent;
   }
 
   .hvr-bubble-bottom:hover:before, .hvr-bubble-bottom:focus:before, .hvr-bubble-bottom:active:before {
@@ -446,8 +471,8 @@ nav {
 }
 
 .active {
-  /* background: white; */
-  border-radius: 2px;
+  border-bottom: 2px solid var(--accent);
+  border-radius: 0;
 }
 
 .navbar .dropdown-menu {
@@ -517,6 +542,12 @@ h3 {
 /* Format the footer ---------------------------------------------------------- */
 footer {
   padding-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+footer hr {
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.5rem;
 }
 
 .copyright-text {
@@ -535,11 +566,17 @@ footer {
 /* Format the social-professional network icons ------------------------------ */
 .social-icons {
   list-style-type: none;
+  padding-left: 0;
 }
 
 .social-icons li {
-  padding-left: 2rem;
+  padding-left: 0;
+  padding-right: 1rem;
   display: inline-block;
+}
+
+.social-icons li:last-child {
+  padding-right: 0;
 }
 
 .social-icons li a {
@@ -562,8 +599,8 @@ footer {
 }
 
 .section-card:hover {
-  box-shadow: 3px 3px 14px rgba(0, 0, 0, 0.10);
-  transition: box-shadow 0.25s ease;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+  transition: box-shadow 0.3s ease;
 }
 
 /* Suppress inner panel chrome when panel is sole child of a section-card */
@@ -624,11 +661,12 @@ footer {
   border-radius: 6px !important;
   background-color: #fafafa;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .news-item:hover {
-  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12) !important;
-  transition: box-shadow 0.25s ease;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
+  transform: translateY(-2px);
 }
 
 /* Project +/- toggle */
@@ -664,12 +702,17 @@ footer {
   margin-bottom: 1.2rem;
   padding-bottom: 1.2rem;
   border-bottom: 1px solid var(--border);
+  line-height: 1.65;
 }
 
 .publications li:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
+}
+
+.publications em {
+  color: var(--muted);
 }
 
 /* Project item spacing and title style */
@@ -1047,6 +1090,14 @@ dd {
 }
 
 [data-theme="dark"] #contact-table i {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .active {
+  border-bottom-color: var(--accent);
+}
+
+[data-theme="dark"] .publications em {
   color: var(--muted);
 }
 
