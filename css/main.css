@@ -286,9 +286,10 @@ body {
 
 /* Hash-anchor target highlight: when someone shares /publication.html#pub-deeponet
    the targeted entry briefly receives a tinted background, and the scroll lands
-   below the navbar rather than under it. */
+   below the navbar rather than under it. Brand band + accent strip + nav band
+   together are ~140px tall — leave a little breathing room. */
 :target {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 160px;
 }
 .publications li:target,
 .project:target,
