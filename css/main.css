@@ -4,8 +4,40 @@
   --muted: #64748b;
   --heading: #1e293b;
   --accent: #2563eb;
+  --accent-hover: #1d4ed8;
   --border: #e2e8f0;
   --panel: #f8fafc;
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+/* Skip-to-content link for keyboard / screen-reader users */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -40px;
+  background: var(--heading);
+  color: #fff !important;
+  padding: 8px 14px;
+  border-radius: 0 0 6px 0;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Visible focus ring for keyboard users (does not show on mouse click) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+.accordion-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 4px;
 }
 
 html {
@@ -55,6 +87,22 @@ body {
 
 .section-card:nth-child(3) {
   animation-delay: 0.2s;
+}
+
+/* Respect users who request less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .section-card,
+  .news-item:hover,
+  .news-images img:hover {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* Colors */
@@ -327,11 +375,12 @@ blockquote footer {
 #main-container a {
   color: var(--accent);
   font-weight: 600;
+  transition: color 0.18s ease, border-color 0.18s ease;
 }
 
 #main-container a:hover {
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
+  color: var(--accent-hover);
+  border-bottom: 1px solid var(--accent-hover);
   text-decoration: none;
   padding-bottom: 2px;
 }
@@ -1156,4 +1205,89 @@ dd {
 
 [data-theme="dark"] .social-icons li a {
   color: var(--accent);
+}
+
+[data-theme="dark"] {
+  --accent-hover: #93c5fd;
+  --focus-ring: 0 0 0 3px rgba(88, 166, 255, 0.45);
+}
+
+[data-theme="dark"] .news-tag {
+  background-color: #1e3a8a;
+  color: #bfdbfe;
+}
+
+[data-theme="dark"] .skip-link {
+  background: #0d1b2a;
+}
+
+/* Print styles --------------------------------------------------------------- */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  /* Hide chrome & navigation */
+  .navbar,
+  .navbar-inverse,
+  #topper,
+  footer,
+  .skip-link,
+  #theme-toggle,
+  .project-toggle,
+  .accordion-plus-toggle:before,
+  .news-images,
+  iframe {
+    display: none !important;
+  }
+
+  /* Expand all collapsible content for the printed page */
+  .panel-collapse,
+  .panel-collapse.collapse,
+  .project-details {
+    display: block !important;
+    height: auto !important;
+    visibility: visible !important;
+  }
+
+  /* Keep the section-card flat on paper (no shadow/box) */
+  .section-card,
+  .news-item,
+  .panel {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+    background: #fff !important;
+  }
+
+  a, #main-container a {
+    color: #000 !important;
+    text-decoration: underline;
+    border-bottom: none !important;
+  }
+
+  /* Show URLs after external links so the reader can find them on paper */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+    word-break: break-all;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  .container {
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
 }
