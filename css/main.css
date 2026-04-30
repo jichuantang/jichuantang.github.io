@@ -143,6 +143,29 @@ body {
 /* Affiliations strip (no card chrome) */
 .school-affiliations { padding-top: 0.5rem; }
 
+/* Research-vision figure inside the bio main column — fills the visual gap
+   that opens up when the sidebar runs taller than the prose. */
+.vision-figure {
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+.vision-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  display: block;
+  margin: 0 auto;
+}
+.vision-figure figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
 /* Hero subtitle line under H1 — institution / role / lab */
 .role-line {
   margin: -0.4rem 0 1rem !important;
