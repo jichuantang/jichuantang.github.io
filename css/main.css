@@ -431,41 +431,41 @@ cite {
   }
 }
 
-/* School logos row (homepage): keep in one line on narrow screens */
+/* School / affiliation logos — wrap to multiple rows when narrow,
+   no horizontal scrollbar (per user preference). */
 .school-logos {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin: 1.25rem 0 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  gap: 18px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  flex-wrap: wrap;          /* was nowrap + overflow-x: auto — that caused a scrollbar */
+  gap: 32px 40px;           /* row-gap col-gap */
+  overflow: visible;
 }
 
 .school-logos img {
-  flex: 0 1 auto;
-  max-height: 90px;
+  flex: 0 0 auto;
+  max-height: 64px;
   width: auto;
   height: auto;
   object-fit: contain;
+  opacity: 0.85;
+  filter: grayscale(20%);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+.school-logos img:hover {
+  opacity: 1;
+  filter: none;
 }
 
 @media (max-width: 991px) {
-  .school-logos {
-    gap: 12px;
-  }
-
-  .school-logos img {
-    max-height: 64px;
-  }
+  .school-logos { gap: 22px 28px; }
+  .school-logos img { max-height: 56px; }
 }
 
 @media (max-width: 575px) {
-  .school-logos img {
-    max-height: 48px;
-  }
+  .school-logos { gap: 18px 22px; }
+  .school-logos img { max-height: 44px; }
 }
 
 /* === Wang-style hero sidebar (info-dense) ============================== */
@@ -1193,15 +1193,14 @@ dd {
   display: block;
 }
 
-/* Container — narrow for prose, slightly wider for content-rich pages.
-   Academic convention: ~720px line length keeps reading comfortable on desktop. */
+/* Container — wider than strict prose to match the user's preference for a
+   more horizontal layout. Pages with figures and publication lists get extra room. */
 @media only screen and (min-width: 768px) {
   .container {
-    max-width: 760px;
+    max-width: 960px;
   }
-  /* Pages with publication lists or research figures get a touch more room. */
   body.wide-page .container {
-    max-width: 920px;
+    max-width: 1140px;
   }
 }
 
@@ -1267,14 +1266,14 @@ dd {
   opacity: .8;
 }
 
-/* Larger screens: cap at the same prose / wide widths — no full-bleed. */
+/* Larger screens: hold the same wider widths set above. */
 @media (min-width: 1200px) {
   .container {
     width: auto;
-    max-width: 760px;
+    max-width: 960px;
   }
   body.wide-page .container {
-    max-width: 920px;
+    max-width: 1140px;
   }
 }
 
