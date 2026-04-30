@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 800 360"
+     width="100%"
+     preserveAspectRatio="xMidYMid meet"
+     role="img"
+     aria-labelledby="vision-title vision-desc"
+     font-family="Barlow, Inter, Helvetica, sans-serif">
+  <title id="vision-title">Research vision: structural dynamics, scientific ML, and structural health monitoring</title>
+  <desc id="vision-desc">Three pillars labeled Structural Dynamics, Scientific Machine Learning, and Structural Health Monitoring, each with example sub-areas, converging on the goal of data-efficient ML for civil-engineering systems.</desc>
+
+  <defs>
+    <style>
+      .card-bg     { fill: #fbfbfb; stroke: #d6d8dc; stroke-width: 1; }
+      .card-accent { fill: #0c2340; }
+      .h           { font-size: 16px; font-weight: 600; fill: #0c2340; text-anchor: middle; }
+      .b           { font-size: 13px; font-weight: 400; fill: #2d3a4a; text-anchor: middle; }
+      .conn        { stroke: #c8cbd1; stroke-width: 1; fill: none; }
+      .footer      { font-size: 14px; font-weight: 500; fill: #0c2340; text-anchor: middle; }
+      .footer-sub  { font-size: 12px; font-weight: 400; fill: #5b6671; text-anchor: middle; font-style: italic; }
+    </style>
+  </defs>
+
+  <!-- ===== Pillar 1 : Structural Dynamics ===== -->
+  <g>
+    <rect x="20"  y="30" width="240" height="200" rx="6" class="card-bg"/>
+    <rect x="20"  y="30" width="240" height="4"          class="card-accent"/>
+    <text x="140" y="78"  class="h">Structural Dynamics</text>
+    <text x="140" y="118" class="b">Cable-stayed bridges</text>
+    <text x="140" y="141" class="b">Shock &amp; impact response</text>
+    <text x="140" y="164" class="b">Real-time hybrid simulation</text>
+    <text x="140" y="187" class="b">Vibration mitigation</text>
+  </g>
+
+  <!-- ===== Pillar 2 : Scientific ML ===== -->
+  <g>
+    <rect x="280" y="30" width="240" height="200" rx="6" class="card-bg"/>
+    <rect x="280" y="30" width="240" height="4"          class="card-accent"/>
+    <text x="400" y="78"  class="h">Scientific Machine Learning</text>
+    <text x="400" y="118" class="b">Neural operators (DeepONets)</text>
+    <text x="400" y="141" class="b">Multi-fidelity surrogates</text>
+    <text x="400" y="164" class="b">Reinforcement-learning control</text>
+    <text x="400" y="187" class="b">Uncertainty quantification</text>
+  </g>
+
+  <!-- ===== Pillar 3 : SHM ===== -->
+  <g>
+    <rect x="540" y="30" width="240" height="200" rx="6" class="card-bg"/>
+    <rect x="540" y="30" width="240" height="4"          class="card-accent"/>
+    <text x="660" y="78"  class="h">Structural Health Monitoring</text>
+    <text x="660" y="118" class="b">Wireless MEMS sensing</text>
+    <text x="660" y="141" class="b">Generative denoising (GANs)</text>
+    <text x="660" y="164" class="b">Defect detection</text>
+    <text x="660" y="187" class="b">Field deployment</text>
+  </g>
+
+  <!-- ===== Convergence to a single research vision ===== -->
+  <line x1="140" y1="230" x2="140" y2="262" class="conn"/>
+  <line x1="400" y1="230" x2="400" y2="262" class="conn"/>
+  <line x1="660" y1="230" x2="660" y2="262" class="conn"/>
+  <line x1="140" y1="262" x2="660" y2="262" class="conn"/>
+  <line x1="400" y1="262" x2="400" y2="282" class="conn"/>
+
+  <text x="400" y="312" class="footer">Data-efficient machine learning</text>
+  <text x="400" y="332" class="footer-sub">for civil-engineering systems where simulation is expensive and observations are sparse</text>
+</svg>
