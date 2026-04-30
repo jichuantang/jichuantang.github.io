@@ -2,32 +2,29 @@
 <html lang="en">
 
 <head>
-   <!-- Metadata for the Webpage -->
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <!-- Preconnect to external CDNs -->
+   <!-- Preconnect to external CDNs (Google Fonts + Bootstrap CDN) -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
    <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com">
 
-   <meta name="description" content="Projects and research by Jichuan Tang, covering multi-fidelity models, smart transportation, and structural health monitoring.">
-   <title>Jichuan Tang - Research</title>
+   <meta name="description" content="Jichuan Tang — Ph.D. student in Civil Engineering at the University of Notre Dame. Research on structural dynamics, scientific machine learning, and structural health monitoring.">
+   <title>Jichuan Tang</title>
 
-   <!-- Open Graph -->
-   <meta property="og:title" content="Jichuan Tang - Research">
-   <meta property="og:description" content="Projects and research by Jichuan Tang, covering multi-fidelity models, smart transportation, and structural health monitoring.">
+   <!-- Open Graph / Twitter -->
+   <meta property="og:title" content="Jichuan Tang">
+   <meta property="og:description" content="Ph.D. student in Civil Engineering at the University of Notre Dame. Structural dynamics, scientific machine learning, and structural health monitoring.">
    <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
    <meta property="og:url" content="https://jichuantang.github.io/">
+   <meta property="og:type" content="profile">
    <link rel="canonical" href="https://jichuantang.github.io/">
-   <meta property="og:type" content="website">
-
-   <!-- Twitter Card -->
    <meta name="twitter:card" content="summary_large_image">
-   <meta name="twitter:title" content="Jichuan Tang - Research">
-   <meta name="twitter:description" content="Projects and research by Jichuan Tang, covering multi-fidelity models, smart transportation, and structural health monitoring.">
+   <meta name="twitter:title" content="Jichuan Tang">
+   <meta name="twitter:description" content="Ph.D. student in Civil Engineering at the University of Notre Dame. Structural dynamics, scientific machine learning, and structural health monitoring.">
    <meta name="twitter:image" content="https://jichuantang.github.io/img/tang.jpg">
 
    <!-- Structured data: Person -->
@@ -50,12 +47,9 @@
        {"@type": "CollegeOrUniversity", "name": "Hubei University of Technology", "url": "https://en.hbut.edu.cn/index.htm"}
      ],
      "knowsAbout": [
-       "Structural dynamics",
-       "Structural health monitoring",
-       "Scientific machine learning",
-       "Deep reinforcement learning",
-       "Multi-fidelity surrogate modeling",
-       "Uncertainty quantification"
+       "Structural dynamics", "Structural health monitoring",
+       "Scientific machine learning", "Deep reinforcement learning",
+       "Multi-fidelity surrogate modeling", "Uncertainty quantification"
      ],
      "sameAs": [
        "https://scholar.google.com/citations?user=e0d84u0AAAAJ&hl=en",
@@ -66,255 +60,134 @@
    }
    </script>
 
-   <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
-   <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
-   <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
-   <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
-   <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
-   <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
-   <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
-   <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
-   <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+   <!-- Favicons -->
    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
-   <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-   <meta name="msapplication-TileColor" content="#ffffff">
-   <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-   <meta name="theme-color" content="#ffffff">
+   <meta name="theme-color" content="#0c2340">
 
-   <!-- Bootstrap CSS files-->
+   <!-- Bootstrap (kept for grid + collapse) -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-   <!-- jQuery UI CSS (optional) -->
-   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+   <!-- Single typeface: Inter (400 + 600 only — no decorative weights) -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-   <!-- Google web fonts -->
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
-
-   <!-- Font Awesome Web Icons -->
+   <!-- Icon fonts (small footprint, used sparsely) -->
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-   <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css">
 
-   <!-- Local styles -->
    <link rel="stylesheet" href="css/main.css">
 
    <!-- Apply saved theme before paint to prevent flash -->
    <script>
      (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark');})()
    </script>
-
-   <!-- Panel styles now in main.css -->
-
 </head>
 
 <body id="top">
-
    <a class="skip-link" href="#main">Skip to main content</a>
 
-   <!-- navbar include -->
    <div w3-include-html="navbar.html"></div>
 
    <div class="spacer-div-3 hidden-xs"></div>
 
-<!-- ################################# -->
-   <!-- Main content    -->
-
    <main id="main" tabindex="-1">
    <div id="main-container" class="container">
 
-      <div class="section-card">
+      <!-- ===== Bio ===== -->
+      <section class="section-card" aria-labelledby="bio-h">
+         <div class="row">
+            <div class="col-sm-4 col-md-3 about-sidebar">
+               <img class="img-responsive img-thumbnail" src="img/tang.jpg" alt="Photograph of Jichuan Tang">
+               <p id="title">Ph.D. Student<br><span id="program">Civil Engineering</span></p>
+            </div>
+            <div class="col-sm-8 col-md-9">
+               <h1 id="bio-h">Jichuan Tang</h1>
+               <p>Jichuan Tang is a Ph.D. student in Civil Engineering at the University of Notre Dame, where he is a Graduate Research Assistant in the <a href="https://www.brewicklab.org/">Brewick Group</a> advised by Prof. <a href="https://engineering.nd.edu/faculty/patrick-brewick/">Patrick Brewick</a>. His research develops scientific machine learning methods — neural operators, multi-fidelity surrogates, and reinforcement learning controllers — for problems in structural dynamics and structural health monitoring.</p>
+               <p>He earned his M.S. in Civil Engineering from Tianjin University in 2022, including a research visit to the <a href="https://www.yfulift.org/">LIFT Laboratory</a> at Nanyang Technological University. Before Notre Dame, he was a research assistant at the Institute of Urban Smart Transportation and Safety Maintenance at Shenzhen University.</p>
+            </div>
+         </div>
+      </section>
 
-         <h3>Research</h3>
+      <!-- ===== Contact ===== -->
+      <section class="section-card" aria-labelledby="contact-h">
+         <h2 id="contact-h">Contact</h2>
+         <dl class="contact-list">
+            <dt>Email</dt>
+            <dd><a href="mailto:jtang4@nd.edu">jtang4@nd.edu</a></dd>
+            <dt>Office</dt>
+            <dd>155 Fitzpatrick Hall, University of Notre Dame, Notre Dame, IN 46556</dd>
+            <dt>Profiles</dt>
+            <dd>
+               <a href="https://scholar.google.com/citations?user=e0d84u0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> ·
+               <a href="https://github.com/jichuantang" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+               <a href="https://www.linkedin.com/in/jichuan-tang-1281b1218/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+               <a href="https://www.researchgate.net/profile/Jichuan-Tang/" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            </dd>
+            <dt>CV</dt>
+            <dd><a href="Resume_Jichuan_Tang_2025.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a></dd>
+         </dl>
+      </section>
 
-         <p>Jichuan possesses a solid foundation in structural dynamics and control theory, complemented by practical expertise in coding (MATLAB/Simulink/Python). His research primarily explores the intersection of high-performance computational methods and smart sensing technologies, particularly within structural health monitoring. His key areas of expertise include:</p>
-         <ul>
-            <li>Multi-fidelity and surrogate modeling.</li>
-            <li>Scientific machine learning and artificial intelligence.</li>
-            <li>Uncertainty quantification and Bayesian inference.</li>
-            <li>Dynamics control utilizing deep reinforcement learning.</li>
-            <li>Development and deployment of wireless sensors.</li>
+      <!-- ===== Education ===== -->
+      <section class="section-card" aria-labelledby="education-h">
+         <h2 id="education-h">Education</h2>
+         <ul id="education">
+            <li>
+               <strong>Ph.D., Civil Engineering</strong>, University of Notre Dame
+               <span class="ed-meta">2023 &ndash; present · Minor: High-Performance and Scientific Computing</span>
+            </li>
+            <li>
+               <strong>M.S.E., Civil Engineering</strong>, Tianjin University
+               <span class="ed-meta">2019 &ndash; 2022 · Visiting student, NTU Singapore (LIFT Lab)</span>
+            </li>
+            <li>
+               <strong>B.S.E., Civil Engineering</strong>, Hubei University of Technology
+               <span class="ed-meta">2015 &ndash; 2019</span>
+            </li>
          </ul>
+      </section>
 
-         <!-- <div style="margin-top: 20px; margin-bottom: 2rem;">
-            <img src="img/vision.png" class="img-responsive center-block" alt="Vision Figure" style="width: 100%; border-radius: 5px;">
-         </div> -->
+      <!-- ===== Selected awards (flat list, not accordion) ===== -->
+      <section class="section-card" aria-labelledby="awards-h">
+         <h2 id="awards-h">Selected Awards</h2>
+         <ul class="award-list">
+            <li><strong>Scientific Artificial Intelligence (SAI) Fellow</strong> &mdash; University of Notre Dame, 2025.</li>
+            <li><strong>UPR–ND Winter School for Scientific AI</strong> &mdash; sponsored participant, 2026.</li>
+            <li><strong>Advanced Individual Award in Science and Technology Innovation</strong> &mdash; Tianjin University, 2022.</li>
+            <li><strong>Graduate with Honors (Summa Cum Laude)</strong> &mdash; Tianjin University, 2022.</li>
+            <li><strong>Chinese Government Scholarship (CSC)</strong> &mdash; International Cooperation Program for Innovative Talents, 2021.</li>
+            <li><strong>Outstanding Bachelor Graduate</strong> &mdash; Hubei University of Technology, 2019.</li>
+         </ul>
+         <p class="muted-note">A complete list of awards is in the <a href="Resume_Jichuan_Tang_2025.pdf" target="_blank" rel="noopener">CV</a>.</p>
+      </section>
 
-         <div id="projects">
-
-         <!-- Project 1: DeepONets -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Using DeepONets to Create Spatio-temporal Surrogates for Dynamical Systems
-            </p>
-            <p class="project-subtitle">Neural operator surrogates for cable-stayed bridge dynamics</p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Proposed Spatio-temporal full-field DeepONet yields multiple dynamical outputs in single pass.</li>
-                  <li>Maximized surrogate expressiveness by enhancing branch-trunk interactions and addressing dynamical inter-dependencies by inherently encoding spatial correlations.</li>
-                  <li>Employed three DeepONet architectures to predict cable-stayed bridge model dynamics, demonstrating that Full-field DeepONet provides most accurate predictions with greatest efficiency.</li>
-               </ul>
-            </div>
+      <!-- ===== Affiliations strip ===== -->
+      <section class="section-card school-affiliations" aria-label="Academic affiliations">
+         <div class="school-logos">
+            <img src="img/notre_dame.png" alt="University of Notre Dame" loading="lazy">
+            <img src="img/tju.png" alt="Tianjin University" loading="lazy">
+            <img src="img/ntu.png" alt="Nanyang Technological University" loading="lazy">
+            <img src="img/szu.png" alt="Shenzhen University" loading="lazy">
          </div>
+      </section>
 
-         <!-- Project 2: Multi-Fidelity -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Leveraging Multi-Fidelity Models for Computational Shock Response Prediction
-            </p>
-            <p class="project-subtitle">DeepONets and RNNs for ship structure impact modeling</p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Performed model analysis of ship structures to impulsive loading inputs, and discerned the full discrepancies between the low- and high-fidelity models.</li>
-                  <li>Conducted a comprehensive parametric study of proposed approaches of Deep Operator Networks (DeepONets) and Recurrent Neural Networks (e.g., RNN, LSTM and GRU) for residual modeling of the dynamical system.</li>
-                  <li>Implemented multi-fidelity surrogates by leveraging strategies of transfer learning and residual learning.</li>
-               </ul>
-            </div>
-            <div class="project-figures">
-               <div class="row">
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/deeponet.png" class="thumbnail">
-                      <img src="img/deeponet.png" class="img-responsive" alt="DeepONet architecture for multi-fidelity surrogate modeling" loading="lazy"></a>
-                  </div>
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/gru.png" class="thumbnail">
-                      <img src="img/gru.png" class="img-responsive" alt="GRU recurrent neural network for residual modeling" loading="lazy">
-                    </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <!-- Project 3: Transportation -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Urban Smart Transportation and Safety Maintenance
-            </p>
-            <p class="project-subtitle">MEMS sensor denoising with GANs and tunnel inspection systems</p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Conducted denoising calibration and performance evaluation of MEMS accelerometers in low-frequency noise impact and validated its adaptability to different noise sources by using Generative adversarial networks (GANs), with comparison to empirical modal decomposition and wavelet transform methods.</li>
-                  <li>Developed a LabVIEW-based host computer for MEMS accelerometer server and performed durability testing (e.g., temperature, salt spray).</li>
-                  <li>Debugged hardware links of synchronization systems (e.g., encoders, synchronization boxes, trigger boxes) on tunnel diagnosis vehicles for hidden disease detection.</li>
-               </ul>
-            </div>
-            <div class="project-figures">
-               <div class="row">
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/mems.jpg" class="thumbnail">
-                      <img src="img/mems.jpg" class="img-responsive" alt="MEMS accelerometer module" loading="lazy">
-                    </a>
-                  </div>
-                  <div class="col-xs-8 col-md-6">
-                    <a href="img/sensor.jpg" class="thumbnail">
-                      <img src="img/sensor.jpg" class="img-responsive" alt="Wireless sensor deployment" loading="lazy">
-                    </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <!-- Research Topic: Reinforcement Learning Control -->
-
-         <!-- Sub-block 1: Footbridge -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               Human-induced Vibration Control of Footbridge
-            </p>
-            <p class="project-subtitle">TD3 reinforcement learning for semi-active tuned mass dampers</p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Constructed the dynamics model for the coupled system of concrete pedestrian bridge, human and semi-active tuned mass damper (STMD) considering human-induced vibration.</li>
-                  <li>Introduced the twin delayed deep deterministic policy gradient (TD3) algorithm for RL agent to enhance STMD and reduce vibration under both periodic and random human-induced dynamic loading.</li>
-                  <li>Investigated the influence of model hyperparameters (e.g., learning rate, discount factor) on control performance and proposed a general scheme of RL-based control for pedestrian bridge with STMD.</li>
-               </ul>
-            </div>
-            <div class="project-figures">
-               <div class="row">
-                  <div class="col-xs-12">
-                    <a href="img/bridge_rl_control.png" class="thumbnail">
-                      <img src="img/bridge_rl_control.png" class="img-responsive" alt="RL-based vibration control scheme for pedestrian footbridge" loading="lazy">
-                    </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <!-- Sub-block 2: RTHS -->
-         <div class="news-item">
-            <p class="project-title">
-               <span class="project-toggle" title="Expand / Collapse">+</span>
-               RL-based Control Method for Real-Time Hybrid Simulation (RTHS)
-            </p>
-            <p class="project-subtitle">DDPG-based control for underwater shaking table experiments</p>
-            <div class="project-details" style="display:none;">
-               <ul>
-                  <li>Developed digital twin model of underwater shaking table based on Simulink to simulate structural behaviors under wave and earthquake loads with high accuracy, verified by physical experimental data.</li>
-                  <li>Trained RL agent as controller with deep deterministic policy gradient (DDPG) algorithm to improve the time-delay and tracking error in the worst condition by 6.54% and 7.52% compared to model-based controller, and by 123.48% and 89.95% compared to no compensation method.</li>
-                  <li>Extended DDPG with feedforward (FF) compensation as a novel RL method to more accurately and robustly control the transfer system with model uncertainty in RTHS and reached only 3.28% maximum perturbation while PI and FF controller reached 5.88% and 10.57%.</li>
-               </ul>
-            </div>
-            <div class="project-figures">
-               <div class="row">
-                  <div class="col-xs-12">
-                    <a href="img/rl_rths.jpg" class="thumbnail">
-                      <img src="img/rl_rths.jpg" class="img-responsive" alt="DDPG reinforcement learning controller for RTHS" loading="lazy">
-                    </a>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-xs-12">
-                    <a href="img/shaking_table_test.jpg" class="thumbnail">
-                      <img src="img/shaking_table_test.jpg" class="img-responsive" alt="Underwater shaking table experimental setup" loading="lazy">
-                    </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         </div> <!-- /#projects -->
-
-      </div> <!-- /.section-card -->
-
-   </div> <!-- /.container -->
+   </div>
    </main>
 
-   <!-- Back-to-top button -->
    <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" aria-label="Back to top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
-   <!-- footer include -->
    <div w3-include-html="footer.html"></div>
 
-   <!-- jQuery -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-   <!-- Bootstrap JS Library -->
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-   <!-- html file include script | used for navbar and footer -->
    <script src="js/w3data.js"></script>
-   <script>
-      w3IncludeHTML()
-   </script>
-
-   <!-- Local scripts -->
+   <script>w3IncludeHTML()</script>
    <script src="js/main.js"></script>
-
    <script>
       $(document).ready(function() {
-         $("li#projects a").addClass("active");
-         $("li#projects a").addClass("hvr-bubble-bottom");
+         $("li#home a").addClass("active").addClass("hvr-bubble-bottom");
       });
    </script>
-
 </body>
-
 </html>

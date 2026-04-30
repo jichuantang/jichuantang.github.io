@@ -2,404 +2,196 @@
 <html lang="en">
 
 <head>
-   <!-- Metadata for the Webpage -->
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <!-- Preconnect to external CDNs -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
    <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com">
 
-   <meta name="description" content="Latest news and updates from Jichuan Tang's academic and research journey.">
-   <title>Jichuan Tang - News</title>
+   <meta name="description" content="News and updates from Jichuan Tang's research at the University of Notre Dame.">
+   <title>News · Jichuan Tang</title>
 
-   <!-- Open Graph -->
-   <meta property="og:title" content="Jichuan Tang - News">
-   <meta property="og:description" content="Latest news and updates from Jichuan Tang's academic and research journey.">
+   <meta property="og:title" content="News · Jichuan Tang">
+   <meta property="og:description" content="News and updates from Jichuan Tang's research at the University of Notre Dame.">
    <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
    <meta property="og:url" content="https://jichuantang.github.io/news.html">
    <link rel="canonical" href="https://jichuantang.github.io/news.html">
    <meta property="og:type" content="website">
-
-   <!-- Twitter Card -->
    <meta name="twitter:card" content="summary_large_image">
-   <meta name="twitter:title" content="Jichuan Tang - News">
-   <meta name="twitter:description" content="Latest news and updates from Jichuan Tang's academic and research journey.">
+   <meta name="twitter:title" content="News · Jichuan Tang">
+   <meta name="twitter:description" content="News and updates from Jichuan Tang's research at the University of Notre Dame.">
    <meta name="twitter:image" content="https://jichuantang.github.io/img/tang.jpg">
 
-   <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
-   <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
-   <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
-   <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
-   <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
-   <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
-   <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
-   <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
-   <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
-   <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-   <meta name="msapplication-TileColor" content="#ffffff">
-   <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-   <meta name="theme-color" content="#ffffff">
+   <meta name="theme-color" content="#0c2340">
 
-   <!-- Bootstrap CSS files-->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-   <!-- jQuery UI CSS (optional) -->
-   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-   <!-- Google web fonts -->
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
-
-   <!-- Font Awesome Web Icons -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-   <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css">
-
-   <!-- Local styles -->
    <link rel="stylesheet" href="css/main.css">
 
-   <!-- Apply saved theme before paint to prevent flash -->
    <script>
      (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark');})()
    </script>
 
+   <!-- Page-local: news entry layout. Kept inline because it only ever applies here. -->
    <style>
-      .news-item {
-         margin-bottom: 1.5rem;
-         padding: 1.2rem 1.4rem;
+      .news-list {
+         list-style: none;
+         padding-left: 0;
+         margin: 0;
       }
+      .news-entry {
+         padding: 1.2rem 0 1.4rem;
+         border-bottom: 1px solid var(--border);
+      }
+      .news-entry:last-child { border-bottom: 0; }
 
-      .news-item.has-thumbnail {
-         display: flex;
-         gap: 1.5rem;
-         align-items: flex-start;
+      .news-date {
+         font-size: 0.82rem;
+         color: var(--muted);
+         text-transform: uppercase;
+         letter-spacing: 0.06em;
+         margin-bottom: 0.2rem;
       }
+      .news-title {
+         font-size: 1.1rem;
+         font-weight: 600;
+         color: var(--heading);
+         margin: 0.1rem 0 0.5rem;
+         line-height: 1.4;
+      }
+      .news-body { color: var(--text); line-height: 1.6; }
+      .news-body p { margin-bottom: 0.5rem; }
+      .news-body p:last-child { margin-bottom: 0; }
 
       .news-images {
          display: flex;
-         gap: 8px;
-         flex-shrink: 0;
-         align-items: flex-start;
+         gap: 10px;
+         flex-wrap: wrap;
+         margin-top: 0.75rem;
       }
-
-      .news-images a {
+      .news-images a, .news-images img {
          display: block;
-         flex-shrink: 0;
+         flex: 0 0 auto;
       }
-
       .news-images img {
-         height: 140px;
+         height: 130px;
          width: auto;
-         object-fit: cover;
-         border-radius: 6px;
          border: 1px solid var(--border);
-         cursor: pointer;
-         transition: transform 0.3s ease, opacity 0.3s ease;
-      }
-
-      .news-images img:hover {
-         opacity: 0.9;
-         transform: scale(1.03);
-      }
-
-      .news-body {
-         flex: 1;
-         min-width: 0;
-      }
-
-      .news-date {
-         color: var(--muted);
-         font-size: 0.82rem;
-         margin-bottom: 0.4rem;
-         letter-spacing: 0.3px;
-      }
-
-      .news-date i {
-         margin-right: 0.3em;
-      }
-
-      .news-title {
-         font-weight: 600;
-         font-size: 1.05rem;
-         margin-bottom: 0.5rem;
-         color: var(--heading);
-         line-height: 1.4;
-      }
-
-      .news-content {
-         margin-bottom: 0;
-         line-height: 1.6;
-         font-size: 0.95rem;
-         color: var(--text);
-      }
-
-      .news-content p {
-         margin-bottom: 0.6rem;
-      }
-
-
-
-      .news-tags {
-         margin-top: 0.6rem;
-      }
-
-      .news-tag {
-         display: inline-block;
-         background-color: #eef2ff;
-         color: var(--accent);
-         padding: 3px 10px;
-         border-radius: 12px;
-         font-size: 0.72rem;
-         font-weight: 500;
-         margin-right: 4px;
-         margin-bottom: 4px;
-         letter-spacing: 0.2px;
+         border-radius: 2px;
+         background: #fff;
       }
 
       @media (max-width: 600px) {
-         .news-item.has-thumbnail {
-            flex-direction: column;
-         }
-
-         .news-images {
-            flex-wrap: wrap;
-            width: 100%;
-         }
-
-         .news-images img {
-            height: 120px;
-         }
+         .news-images img { height: 110px; }
       }
    </style>
-
 </head>
 
 <body id="top">
-
    <a class="skip-link" href="#main">Skip to main content</a>
 
-   <!-- navbar include -->
    <div w3-include-html="navbar.html"></div>
 
    <div class="spacer-div-3 hidden-xs"></div>
 
-   <!-- Main content -->
    <main id="main" tabindex="-1">
    <div id="main-container" class="container">
 
-      <div class="section-card">
-      <div class="row">
-         <div class="col-sm-12">
-            <h3>News & Events</h3>
-            <p>Latest updates, achievements, and memorable moments from my academic journey.</p>
-         </div>
-      </div>
+      <section class="section-card">
+         <h1>News</h1>
+         <p class="muted-note">Recent activity, talks, and conferences. Reverse chronological.</p>
 
-      <div class="row">
-         <div class="col-sm-12">
+         <ul class="news-list">
 
-            <!-- News Item: Winter School -->
-            <div class="news-item has-thumbnail">
-               <div class="news-images">
-                  <a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">
-                     <img src="img/winter_school_2026_group.jpg" alt="UPR-ND Winter School 2026" loading="lazy">
-                  </a>
-                  <img src="img/upr_sai_poster.png" alt="Poster presentation" loading="lazy">
-               </div>
+            <li class="news-entry">
+               <div class="news-date">January 2026</div>
+               <h2 class="news-title">UPR–ND Winter School for Scientific AI</h2>
                <div class="news-body">
-                  <div class="news-date">
-                     <i class="fas fa-calendar-alt"></i> January 2026
-                  </div>
-                  <h4 class="news-title">UPR SAI Winter School</h4>
-                  <div class="news-content">
-                     <p>Attended the 2026 UPR-ND Winter School for Scientific Artificial Intelligence at University of Puerto Rico Mayagüez. Delivered an applied tutorial titled "Neural Operators for Engineering Applications", presented a research poster, and mentored undergraduate hackathon participants.
-                     [<a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">SAI coverage</a>]</p>
-                     <div class="news-tags">
-                        <span class="news-tag">Winter School</span>
-                        <span class="news-tag">Tutorial</span>
-                        <span class="news-tag">Mentorship</span>
-                     </div>
+                  <p>Attended the 2026 UPR–ND Winter School for Scientific Artificial Intelligence at the University of Puerto Rico, Mayagüez. Delivered an applied tutorial, &ldquo;Neural Operators for Engineering Applications&rdquo;, presented a research poster, and mentored undergraduate hackathon participants. <a href="https://sai.nd.edu/news/growing-winter-school-strengthens-scientific-ai-collaboration-between-notre-dame-and-university-of-puerto-rico/" target="_blank" rel="noopener noreferrer">SAI coverage</a>.</p>
+                  <div class="news-images">
+                     <a href="img/winter_school_2026_group.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="img/winter_school_2026_group.jpg" alt="UPR–ND Winter School 2026 group photo" loading="lazy">
+                     </a>
+                     <a href="img/upr_sai_poster.png" target="_blank" rel="noopener noreferrer">
+                        <img src="img/upr_sai_poster.png" alt="Research poster presented at UPR SAI" loading="lazy">
+                     </a>
                   </div>
                </div>
-            </div>
+            </li>
 
-            <!-- News Item 2 -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> June 2025
-               </div>
-               <h4 class="news-title">New Publication on ArXiv</h4>
-               <div class="news-content">
-                  <p>Our latest paper "A Full-field Extended Deep Operator Network as a Spatio-temporal Surrogate for Structural Dynamics" has been published on arXiv. This work presents a novel approach to creating surrogate models for complex structural dynamics problems.</p>
-                  <div class="news-tags">
-                     <span class="news-tag">Publication</span>
-                     <span class="news-tag">Deep Learning</span>
-                     <span class="news-tag">Structural Dynamics</span>
-                  </div>
-               </div>
-               <!-- Add publication-related images -->
-               <!-- <img src="img/deeponet_research.jpg" alt="Deep Operator Network Research" class="news-image"> -->
-            </div>
-
-            <!-- News Item: EMI Conference -->
-            <div class="news-item has-thumbnail">
-               <div class="news-images">
-                  <img src="img/emi_2025_presentation.jpg" alt="Presenting at EMI 2025" loading="lazy">
-                  <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025" loading="lazy">
-               </div>
+            <li class="news-entry">
+               <div class="news-date">June 2025</div>
+               <h2 class="news-title">Preprint: full-field DeepONet for structural dynamics</h2>
                <div class="news-body">
-                  <div class="news-date">
-                     <i class="fas fa-calendar-alt"></i> May 2025
-                  </div>
-                  <h4 class="news-title">EMI Conference Presentation</h4>
-                  <div class="news-content">
-                     <p>Presented research on "Using deep operators to create spatio-temporal surrogates for dynamical systems under uncertainty" at the Engineering Mechanics Institute Conference (EMI 2025) in Anaheim, CA.</p>
-                     <p>What excites me most is having a precious photo with my Master's and PhD advisors together. They have been the guiding lights of my academic and research journey.</p>
-                     <div class="news-tags">
-                        <span class="news-tag">Conference</span>
-                        <span class="news-tag">Deep Learning</span>
-                        <span class="news-tag">Research</span>
-                     </div>
-                  </div>
+                  <p>Submitted &ldquo;A Full-field Extended Deep Operator Network as a Spatio-temporal Surrogate for Structural Dynamics&rdquo; to <em>Engineering Structures</em>; preprint posted on arXiv. The paper introduces a DeepONet variant that returns multiple full-field dynamical outputs in a single pass and benchmarks it on a cable-stayed bridge model.</p>
                </div>
-            </div>
+            </li>
 
-            <!-- News Item 4 -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> January 2025
-               </div>
-               <h4 class="news-title">SAI Fellowship Award</h4>
-               <div class="news-content">
-                  <p>Excited to announce that I have been selected as a Scientific Artificial Intelligence (SAI) Fellow at the University of Notre Dame! This fellowship will support my research in integrating AI methods with structural engineering applications.</p>
-                  <div class="news-tags">
-                     <span class="news-tag">Fellowship</span>
-                     <span class="news-tag">AI Research</span>
-                     <span class="news-tag">Notre Dame</span>
+            <li class="news-entry">
+               <div class="news-date">May 2025</div>
+               <h2 class="news-title">EMI 2025 — conference talk</h2>
+               <div class="news-body">
+                  <p>Presented &ldquo;Using deep operators to create spatio-temporal surrogates for dynamical systems under uncertainty&rdquo; at the Engineering Mechanics Institute Conference (EMI 2025), Anaheim, CA.</p>
+                  <div class="news-images">
+                     <a href="img/emi_2025_presentation.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="img/emi_2025_presentation.jpg" alt="Presenting at EMI 2025" loading="lazy">
+                     </a>
+                     <a href="img/emi_2025_group.png" target="_blank" rel="noopener noreferrer">
+                        <img src="img/emi_2025_group.png" alt="Group photo at EMI 2025" loading="lazy">
+                     </a>
                   </div>
                </div>
-               <!-- Add your images here -->
-               <!-- <img src="img/sai_fellowship.jpg" alt="SAI Fellowship Award" class="news-image"> -->
-            </div>
+            </li>
 
-            <!-- News Item 4 -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> September 2023
+            <li class="news-entry">
+               <div class="news-date">January 2025</div>
+               <h2 class="news-title">SAI Fellowship — University of Notre Dame</h2>
+               <div class="news-body">
+                  <p>Selected as a Scientific Artificial Intelligence (SAI) Fellow at Notre Dame. The fellowship supports interdisciplinary work integrating AI methods with structural-engineering applications.</p>
                </div>
-               <h4 class="news-title">Started Ph.D. at Notre Dame</h4>
-               <div class="news-content">
-                  <p>Began my doctoral studies in Civil Engineering at the University of Notre Dame, joining the Brewick Group under the supervision of Prof. Patrick Brewick. Excited to embark on this new chapter of my academic journey!</p>
-                  <div class="news-tags">
-                     <span class="news-tag">PhD</span>
-                     <span class="news-tag">Notre Dame</span>
-                     <span class="news-tag">New Beginning</span>
-                  </div>
-               </div>
-               <!-- Campus/lab photos -->
-               <!-- <div class="news-gallery">
-                  <img src="img/notre_dame_campus.jpg" alt="Notre Dame Campus">
-                  <img src="img/fitzpatrick_hall.jpg" alt="Fitzpatrick Hall">
-                  <img src="img/lab_first_day.jpg" alt="First Day in Lab">
-               </div> -->
-            </div>
+            </li>
 
-            <!-- News Item 5 -->
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> June 2022
+            <li class="news-entry">
+               <div class="news-date">September 2023</div>
+               <h2 class="news-title">Joined Notre Dame for Ph.D. studies</h2>
+               <div class="news-body">
+                  <p>Began doctoral studies in Civil Engineering at the University of Notre Dame, joining the <a href="https://www.brewicklab.org/">Brewick Group</a> under Prof. Patrick Brewick.</p>
                </div>
-               <h4 class="news-title">Master's Graduation - Tianjin University</h4>
-               <div class="news-content">
-                  <p>Successfully defended my master's thesis on "Research on Control Method for Real-time Hybrid Simulation Based on Reinforcement Learning" and graduated with honors (Summa Cum Laude) from Tianjin University.</p>
-                  <div class="news-tags">
-                     <span class="news-tag">Graduation</span>
-                     <span class="news-tag">Master's Degree</span>
-                     <span class="news-tag">Honors</span>
-                  </div>
-               </div>
-               <!-- Graduation photos -->
-               <!-- <div class="news-gallery">
-                  <img src="img/graduation_ceremony.jpg" alt="Graduation Ceremony">
-                  <img src="img/thesis_defense.jpg" alt="Thesis Defense">
-                  <img src="img/graduation_family.jpg" alt="Graduation with Family">
-               </div> -->
-            </div>
+            </li>
 
-            <!-- Template for adding new news items -->
-            <!-- 
-            <div class="news-item">
-               <div class="news-date">
-                  <i class="fas fa-calendar-alt"></i> [DATE]
+            <li class="news-entry">
+               <div class="news-date">June 2022</div>
+               <h2 class="news-title">M.S. defense — Tianjin University</h2>
+               <div class="news-body">
+                  <p>Defended master's thesis, &ldquo;Research on Control Method for Real-time Hybrid Simulation Based on Reinforcement Learning&rdquo;; graduated with honors (Summa Cum Laude) from Tianjin University.</p>
                </div>
-               <h4 class="news-title">[NEWS TITLE]</h4>
-               <div class="news-content">
-                  <p>[NEWS DESCRIPTION]</p>
-                  <div class="news-tags">
-                     <span class="news-tag">[Tag1]</span>
-                     <span class="news-tag">[Tag2]</span>
-                  </div>
-               </div>
-               <img src="img/[IMAGE_NAME].jpg" alt="[ALT TEXT]" class="news-image">
-               OR for multiple images:
-               <div class="news-gallery">
-                  <img src="img/[IMAGE1].jpg" alt="[ALT TEXT 1]">
-                  <img src="img/[IMAGE2].jpg" alt="[ALT TEXT 2]">
-               </div>
-            </div>
-            -->
+            </li>
 
-         </div>
-      </div>
-      </div> <!-- /.section-card -->
+         </ul>
+      </section>
 
    </div>
    </main>
 
-   <!-- Back-to-top button -->
    <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" aria-label="Back to top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
-   <!-- footer include -->
    <div w3-include-html="footer.html"></div>
 
-   <!-- jQuery -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-   <!-- Bootstrap JS Library -->
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-   <!-- html file include script | used for navbar and footer -->
    <script src="js/w3data.js"></script>
-   <script>
-      w3IncludeHTML()
-   </script>
-
-   <!-- Local scripts -->
+   <script>w3IncludeHTML()</script>
    <script src="js/main.js"></script>
-
    <script>
       $(document).ready(function() {
-         $("li#news a").addClass("active");
-         $("li#news a").addClass("hvr-bubble-bottom");
-
-         // Optional: Add click functionality for gallery images
-         $('.news-images img').click(function() {
-            var src = $(this).attr('src');
-            var w = window.open(src, '_blank', 'noopener,noreferrer');
-            if (w) { w.opener = null; }
-         });
+         $("li#news a").addClass("active").addClass("hvr-bubble-bottom");
       });
    </script>
-
 </body>
-
 </html>
