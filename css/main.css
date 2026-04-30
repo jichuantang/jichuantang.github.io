@@ -1,15 +1,22 @@
 /* Global page and element settings ----------------------------------------------------- */
-/* Academic palette: near-black on off-white, single accent.
-   Inter is the only typeface family; weights limited to 400 + 600. */
+/* Inspired by Cornell's CWD-2024 faculty pages (Wang lab):
+   - Roobert as the primary typeface (Cornell brand font; free on cdnfonts)
+   - Light body weight (300), accent-colored section headings
+   - White background, near-black body, single accent color
+   We keep Notre Dame navy as our accent (Wang uses Cornell red). */
+
+@import url('https://fonts.cdnfonts.com/css/roobert');
+
 :root {
-  --text: #1f2933;
-  --muted: #5b6671;
-  --heading: #0f172a;
-  --accent: #0c2340;          /* Notre Dame navy — single accent */
+  --text: #222;                       /* Wang uses #222 for headings; we extend to body */
+  --muted: #54565a;                   /* Wang's secondary gray */
+  --heading: #222;
+  --accent: #0c2340;                  /* Notre Dame navy (vs Wang's Cornell red #b31b1b) */
   --accent-hover: #1d4ed8;
-  --border: #e3e6eb;
-  --panel: #f7f7f5;           /* warm off-white */
-  --bg: #fbfbf9;
+  --link: #016be2;                    /* bright link blue — Wang convention */
+  --border: #e3e3e3;
+  --panel: #f7f7f7;
+  --bg: #ffffff;
   --focus-ring: 0 0 0 3px rgba(12, 35, 64, 0.30);
 }
 
@@ -50,15 +57,16 @@ html {
 }
 
 body {
-  font-size: 1rem;
-  /* Single typeface: Inter + system fallbacks */
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Wang lab uses 1.1em / weight 200. We bump weight to 300 for readability
+     and keep size at 1.05rem so paragraphs feel airy without being thin. */
+  font-size: 1.05rem;
+  font-family: 'Roobert', 'Inter', Verdana, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "kern", "liga", "calt", "ss01";
 }
 
 /* Respect users who request less motion (kept even though we removed
@@ -85,8 +93,8 @@ body {
 
 /* Legacy class kept for navbar compatibility — now resolves to the single typeface. */
 .montserrat {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-weight: 600;
+  font-family: 'Roobert', 'Inter', Verdana, Helvetica, sans-serif !important;
+  font-weight: 500;
   letter-spacing: 0;
 }
 
@@ -249,9 +257,11 @@ body {
   animation: none; /* skip the navy flash; the static tint is enough on dark */
 }
 
-/* Typography — academic scale, single family, two weights only */
+/* Typography — Wang/CWD-2024 inspired:
+   h1 black/heading, h2 in accent color, all sans Roobert.
+   Wang uses font-weight ~600 for headings; we match. */
 h1, h2, h3, h4, h5, h6 {
-  font-family: inherit;
+  font-family: 'Roobert', 'Inter', Verdana, Helvetica, sans-serif;
   color: var(--heading);
   font-weight: 600;
   letter-spacing: -0.005em;
@@ -260,23 +270,26 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-bottom: 1.5rem;
-  font-size: 1.95rem;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--heading) !important;
 }
 
-h2, h3 {
-  margin: 0 0 1rem !important;
-  color: var(--heading);
-}
-
+/* Wang's signature move: section h2 in the accent color */
 h2 {
-  font-size: 1.55rem;
+  font-size: 1.6rem;
+  margin: 0 0 1rem !important;
+  color: var(--accent) !important;
+  font-weight: 600;
 }
 
 h3 {
   font-size: 1.3rem;
+  margin: 0 0 1rem !important;
+  color: var(--heading);
+  font-weight: 600;
 }
 
-/* h4 is used as section sub-head (e.g., year in publications); avoid the dated all-caps */
 h4 {
   text-transform: none;
   font-size: 1.05rem;
@@ -286,13 +299,8 @@ h4 {
   font-weight: 600;
 }
 
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: 0.95rem;
-}
+h5 { font-size: 1rem; }
+h6 { font-size: 0.95rem; }
 
 .panel-heading h5 {
   font-style: normal;
@@ -306,9 +314,9 @@ h6 {
 }
 
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-family: inherit;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 dt {
@@ -458,16 +466,18 @@ blockquote footer {
   padding: 3px 8px;
 }
 
-/* Links */
+/* Links — Wang convention: bright link blue (#016be2) for in-content links,
+   accent navy reserved for headings and structural elements. */
 #main-container a {
-  color: var(--accent);
-  font-weight: 600;
+  color: var(--link);
+  font-weight: 400;
+  text-decoration: none;
   transition: color 0.18s ease, border-color 0.18s ease;
 }
 
 #main-container a:hover {
-  color: var(--accent-hover);
-  border-bottom: 1px solid var(--accent-hover);
+  color: var(--link);
+  border-bottom: 1px solid var(--link);
   text-decoration: none;
   padding-bottom: 2px;
 }
