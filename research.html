@@ -65,7 +65,17 @@
             <!-- Neural-operator surrogates for cable-stayed bridges -->
             <article class="project" id="proj-deeponet">
                <h2 class="project-title">Surrogate models for full-field cable-stayed bridge dynamics</h2>
-               <p class="project-meta">Neural operators · DeepONets · structural dynamics</p>
+               <ul class="project-tags">
+                  <li>Neural operators</li>
+                  <li>DeepONets</li>
+                  <li>Structural dynamics</li>
+               </ul>
+
+               <!-- Figure first (UST convention): hero schematic under the title/tags -->
+               <figure class="project-figure">
+                  <img src="img/deeponet.png" alt="DeepONet architecture used as a spatio-temporal surrogate for bridge dynamics" loading="lazy">
+                  <figcaption>Full-field DeepONet architecture used as the surrogate for cable-stayed bridge dynamics.</figcaption>
+               </figure>
 
                <p class="project-problem">
                   High-fidelity finite-element simulations of cable-stayed bridges resolve full-field dynamic
@@ -81,18 +91,21 @@
                   cable-stayed bridge model; the full-field variant achieves the highest accuracy at the lowest
                   inference cost, making it a practical surrogate for downstream UQ and control studies.
                </p>
-
-               <!-- TODO: replace with the canonical method-schematic figure when available -->
-               <figure class="project-figure">
-                  <img src="img/deeponet.png" alt="DeepONet architecture used as a spatio-temporal surrogate for bridge dynamics" loading="lazy">
-                  <figcaption>Full-field DeepONet architecture used as the surrogate for cable-stayed bridge dynamics.</figcaption>
-               </figure>
             </article>
 
             <!-- Multi-fidelity shock prediction for ship structures -->
             <article class="project" id="proj-multifidelity">
                <h2 class="project-title">Multi-fidelity surrogates for shipboard shock response</h2>
-               <p class="project-meta">Multi-fidelity learning · transfer learning · shock dynamics</p>
+               <ul class="project-tags">
+                  <li>Multi-fidelity learning</li>
+                  <li>Transfer learning</li>
+                  <li>Shock dynamics</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/deeponet.png" alt="DeepONet architecture for multi-fidelity shock-response surrogate" loading="lazy">
+                  <figcaption>DeepONet residual model for multi-fidelity shock prediction.</figcaption>
+               </figure>
 
                <p class="project-problem">
                   High-fidelity shock simulations of shipboard structures capture whipping and resonant
@@ -108,11 +121,6 @@
                   the accuracy of the expensive one. The work was conducted under an Office of Naval Research
                   technical report.
                </p>
-
-               <figure class="project-figure">
-                  <img src="img/deeponet.png" alt="DeepONet architecture for multi-fidelity shock-response surrogate" loading="lazy">
-                  <figcaption>DeepONet residual model for multi-fidelity shock prediction.</figcaption>
-               </figure>
                <!-- Auxiliary GRU figure preserved for later use:
                <img src="img/gru.png" alt="GRU recurrent neural network for residual modeling"> -->
             </article>
@@ -120,7 +128,16 @@
             <!-- Wireless MEMS sensing for infrastructure -->
             <article class="project" id="proj-mems">
                <h2 class="project-title">Denoising wireless MEMS sensors for infrastructure monitoring</h2>
-               <p class="project-meta">Wireless sensing · MEMS · generative denoising</p>
+               <ul class="project-tags">
+                  <li>Wireless sensing</li>
+                  <li>MEMS</li>
+                  <li>Generative denoising</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/mems.jpg" alt="MEMS accelerometer module used in the wireless sensing study" loading="lazy">
+                  <figcaption>MEMS accelerometer module used in the GAN-based denoising study.</figcaption>
+               </figure>
 
                <p class="project-problem">
                   Wireless MEMS accelerometers are the workhorse of low-cost infrastructure monitoring,
@@ -135,11 +152,6 @@
                   (temperature, salt-spray) and field deployment, including synchronized hardware on tunnel
                   diagnosis vehicles for hidden-defect inspection.
                </p>
-
-               <figure class="project-figure">
-                  <img src="img/mems.jpg" alt="MEMS accelerometer module used in the wireless sensing study" loading="lazy">
-                  <figcaption>MEMS accelerometer module used in the GAN-based denoising study.</figcaption>
-               </figure>
                <!-- Companion field-deployment figure available:
                <img src="img/sensor.jpg" alt="Wireless sensor deployment"> -->
             </article>
@@ -147,7 +159,16 @@
             <!-- RL vibration control for footbridges -->
             <article class="project" id="proj-footbridge">
                <h2 class="project-title">Adaptive vibration control of human-loaded footbridges</h2>
-               <p class="project-meta">Reinforcement learning · TD3 · semi-active TMD</p>
+               <ul class="project-tags">
+                  <li>Reinforcement learning</li>
+                  <li>TD3</li>
+                  <li>Semi-active TMD</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/bridge_rl_control.png" alt="Reinforcement-learning vibration-control scheme for a pedestrian footbridge with semi-active TMD" loading="lazy">
+                  <figcaption>RL-based vibration-control loop for the bridge–pedestrian–STMD system.</figcaption>
+               </figure>
 
                <p class="project-problem">
                   Slender pedestrian footbridges are vulnerable to human-induced vibrations that violate
@@ -162,17 +183,21 @@
                   closed-loop performance and proposes a general scheme for RL-based STMD control of pedestrian
                   bridges.
                </p>
-
-               <figure class="project-figure">
-                  <img src="img/bridge_rl_control.png" alt="Reinforcement-learning vibration-control scheme for a pedestrian footbridge with semi-active TMD" loading="lazy">
-                  <figcaption>RL-based vibration-control loop for the bridge–pedestrian–STMD system.</figcaption>
-               </figure>
             </article>
 
             <!-- RL controller for real-time hybrid simulation -->
             <article class="project" id="proj-rths">
                <h2 class="project-title">Real-time hybrid simulation under wave and earthquake loading</h2>
-               <p class="project-meta">Real-time hybrid simulation · DDPG · feedforward compensation</p>
+               <ul class="project-tags">
+                  <li>Real-time hybrid simulation</li>
+                  <li>DDPG</li>
+                  <li>Feedforward compensation</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/rl_rths.jpg" alt="DDPG-with-feedforward controller for real-time hybrid simulation" loading="lazy">
+                  <figcaption>DDPG + feedforward control architecture for the RTHS transfer system.</figcaption>
+               </figure>
 
                <p class="project-problem">
                   Real-time hybrid simulation (RTHS) of structures under wave and earthquake loading is limited
@@ -188,11 +213,6 @@
                   123.48% / 89.95% relative to no compensation). Adding feedforward compensation to DDPG yields
                   3.28% maximum perturbation versus 5.88% (PI) and 10.57% (FF only) on a benchmark RTHS problem.
                </p>
-
-               <figure class="project-figure">
-                  <img src="img/rl_rths.jpg" alt="DDPG-with-feedforward controller for real-time hybrid simulation" loading="lazy">
-                  <figcaption>DDPG + feedforward control architecture for the RTHS transfer system.</figcaption>
-               </figure>
                <!-- Companion experimental setup photo available:
                <img src="img/shaking_table_test.jpg" alt="Underwater shaking table experimental setup"> -->
             </article>

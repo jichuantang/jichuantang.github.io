@@ -1084,67 +1084,92 @@ footer hr {
   cursor: not-allowed;
 }
 
-/* Research projects — single-column flow, problem-first headings */
-#projects {
-  display: block;
-}
+/* === Research projects — UST/AIR-Lab inspired layout (高级感):
+   title -> tag pills -> single big figure -> prose paragraphs.
+   No card chrome; projects separated by a hairline + generous whitespace. */
+#projects { display: block; }
 
 #projects .project {
   border-top: 1px solid var(--border);
-  padding: 1.6rem 0 0.4rem;
+  padding: 3rem 0 0.5rem;
   margin: 0;
 }
 #projects .project:first-child {
   border-top: 0;
-  padding-top: 0.5rem;
+  padding-top: 1.5rem;
 }
 
 .project-title {
   font-family: inherit !important;
-  font-size: 1.15rem !important;
+  font-size: 1.55rem !important;
   font-weight: 600 !important;
   color: var(--heading) !important;
   text-transform: none !important;
-  letter-spacing: 0 !important;
-  line-height: 1.35 !important;
-  margin: 0 0 0.35rem !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.25 !important;
+  margin: 0 0 0.6rem !important;
 }
 
-.project-meta {
-  font-size: 0.82rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin: 0 0 0.6rem;
+/* Pill tags below the title (UST/AIR Lab convention) */
+.project-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+.project-tags li {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(12, 35, 64, 0.06);
+  border: 1px solid rgba(12, 35, 64, 0.12);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+[data-theme="dark"] .project-tags li {
+  color: var(--accent);
+  background: rgba(88, 166, 255, 0.12);
+  border-color: rgba(88, 166, 255, 0.22);
 }
 
-.project-problem {
-  margin: 0 0 0.7rem !important;
-  color: var(--text);
-}
-
-.project-method {
-  margin: 0 0 0.8rem !important;
-  color: var(--text);
-}
-
+/* Figure first, big and clean (no border, no background card) */
 .project-figure {
-  margin: 0.6rem 0 0.4rem;
+  margin: 0 0 1.5rem;
   text-align: center;
 }
 .project-figure img {
   max-width: 100%;
   height: auto;
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  background: #fff;
-  padding: 4px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
 }
 .project-figure figcaption {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
   font-style: italic;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.project-problem {
+  margin: 0 0 1rem !important;
+  color: var(--text);
+}
+.project-method {
+  margin: 0 0 0.5rem !important;
+  color: var(--text);
 }
 
 /* Publication status badges */
