@@ -57,11 +57,11 @@ html {
 }
 
 body {
-  /* Wang lab uses 1.1em / weight 200. We bump weight to 300 for readability
-     and keep size at 1.05rem so paragraphs feel airy without being thin. */
+  /* Barlow reads thin at weight 300 — bump to 400 (regular) so paragraphs
+     stay legible. Headings still go to 600 below. */
   font-size: 1.05rem;
   font-family: 'Barlow', 'Inter', Verdana, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
@@ -222,7 +222,7 @@ body {
   text-align: center;
   margin: 0 0.95rem 1rem;
   line-height: 1.45;
-  font-weight: 300;
+  font-weight: 400;
 }
 .priority-card:hover .priority-title {
   color: var(--link) !important;
@@ -431,7 +431,7 @@ h6 { font-size: 0.95rem; }
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
   font-size: 1.05rem;
   font-family: inherit;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 dt {
@@ -557,14 +557,15 @@ cite {
   font-size: 0.95rem;
   font-weight: 400;
 }
-.sidebar-role .muted { color: var(--muted); font-weight: 300; }
+.sidebar-role .muted { color: var(--muted); font-weight: 400; }
+/* (Was 300; bumped to 400 with the rest of the body for readability) */
 
 .sidebar-office {
   margin: 0 0 1rem;
   font-size: 0.92rem;
   line-height: 1.55;
   color: var(--text);
-  font-weight: 300;
+  font-weight: 400;
 }
 .sidebar-office strong { font-weight: 600; }
 
@@ -576,7 +577,7 @@ cite {
   line-height: 1.5;
   color: var(--text);
 }
-.sidebar-roles li { margin-bottom: 0.3rem; font-weight: 300; }
+.sidebar-roles li { margin-bottom: 0.3rem; font-weight: 400; }
 
 .sidebar-links-list {
   list-style: none;
@@ -703,7 +704,7 @@ iframe {
   font-family: 'Barlow', 'Inter', Verdana, Helvetica, sans-serif;
   font-size: 0.95rem;
   color: var(--muted);
-  font-weight: 300;
+  font-weight: 400;
   margin: 0.15rem 0 0;
   line-height: 1.3;
 }
