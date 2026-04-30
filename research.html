@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com">
+
+   <meta name="description" content="Research projects by Jichuan Tang on neural operators, multi-fidelity surrogates, reinforcement-learning control, and wireless sensing for civil-engineering systems.">
+   <title>Research · Jichuan Tang</title>
+
+   <meta property="og:title" content="Research · Jichuan Tang">
+   <meta property="og:description" content="Neural operators, multi-fidelity surrogates, reinforcement-learning control, and wireless sensing for civil-engineering systems.">
+   <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
+   <meta property="og:url" content="https://jichuantang.github.io/research.html">
+   <link rel="canonical" href="https://jichuantang.github.io/research.html">
+   <meta property="og:type" content="website">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Research · Jichuan Tang">
+   <meta name="twitter:description" content="Neural operators, multi-fidelity surrogates, reinforcement-learning control, and wireless sensing for civil-engineering systems.">
+   <meta name="twitter:image" content="https://jichuantang.github.io/img/tang.jpg">
+
+   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+   <meta name="theme-color" content="#0c2340">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/main.css">
+
+   <script>
+     (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark');})()
+   </script>
+</head>
+
+<!-- "wide-page" gives the container ~920px so figures breathe -->
+<body id="top" class="wide-page">
+   <a class="skip-link" href="#main">Skip to main content</a>
+
+   <div w3-include-html="navbar.html"></div>
+
+   <div class="spacer-div-3 hidden-xs"></div>
+
+   <main id="main" tabindex="-1">
+   <div id="main-container" class="container">
+
+      <section class="section-card">
+         <h1>Research</h1>
+         <p>
+            Jichuan's research sits at the intersection of <strong>structural dynamics</strong>,
+            <strong>scientific machine learning</strong>, and <strong>structural health monitoring</strong>.
+            Recurring threads include neural-operator surrogates for full-field response prediction,
+            multi-fidelity learning for systems where high-fidelity simulation is expensive,
+            and reinforcement-learning controllers for vibration mitigation and real-time hybrid simulation.
+         </p>
+
+         <div id="projects">
+
+            <!-- Neural-operator surrogates for cable-stayed bridges -->
+            <article class="project" id="proj-deeponet">
+               <h2 class="project-title">Surrogate models for full-field cable-stayed bridge dynamics</h2>
+               <ul class="project-tags">
+                  <li>Neural operators</li>
+                  <li>DeepONets</li>
+                  <li>Structural dynamics</li>
+               </ul>
+
+               <!-- Full-field DeepONet architecture (Figure 2 of arXiv:2506.11761) -->
+               <figure class="project-figure">
+                  <img src="img/paper-deeponet-arch.png" alt="Full-field DeepONet branch–trunk architecture from the structural-dynamics paper" loading="lazy">
+                  <figcaption>Full-field DeepONet architecture used as the surrogate for cable-stayed bridge dynamics.</figcaption>
+               </figure>
+
+               <p class="project-problem">
+                  High-fidelity finite-element simulations of cable-stayed bridges resolve full-field dynamic
+                  response but are too expensive for design iteration, uncertainty quantification, or real-time
+                  decision support. Existing surrogates predict scalar outputs (e.g., peak displacement) and
+                  lose the spatial detail that engineers actually use.
+               </p>
+
+               <p class="project-method">
+                  We propose a <em>spatio-temporal full-field DeepONet</em> that returns multiple dynamical fields
+                  in a single forward pass. The architecture strengthens branch–trunk interactions and inherently
+                  encodes spatial correlations between outputs. We benchmark three DeepONet variants on a
+                  cable-stayed bridge model; the full-field variant achieves the highest accuracy at the lowest
+                  inference cost, making it a practical surrogate for downstream UQ and control studies.
+               </p>
+            </article>
+
+            <!-- Multi-fidelity shock prediction for ship structures -->
+            <article class="project" id="proj-multifidelity">
+               <h2 class="project-title">Multi-fidelity surrogates for shipboard shock response</h2>
+               <ul class="project-tags">
+                  <li>Multi-fidelity learning</li>
+                  <li>Transfer learning</li>
+                  <li>Shock dynamics</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/deeponet.png" alt="DeepONet architecture for multi-fidelity shock-response surrogate" loading="lazy">
+                  <figcaption>DeepONet residual model for multi-fidelity shock prediction.</figcaption>
+               </figure>
+
+               <p class="project-problem">
+                  High-fidelity shock simulations of shipboard structures capture whipping and resonant
+                  response, but their cost rules out the parameter sweeps that designers need. Low-fidelity
+                  models are cheap but systematically miss those dynamics, so naïvely substituting them is unsafe.
+               </p>
+
+               <p class="project-method">
+                  We characterize the discrepancy between low- and high-fidelity shock models under impulsive
+                  loading, then learn a residual correction with Deep Operator Networks (DeepONets) and recurrent
+                  architectures (RNN, LSTM, GRU). Combining transfer learning with residual learning, the
+                  resulting multi-fidelity surrogate inherits the speed of the low-fidelity model while recovering
+                  the accuracy of the expensive one. The work was conducted under an Office of Naval Research
+                  technical report.
+               </p>
+               <!-- Auxiliary GRU figure preserved for later use:
+               <img src="img/gru.png" alt="GRU recurrent neural network for residual modeling"> -->
+            </article>
+
+            <!-- Wireless MEMS sensing for infrastructure -->
+            <article class="project" id="proj-mems">
+               <h2 class="project-title">Denoising wireless MEMS sensors for infrastructure monitoring</h2>
+               <ul class="project-tags">
+                  <li>Wireless sensing</li>
+                  <li>MEMS</li>
+                  <li>Generative denoising</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/mems.jpg" alt="MEMS accelerometer module used in the wireless sensing study" loading="lazy">
+                  <figcaption>MEMS accelerometer module used in the GAN-based denoising study.</figcaption>
+               </figure>
+
+               <p class="project-problem">
+                  Wireless MEMS accelerometers are the workhorse of low-cost infrastructure monitoring,
+                  but their low-frequency noise floor obscures the modal signatures and subtle defect signals
+                  that engineers actually need to detect.
+               </p>
+
+               <p class="project-method">
+                  We calibrate MEMS accelerometers against reference sensors, then train a Generative Adversarial
+                  Network to denoise the low-frequency response, comparing against empirical mode decomposition
+                  and wavelet baselines. A LabVIEW-based host environment supports durability testing
+                  (temperature, salt-spray) and field deployment, including synchronized hardware on tunnel
+                  diagnosis vehicles for hidden-defect inspection.
+               </p>
+               <!-- Companion field-deployment figure available:
+               <img src="img/sensor.jpg" alt="Wireless sensor deployment"> -->
+            </article>
+
+            <!-- RL vibration control for footbridges -->
+            <article class="project" id="proj-footbridge">
+               <h2 class="project-title">Adaptive vibration control of human-loaded footbridges</h2>
+               <ul class="project-tags">
+                  <li>Reinforcement learning</li>
+                  <li>TD3</li>
+                  <li>Semi-active TMD</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/bridge_rl_control.png" alt="Reinforcement-learning vibration-control scheme for a pedestrian footbridge with semi-active TMD" loading="lazy">
+                  <figcaption>RL-based vibration-control loop for the bridge–pedestrian–STMD system.</figcaption>
+               </figure>
+
+               <p class="project-problem">
+                  Slender pedestrian footbridges are vulnerable to human-induced vibrations that violate
+                  serviceability limits. Conventional passive tuned mass dampers cannot adapt to crowd density,
+                  gait variability, or human–structure feedback, leaving residual response under realistic loading.
+               </p>
+
+               <p class="project-method">
+                  We build a coupled model of bridge, pedestrian, and semi-active tuned mass damper (STMD), then
+                  train a TD3 agent to control the STMD under both periodic and stochastic pedestrian loading.
+                  The study reports the influence of key hyperparameters (learning rate, discount factor) on
+                  closed-loop performance and proposes a general scheme for RL-based STMD control of pedestrian
+                  bridges.
+               </p>
+            </article>
+
+            <!-- RL controller for real-time hybrid simulation -->
+            <article class="project" id="proj-rths">
+               <h2 class="project-title">Real-time hybrid simulation under wave and earthquake loading</h2>
+               <ul class="project-tags">
+                  <li>Real-time hybrid simulation</li>
+                  <li>DDPG</li>
+                  <li>Feedforward compensation</li>
+               </ul>
+
+               <figure class="project-figure">
+                  <img src="img/rl_rths.jpg" alt="DDPG-with-feedforward controller for real-time hybrid simulation" loading="lazy">
+                  <figcaption>DDPG + feedforward control architecture for the RTHS transfer system.</figcaption>
+               </figure>
+
+               <p class="project-problem">
+                  Real-time hybrid simulation (RTHS) of structures under wave and earthquake loading is limited
+                  by servo-hydraulic time delay and tracking error, especially in worst-case loading where
+                  delay-induced phase lag can destabilize the test. Model-based controllers compensate only
+                  partially and depend on accurate plant identification.
+               </p>
+
+               <p class="project-method">
+                  We build a Simulink digital twin of an underwater shaking-table system and validate it against
+                  physical experiments. A DDPG controller trained against this twin reduces worst-case time
+                  delay by 6.54% and tracking error by 7.52% relative to a model-based controller (and by
+                  123.48% / 89.95% relative to no compensation). Adding feedforward compensation to DDPG yields
+                  3.28% maximum perturbation versus 5.88% (PI) and 10.57% (FF only) on a benchmark RTHS problem.
+               </p>
+               <!-- Companion experimental setup photo available:
+               <img src="img/shaking_table_test.jpg" alt="Underwater shaking table experimental setup"> -->
+            </article>
+
+         </div>
+
+         <p class="muted-note">For the underlying papers and links, see the <a href="publication.html">publications</a> page.</p>
+      </section>
+
+   </div>
+   </main>
+
+   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" aria-label="Back to top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+
+   <div w3-include-html="footer.html"></div>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+   <script src="js/w3data.js"></script>
+   <script>w3IncludeHTML()</script>
+   <script src="js/main.js"></script>
+   <script>
+      $(document).ready(function() {
+         $("li#research a").addClass("active").addClass("hvr-bubble-bottom");
+      });
+   </script>
+</body>
+</html>

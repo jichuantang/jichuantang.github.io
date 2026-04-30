@@ -1,60 +1,97 @@
 /* Global page and element settings ----------------------------------------------------- */
+/* Inspired by Cornell's CWD-2024 (Wang) and HKUST AIR Lab (Zhang):
+   - Barlow as the primary typeface (UST/AIR Lab convention; geometric sans)
+   - Light body weight (300), accent-colored section headings
+   - White background, near-black body, single accent color
+   We keep Notre Dame navy as our accent. */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap');
+
 :root {
-  --text: #334155;
-  --muted: #64748b;
-  --heading: #1e293b;
-  --accent: #2563eb;
-  --border: #e2e8f0;
-  --panel: #f8fafc;
+  --text: #222;
+  --muted: #54565a;
+  --heading: #222;
+  --accent: #0c2340;                   /* Notre Dame navy */
+  --accent-soft: #e8eef5;              /* very light navy tint for backgrounds */
+  --accent-hover: #1d4ed8;
+  --link: #016be2;
+  --border: #e3e3e3;
+  --border-soft: #eef0f3;              /* hairline for subtle separators */
+  --panel: #f7f7f7;
+  --panel-tint: #f9fafc;               /* one notch off-white for tonal rhythm */
+  --bg: #ffffff;
+  --focus-ring: 0 0 0 3px rgba(12, 35, 64, 0.30);
+
+  /* Card category accents — give each priority card a distinct top strip */
+  --tone-1: #0c2340;                   /* navy */
+  --tone-2: #1f6feb;                   /* mid blue */
+  --tone-3: #3aa1c9;                   /* teal-blue */
+
+  /* Shadows — premium feel comes from large, very soft drop shadows
+     rather than the small/dark ones cards usually default to. */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 14px 30px rgba(15, 23, 42, 0.10), 0 4px 8px rgba(15, 23, 42, 0.05);
+}
+
+/* Skip-to-content link for keyboard / screen-reader users */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -40px;
+  background: var(--heading);
+  color: #fff !important;
+  padding: 8px 14px;
+  border-radius: 0 0 6px 0;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Visible focus ring for keyboard users (does not show on mouse click) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+.accordion-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 4px;
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
   scroll-behavior: smooth;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: 1200px) {
-  html {
-    font-size: 16px;
-  }
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-size: 1rem;
-  font-family: "Open Sans", Arial, sans-serif;
-  background: #FFFFFF;
+  /* Barlow reads thin at weight 300 — bump to 400 (regular) so paragraphs
+     stay legible. Headings still go to 600 below. */
+  font-size: 1.05rem;
+  font-family: 'Barlow', 'Inter', Verdana, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Fade-in animation for page content */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
+/* Respect users who request less motion (kept even though we removed
+   most animations — covers any remaining hover transitions). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section-card {
-  animation: fadeInUp 0.5s ease-out both;
-}
-
-.section-card:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.section-card:nth-child(3) {
-  animation-delay: 0.2s;
 }
 
 /* Colors */
@@ -68,83 +105,415 @@ body {
   cursor: pointer;
 }
 
-/* Font style */
+/* Legacy class kept for navbar compatibility — now resolves to the single typeface. */
 .montserrat {
-  font-family: "Montserrat", Helvetica, sans-serif !important;
+  font-family: 'Barlow', 'Inter', Verdana, Helvetica, sans-serif !important;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
-/* Degree area -------------------------------------------------------------------- */
+/* Degree / education list ------------------------------------------------- */
 #education {
   list-style-type: none;
   padding-left: 0;
 }
 
 #education li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.45;
 }
 
-.university {
+#education li strong {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+#education li .ed-meta {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.university { color: var(--muted); }
+
+/* Awards — flat list, no accordion */
+.award-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+.award-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.muted-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.8rem;
+}
+
+/* Affiliations strip (no card chrome) */
+.school-affiliations { padding-top: 0.5rem; }
+
+/* Research-vision figure inside the bio main column — fills the visual gap
+   that opens up when the sidebar runs taller than the prose. */
+.vision-figure {
+  margin: 1.75rem 0 0;
+  text-align: center;
+}
+.vision-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--panel-tint) 100%);
+  box-shadow: var(--shadow-md);
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.vision-figure img:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.vision-figure figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Hero subtitle line under H1 — institution / role / lab */
+.role-line {
+  margin: -0.4rem 0 1rem !important;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.role-line a {
+  color: var(--muted) !important;
+  border-bottom: 1px dotted var(--border) !important;
+  font-weight: 500 !important;
+}
+.role-line a:hover {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent) !important;
+}
+
+/* Lede paragraph — slightly larger / heavier than body for the bio's first sentence */
+.lede {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--heading);
+  margin-bottom: 1.2rem !important;
+}
+
+/* === Research priority cards (UST/AIR Lab convention) ====================
+   Three-up image cards: image at top (4:3 contain), centered title, short
+   one-line description. The whole card is a link. */
+.priority-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 0.5rem 0 0.6rem;
+}
+.priority-card {
+  display: block;
+  position: relative;
+  text-decoration: none !important;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid var(--border) !important;
+  padding-bottom: 0 !important;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+/* Each priority card gets its own tone for the top accent strip — gives
+   the trio a tonal rhythm without breaking the single-accent rule. */
+.priority-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--tone-1);
+  opacity: 0.85;
+}
+.priority-card:nth-child(2)::before { background: var(--tone-2); }
+.priority-card:nth-child(3)::before { background: var(--tone-3); }
+
+.priority-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.priority-card:hover::before { opacity: 1; }
+
+.priority-img {
+  aspect-ratio: 4 / 3;
+  background: var(--panel);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.priority-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.priority-card:hover .priority-img img {
+  transform: scale(1.03);
+}
+.priority-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.85rem 0.85rem 0.4rem !important;
+  color: var(--heading) !important;
+  line-height: 1.35;
+}
+.priority-desc {
+  font-size: 0.92rem;
+  color: var(--text);
+  text-align: center;
+  margin: 0 0.95rem 1rem;
+  line-height: 1.45;
+  font-weight: 400;
+}
+.priority-card:hover .priority-title {
+  color: var(--link) !important;
+}
+
+@media (max-width: 767px) {
+  .priority-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .priority-cards { grid-template-columns: 1fr; }
+}
+
+/* Legacy .interests rules removed — superseded by .priority-cards. */
+
+/* Sidebar contact list (under photo on home page) */
+.sidebar-contact {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.sidebar-contact li {
+  margin-bottom: 0.5rem;
+}
+.sidebar-contact li:last-child { margin-bottom: 0; }
+.sidebar-contact .muted-note {
+  font-size: 0.82rem;
+  margin: 0.4rem 0;
+}
+.sidebar-contact .sidebar-links {
+  font-size: 0.85rem;
   color: var(--muted);
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", Helvetica, sans-serif;
-  color: var(--heading);
-  font-weight: 600;
-  letter-spacing: 0.2px;
+/* === Wang-style Latest News card grid =================================== */
+.header-with-button {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.header-with-button h2 { margin-bottom: 0 !important; }
+.link-button {
+  font-size: 0.88rem;
+  color: var(--link) !important;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.link-button:hover { text-decoration: underline; }
+
+.news-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+.news-card {
+  display: block;
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  text-decoration: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding-bottom: 0 !important;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+/* Thin accent strip that fades in on hover (Wang/CWD convention) */
+.news-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.news-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.news-card:hover::before { opacity: 1; }
+
+/* Slightly landscape aspect (4:3) and `contain` so the whole photo is visible —
+   no cropped heads on group photos. Empty space falls back to the panel color. */
+.news-card-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--panel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.news-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.news-card:hover .news-card-img img {
+  transform: scale(1.03);              /* subtle image zoom on hover */
+}
+.news-card-meta {
+  padding: 0.7rem 0.85rem 0.85rem;
+}
+.news-card-date {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+.news-card-title {
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--heading) !important;
+  margin: 0 !important;
+}
+.news-card:hover .news-card-title { color: var(--link) !important; }
+
+@media (max-width: 767px) {
+  .news-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .news-cards { grid-template-columns: 1fr; }
 }
 
-h1 {
-  margin-bottom: 2.75rem;
-  font-size: 2.6rem;
+/* Hash-anchor target highlight: when someone shares /publication.html#pub-deeponet
+   the targeted entry briefly receives a tinted background, and the scroll lands
+   below the navbar rather than under it. Brand band + accent strip + nav band
+   together are ~140px tall — leave a little breathing room. */
+:target {
+  scroll-margin-top: 160px;
+}
+.publications li:target,
+.project:target,
+.news-entry:target {
+  background: rgba(12, 35, 64, 0.06);
+  margin-left: -0.8rem;
+  margin-right: -0.8rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border-radius: 3px;
+  animation: target-flash 2s ease-out 1;
+}
+@keyframes target-flash {
+  0%   { background: rgba(12, 35, 64, 0.18); }
+  100% { background: rgba(12, 35, 64, 0.06); }
+}
+[data-theme="dark"] .publications li:target,
+[data-theme="dark"] .project:target,
+[data-theme="dark"] .news-entry:target {
+  background: rgba(88, 166, 255, 0.10);
+  animation: none; /* skip the navy flash; the static tint is enough on dark */
+}
+
+/* Typography — Wang/CWD-2024 inspired:
+   h1 black/heading, h2 in accent color, all sans Roobert.
+   Wang uses font-weight ~600 for headings; we match. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow', 'Inter', Verdana, Helvetica, sans-serif;
+  color: var(--heading);
+  font-weight: 600;
+  letter-spacing: -0.005em;
   line-height: 1.25;
 }
 
-h2, h3 {
-  margin: 0 0 1.5rem !important;
-  color: var(--heading);
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.65rem;
-}
-
-h4 {
-  text-transform: uppercase;
-  font-size: 1.35rem;
-}
-
-h4, h5, h6 {
-  color: var(--text) !important;
-}
-
-h5 {
-  font-size: 1.2rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
-.panel-heading h5 {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--accent) !important;
-}
-
-#projects .panel-heading h5 {
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
   font-weight: 500;
   color: var(--heading) !important;
 }
 
+/* Wang's signature move: section h2 in the accent color */
+h2 {
+  font-size: 1.6rem;
+  margin: 0 0 1rem !important;
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem !important;
+  color: var(--heading);
+  font-weight: 600;
+}
+
+h4 {
+  text-transform: none;
+  font-size: 1.05rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.75rem;
+  color: var(--heading) !important;
+  font-weight: 600;
+}
+
+h5 { font-size: 1rem; }
+h6 { font-size: 0.95rem; }
+
+.panel-heading h5 {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--heading) !important;
+}
+
+#projects .panel-heading h5 {
+  font-weight: 600;
+  color: var(--heading) !important;
+}
+
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
-  font-size: 1rem;
-  font-family: "Montserrat", Helvetica, sans-serif;
+  font-size: 1.05rem;
+  font-family: inherit;
   font-weight: 400;
 }
 
@@ -153,11 +522,13 @@ dt {
 }
 
 blockquote {
-  border-left: 4px solid var(--accent);
-  color: var(--text);
-  background: var(--panel);
-  padding: 1.2rem 1.6rem;
-  border-radius: 6px;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+  padding: 0.4rem 1.1rem;
+  border-radius: 0;
+  margin: 1.4rem 0;
+  font-size: 0.95rem;
 }
 
 blockquote blockquote {
@@ -202,98 +573,127 @@ cite {
   }
 }
 
-/* School logos row (homepage): keep in one line on narrow screens */
+/* School / affiliation logos — equal-width slots so each logo carries similar
+   visual weight regardless of its native aspect ratio. CSS grid puts each
+   image in a 1fr column; max-height + object-fit:contain keeps them balanced. */
 .school-logos {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  display: flex;
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  gap: 18px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  justify-items: center;
+  gap: 24px 32px;
 }
 
 .school-logos img {
-  flex: 0 1 auto;
-  max-height: 90px;
+  max-height: 56px;
+  max-width: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
+  opacity: 0.9;
+  filter: grayscale(20%);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+.school-logos img:hover {
+  opacity: 1;
+  filter: none;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .school-logos {
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 28px;
   }
-
-  .school-logos img {
-    max-height: 64px;
-  }
+  .school-logos img { max-height: 50px; }
 }
 
-@media (max-width: 575px) {
-  .school-logos img {
-    max-height: 48px;
+@media (max-width: 420px) {
+  .school-logos {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
+  .school-logos img { max-height: 44px; }
 }
 
-/* About sidebar: slightly more compact to give the main column more room */
+/* === Wang-style hero sidebar (info-dense) ============================== */
+.hero-split { display: flex; flex-wrap: wrap; }
+.hero-main { padding-left: 1.75rem; }
+.hero-h { margin-top: 0 !important; }
+
 .about-sidebar {
-  font-size: 0.82rem;
-  overflow-wrap: anywhere;
-  word-break: normal;
-}
-
-/* Only force single-line labels on wider screens to avoid overlap on narrow widths */
-@media (min-width: 992px) {
-  .about-sidebar .nowrap {
-    white-space: nowrap;
-  }
-}
-
-/* Global styles set p/table/ul/li to 1rem; override for the sidebar */
-.about-sidebar p,
-.about-sidebar table,
-.about-sidebar tr,
-.about-sidebar td,
-.about-sidebar ul,
-.about-sidebar li,
-.about-sidebar a {
-  font-size: 0.78rem !important;
-}
-
-.about-sidebar #title {
   font-size: 0.95rem;
-  margin-top: 1.4rem;
+  border-right: 1px solid var(--border);
+  padding-right: 1.5rem;
 }
-
-.about-sidebar #program {
-  font-size: 0.86rem;
+.about-sidebar img.img-thumbnail {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 0 0.9rem;
+  border-radius: 4px;
 }
-
-.about-sidebar #contact-table {
-  font-size: 0.78rem;
+.sidebar-name {
+  margin: 0.4rem 0 0.3rem !important;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--heading) !important;
 }
-
-.about-sidebar h3 {
-  font-size: 1.15rem;
+.sidebar-role {
+  margin: 0 0 0.9rem;
+  line-height: 1.45;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 400;
 }
+.sidebar-role .muted { color: var(--muted); font-weight: 400; }
+/* (Was 300; bumped to 400 with the rest of the body for readability) */
 
-.about-sidebar #education {
-  font-size: 0.78rem;
+.sidebar-office {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text);
+  font-weight: 400;
 }
+.sidebar-office strong { font-weight: 600; }
 
-.about-sidebar #education li {
-  margin-bottom: 0.7rem;
+.sidebar-roles {
+  list-style: disc;
+  padding-left: 1.1rem;
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text);
 }
+.sidebar-roles li { margin-bottom: 0.3rem; font-weight: 400; }
 
-@media (min-width: 768px) {
-  .about-sidebar img.img-thumbnail {
-    width: 88%;
+.sidebar-links-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;       /* Wang convention: bold link list */
+  line-height: 1.7;
+}
+.sidebar-links-list li { padding: 0; }
+.sidebar-links-list a { color: var(--link) !important; }
+
+@media (max-width: 767px) {
+  .about-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
+  .hero-main { padding-left: 15px; }
+  .about-sidebar img.img-thumbnail { max-width: 220px; margin-left: auto; margin-right: auto; }
 }
+
+/* Legacy id selectors used elsewhere on the page — keep simple defaults */
+#title { color: var(--heading); margin: 0; }
+#program { color: var(--muted); }
 
 p {
   line-height: 1.7;
@@ -323,15 +723,18 @@ blockquote footer {
   padding: 3px 8px;
 }
 
-/* Links */
+/* Links — Wang convention: bright link blue (#016be2) for in-content links,
+   accent navy reserved for headings and structural elements. */
 #main-container a {
-  color: var(--accent);
-  font-weight: 600;
+  color: var(--link);
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.18s ease, border-color 0.18s ease;
 }
 
 #main-container a:hover {
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
+  color: var(--link);
+  border-bottom: 1px solid var(--link);
   text-decoration: none;
   padding-bottom: 2px;
 }
@@ -341,26 +744,9 @@ blockquote footer {
   padding-bottom: 1.5rem;
 }
 
-#title {
-  color: var(--heading);
-  margin-top: 2rem;
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-#program {
-  color: var(--muted);
-  text-align: center;
-}
-
-#contact-table td {
-  vertical-align: top;
-}
-
-#contact-table i {
-  color: var(--muted);
-}
+/* #title / #program are styled inside .about-sidebar — kept centered there only.
+   The legacy global rules and #contact-table styles were removed when the
+   contact information moved into the sidebar list. */
 
 iframe {
   padding: 3px;
@@ -368,15 +754,68 @@ iframe {
 }
 
 .img-thumbnail {
-  border-radius: 8px;
+  border-radius: 2px;
   border-color: var(--border);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: none;
+  padding: 4px;
+  background: #fff;
+}
+
+/* === Wang/CWD-2024-style site chrome: brand band, accent strip, nav band === */
+
+#site-brand {
+  /* Very subtle gradient gives the brand band a touch of depth without
+     looking decorative. Falls back to flat white if gradient unsupported. */
+  background: linear-gradient(180deg, #ffffff 0%, var(--panel-tint) 100%);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 1.25rem 0 1rem;
+}
+#site-brand .brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+}
+.brand-name {
+  font-family: 'Barlow', 'Inter', Verdana, Helvetica, sans-serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--heading) !important;
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.1;
+}
+.brand-name:hover {
+  color: var(--accent) !important;
+  border-bottom: 0 !important;
+}
+.brand-unit {
+  font-family: 'Barlow', 'Inter', Verdana, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 400;
+  margin: 0.15rem 0 0;
+  line-height: 1.3;
+}
+
+/* Accent strip — Wang uses a hilltop photo here; we use a flat navy line. */
+#image-band {
+  height: 6px;
+  background: var(--accent);
+}
+
+/* Hide the Bootstrap navbar-brand label on desktop; the brand band already
+   shows the name. Keep visible on mobile (collapsed nav) for orientation. */
+@media (min-width: 768px) {
+  .navbar-brand { display: none !important; }
 }
 
 /* Format the nav  ---------------------------------------------------------- */
 nav {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -448,7 +887,23 @@ nav {
 }
 
 .navbar-inverse {
-  background: var(--heading);
+  background: var(--accent);     /* Wang uses a near-black; we use ND navy as a brand cue */
+  border-color: var(--accent);
+  margin-bottom: 0;
+  border-radius: 0;
+  min-height: 44px;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  font-weight: 500;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background: transparent !important;
+  color: #fff !important;
 }
 
 .navbar-brand {
@@ -471,7 +926,7 @@ nav {
 }
 
 .active {
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid #fff;
   border-radius: 0;
 }
 
@@ -517,7 +972,7 @@ nav {
 }
 
 .spacer-div-3 {
-  height: 45px !important;
+  height: 1.5rem !important;       /* Brand band + nav supply most chrome already */
 }
 
 #link-to-docs,
@@ -552,15 +1007,20 @@ footer hr {
 
 .copyright-text {
   color: var(--muted);
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  margin: 0;
   font-weight: 400;
-  letter-spacing: 0.3px;
+  text-align: center;
+  line-height: 1.6;
 }
 
-.copyright-text i {
-  margin-right: 0.25rem;
-  font-size: 0.85rem;
+.copyright-text a {
+  color: var(--muted);
+  font-weight: 400;
+}
+.copyright-text a:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 /* Format the social-professional network icons ------------------------------ */
@@ -588,172 +1048,252 @@ footer hr {
   text-decoration: none !important;
 }
 
-/* ===== Global section card — wraps entire page sections ================ */
+/* ===== Section block — no card chrome, just spacing.
+   Academic convention: rely on whitespace + a thin rule, not boxed cards. */
 .section-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  padding: 1.8rem 2rem;
-  margin-bottom: 2rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
 }
 
-.section-card:hover {
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
-  transition: box-shadow 0.3s ease;
-}
-
-/* Suppress inner panel chrome when panel is sole child of a section-card */
-.section-card > .panel {
-  border: none;
-  box-shadow: none;
-  margin-bottom: 0;
-}
-.section-card > .panel:hover {
-  box-shadow: none;
-}
-.section-card > .panel > .panel-heading {
-  background: none;
-  padding: 0;
-  border-bottom: none;
-}
-.section-card > .panel > .panel-collapse > .panel-body,
-.section-card > .panel > .panel-body {
-  background: none;
-  padding: 0;
-  padding-top: 0.8rem;
+/* Subtle horizontal rule between sections on the same page, when stacked. */
+.section-card + .section-card {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
 }
 
 @media (max-width: 767px) {
   .section-card {
-    padding: 1.2rem 1rem;
+    margin-bottom: 1.75rem;
   }
 }
 
-/* ===== Local panel / inner card style (accordions, items) ============== */
+/* ===== Inner panels (Bootstrap defaults overridden to flat) ============ */
 
 .panel {
-  border-color: var(--border);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0.6rem;
 }
 
-.panel:hover {
-  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.25s ease;
-}
+.panel:hover { box-shadow: none; }
 
 .panel-body {
-  background-color: #f6f7fb;
+  background-color: transparent;
+  padding: 0.4rem 0 0.6rem;
 }
 
-.panel-title {
-  font-weight: 600 !important;
-}
+.panel-title { font-weight: 600 !important; }
 
 .panel-heading {
-  border-radius: 6px 6px 0 0;
+  background: transparent;
+  border: 0;
+  padding: 0.2rem 0;
 }
 
-/* News items — match card styling */
+/* News items — flat, separated by a hairline rule, no hover lift */
 .news-item {
-  border: 1px solid var(--border) !important;
-  border-radius: 6px !important;
-  background-color: #fafafa;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  border: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  background: transparent;
+  box-shadow: none !important;
+  padding: 1.2rem 0 1.4rem !important;
+  margin-bottom: 0;
+  transition: none;
 }
 
-.news-item:hover {
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
-  transform: translateY(-2px);
+.news-item:last-child { border-bottom: 0 !important; }
+.news-item:hover { box-shadow: none !important; transform: none; }
+
+.project-figures { margin-top: 1rem; }
+
+/* Publications — citation-style entries, no boxes */
+.publications {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: pubs;
 }
 
-/* Project +/- toggle */
-.project-toggle {
-  display: inline-block;
-  width: 1.4em;
-  height: 1.4em;
-  line-height: 1.35em;
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--accent);
-  border: 1.5px solid var(--accent);
-  border-radius: 3px;
-  cursor: pointer;
-  margin-right: 0.5em;
-  vertical-align: middle;
-  user-select: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.project-toggle:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-.project-figures {
-  margin-top: 0.8rem;
-}
-
-/* Publication spacing */
 .publications li {
-  margin-bottom: 1.2rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid var(--border);
-  line-height: 1.65;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+  font-size: 0.97rem;
 }
 
 .publications li:last-child {
   margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
 }
 
-.publications em {
+.publications em { color: var(--muted); font-style: italic; }
+.publications strong { color: var(--heading); font-weight: 600; }
+
+/* Year subhead in publication list */
+.pub-year {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 1.6rem 0 0.6rem;
+}
+
+/* Inline link group — [PDF] [arXiv] [DOI] [Code] [BibTeX] */
+.pub-links {
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
   color: var(--muted);
 }
-
-/* Project item spacing and title style */
-#projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.pub-links a {
+  color: var(--accent) !important;
+  margin-right: 0.6rem;
+  font-weight: 500;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.pub-links a:hover {
+  text-decoration: underline;
+  border-bottom: 0 !important;
+}
+.pub-links .todo {
+  color: var(--muted) !important;
+  font-style: italic;
+  cursor: not-allowed;
 }
 
-#projects .news-item {
-  flex: 1 1 calc(50% - 0.75rem);
-  max-width: calc(50% - 0.75rem);
-  margin-bottom: 0;
-  padding: 1.2rem 1.4rem;
-}
+/* === Research projects — UST/AIR-Lab inspired layout (高级感):
+   title (full width) -> pill tags (full width) -> 2-column body:
+     left column = problem + method prose; right column = figure.
+   Achieved with explicit grid placement so no HTML reorder is needed. */
+#projects { display: block; }
 
-@media (max-width: 767px) {
-  #projects .news-item {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+#projects .project {
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 0.5rem;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  column-gap: 2.5rem;
+  row-gap: 0.5rem;
+}
+#projects .project:first-child {
+  border-top: 0;
+  padding-top: 1.5rem;
 }
 
 .project-title {
-  font-family: "Montserrat", Helvetica, sans-serif !important;
-  font-size: 0.95rem !important;
+  grid-column: 1 / -1;
+  font-family: inherit !important;
+  font-size: 1.55rem !important;
   font-weight: 600 !important;
   color: var(--heading) !important;
   text-transform: none !important;
-  letter-spacing: 0 !important;
-  line-height: 1.5 !important;
-  margin: 0 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.25 !important;
+  margin: 0 0 0.6rem !important;
 }
 
-.project-subtitle {
-  font-size: 0.82rem !important;
-  color: var(--muted) !important;
-  font-weight: 400 !important;
-  margin: 0.3rem 0 0 2.4em !important;
-  line-height: 1.4 !important;
+/* Pill tags below the title — span full width too */
+.project-tags {
+  grid-column: 1 / -1;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+.project-tags li {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(12, 35, 64, 0.06);
+  border: 1px solid rgba(12, 35, 64, 0.12);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+[data-theme="dark"] .project-tags li {
+  color: var(--accent);
+  background: rgba(88, 166, 255, 0.12);
+  border-color: rgba(88, 166, 255, 0.22);
+}
+
+/* Figure pinned to the right column, spanning both prose rows.
+   In source order it precedes the prose, but explicit grid placement
+   wins over auto-placement so no HTML edit is needed. */
+.project-figure {
+  grid-column: 2;
+  grid-row: 3 / span 2;
+  align-self: start;
+  margin: 0;
+  text-align: center;
+}
+.project-figure img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  background: #fff;
+  padding: 0;
+  display: block;
+  margin: 0;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.project-figure img:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.project-figure figcaption {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.55rem;
   font-style: italic;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.project-problem {
+  grid-column: 1;
+  grid-row: 3;
+  margin: 0 0 1rem !important;
+  color: var(--text);
+}
+.project-method {
+  grid-column: 1;
+  grid-row: 4;
+  margin: 0 0 0.5rem !important;
+  color: var(--text);
+}
+
+/* Mobile: collapse to single column, image flows below the prose */
+@media (max-width: 767px) {
+  #projects .project {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+  .project-figure,
+  .project-problem,
+  .project-method {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .project-figure {
+    margin-bottom: 1.25rem;
+  }
 }
 
 /* Publication status badges */
@@ -868,20 +1408,14 @@ dd {
   display: block;
 }
 
-/* Narrow the viewport ----------------------------------------------- */
-/* Customize container */
-@media only screen and (min-width: 767px) {
-  .container {
-    max-width: 780px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
+/* Container — wider than strict prose to match the user's preference for a
+   more horizontal layout. Pages with figures and publication lists get extra room. */
 @media only screen and (min-width: 768px) {
-
-  /* Remove the padding we set earlier */
   .container {
-    max-width: 1120px;
+    max-width: 960px;
+  }
+  body.wide-page .container {
+    max-width: 1140px;
   }
 }
 
@@ -947,11 +1481,14 @@ dd {
   opacity: .8;
 }
 
-/* Make the website width responsive to larger screens */
+/* Larger screens: hold the same wider widths set above. */
 @media (min-width: 1200px) {
   .container {
-    width: 90%;
-    max-width: 1280px;
+    width: auto;
+    max-width: 960px;
+  }
+  body.wide-page .container {
+    max-width: 1140px;
   }
 }
 
@@ -1043,14 +1580,79 @@ dd {
   --muted: #9ca3af;
   --heading: #f3f4f6;
   --accent: #58a6ff;
+  --accent-soft: #1e3a8a;       /* deep navy tint for tinted backgrounds in dark */
+  --link: #58a6ff;              /* link blue tracks accent in dark */
   --border: #374151;
+  --border-soft: #2a3441;       /* dim hairline */
   --panel: #1e293b;
+  --panel-tint: #182232;        /* one notch darker than panel */
+  --bg: #0f172a;                /* page background */
+  /* Card category accents stay distinct but slightly muted in dark mode */
+  --tone-1: #58a6ff;
+  --tone-2: #38bdf8;
+  --tone-3: #5eead4;
+  /* Shadows are nearly invisible on dark; use very low-opacity black for depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.40), 0 1px 3px rgba(0, 0, 0, 0.30);
+  --shadow-lg: 0 14px 30px rgba(0, 0, 0, 0.50), 0 4px 8px rgba(0, 0, 0, 0.35);
+  --focus-ring: 0 0 0 3px rgba(88, 166, 255, 0.45);
 }
 
 [data-theme="dark"] body {
-  background: #0f172a;
+  background: var(--bg);
   color: var(--text);
 }
+
+/* Brand band: dark variant of the white -> tint gradient */
+[data-theme="dark"] #site-brand {
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-tint) 100%);
+  border-bottom: 1px solid var(--border);
+}
+[data-theme="dark"] .brand-name { color: var(--heading) !important; }
+[data-theme="dark"] .brand-name:hover { color: var(--accent) !important; }
+[data-theme="dark"] .brand-unit { color: var(--muted); }
+
+/* Cards on dark: panel background, dim border, low-opacity shadow */
+[data-theme="dark"] .news-card,
+[data-theme="dark"] .priority-card {
+  background: var(--panel);
+  border-color: var(--border);
+}
+[data-theme="dark"] .news-card-img,
+[data-theme="dark"] .priority-img {
+  background: var(--panel-tint);
+}
+[data-theme="dark"] .news-card-title,
+[data-theme="dark"] .priority-title {
+  color: var(--heading) !important;
+}
+[data-theme="dark"] .news-card-date,
+[data-theme="dark"] .priority-desc {
+  color: var(--muted);
+}
+
+/* Project & vision figures get a muted dark backdrop instead of white */
+[data-theme="dark"] .project-figure img,
+[data-theme="dark"] .vision-figure img {
+  background: var(--panel-tint);
+  border-color: var(--border);
+}
+
+/* News-page thumbnail strip uses a hardcoded background in news.html — override here */
+[data-theme="dark"] .news-images img {
+  background: var(--panel-tint);
+  border-color: var(--border);
+}
+
+/* Sidebar bullets and contact text on dark */
+[data-theme="dark"] .sidebar-name { color: var(--heading) !important; }
+[data-theme="dark"] .sidebar-role,
+[data-theme="dark"] .sidebar-office,
+[data-theme="dark"] .sidebar-roles { color: var(--text); }
+
+/* Footer line readability on dark */
+[data-theme="dark"] .copyright-text,
+[data-theme="dark"] .copyright-text a { color: var(--muted); }
 
 [data-theme="dark"] .navbar-inverse {
   background: #0d1b2a !important;
@@ -1156,4 +1758,89 @@ dd {
 
 [data-theme="dark"] .social-icons li a {
   color: var(--accent);
+}
+
+[data-theme="dark"] {
+  --accent-hover: #93c5fd;
+  --focus-ring: 0 0 0 3px rgba(88, 166, 255, 0.45);
+}
+
+[data-theme="dark"] .news-tag {
+  background-color: #1e3a8a;
+  color: #bfdbfe;
+}
+
+[data-theme="dark"] .skip-link {
+  background: #0d1b2a;
+}
+
+/* Print styles --------------------------------------------------------------- */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  /* Hide chrome & navigation */
+  .navbar,
+  .navbar-inverse,
+  #topper,
+  footer,
+  .skip-link,
+  #theme-toggle,
+  .project-toggle,
+  .accordion-plus-toggle:before,
+  .news-images,
+  iframe {
+    display: none !important;
+  }
+
+  /* Expand all collapsible content for the printed page */
+  .panel-collapse,
+  .panel-collapse.collapse,
+  .project-details {
+    display: block !important;
+    height: auto !important;
+    visibility: visible !important;
+  }
+
+  /* Keep the section-card flat on paper (no shadow/box) */
+  .section-card,
+  .news-item,
+  .panel {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+    background: #fff !important;
+  }
+
+  a, #main-container a {
+    color: #000 !important;
+    text-decoration: underline;
+    border-bottom: none !important;
+  }
+
+  /* Show URLs after external links so the reader can find them on paper */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+    word-break: break-all;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  .container {
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
 }

@@ -1,8 +1,30 @@
-<h1>Academic Website Template</h1>
+# jichuantang.github.io
 
-<p>This is a free thing. You may download this and use it to create your own website(s), as long as you abide by the license restrictions.</p>
+Personal academic website of **Jichuan Tang**, Ph.D. student in Civil Engineering at the University of Notre Dame.
 
-<p>Enjoy it and if you like this, drop me a line and let me know!</p>
+Live site: <https://jichuantang.github.io>
 
-<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> messages.attribution.is_licensed_by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-# academic-pages
+## Pages
+
+- `index.html` — Research overview and current projects
+- `about.html` — Bio, education, awards, contact
+- `news.html` — News, talks, and conferences
+- `publication.html` — Journal papers, conference papers, thesis
+
+## Stack
+
+Static HTML pages styled with Bootstrap 3, jQuery, Font Awesome, and Academicons. Dark mode and small interactions live in `js/main.js`. Page chrome (navbar/footer) is shared via the `w3-include-html` pattern in `js/w3data.js`.
+
+## Local development
+
+The site is fully static. Open `index.html` in a browser, or serve the directory with any static server, e.g.:
+
+```sh
+python -m http.server 8000
+```
+
+then visit <http://localhost:8000>.
+
+## Credits
+
+Original academic site template by Randal Sean Harrison (Hesburgh Libraries, University of Notre Dame), released under the included `LICENSE`. Substantially customized and extended for this site.
