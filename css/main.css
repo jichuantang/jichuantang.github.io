@@ -205,28 +205,83 @@ body {
   color: var(--muted);
 }
 
-/* Recent / news-mini list (home page) */
-.news-mini {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+/* === Wang-style Latest News card grid =================================== */
+.header-with-button {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
-.news-mini li {
-  padding: 0.45rem 0;
-  border-bottom: 1px solid var(--border);
-  line-height: 1.5;
-  font-size: 0.95rem;
+.header-with-button h2 { margin-bottom: 0 !important; }
+.link-button {
+  font-size: 0.88rem;
+  color: var(--link) !important;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
-.news-mini li:last-child { border-bottom: 0; }
-.news-mini-date {
-  display: inline-block;
-  min-width: 70px;
+.link-button:hover { text-decoration: underline; }
+
+.news-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+.news-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  text-decoration: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding-bottom: 0 !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.news-card:hover {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.10);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+.news-card-img {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--panel);
+}
+.news-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.news-card-meta {
+  padding: 0.7rem 0.85rem 0.85rem;
+}
+.news-card-date {
+  display: block;
   font-size: 0.78rem;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  margin-right: 0.6rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+.news-card-title {
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--heading) !important;
+  margin: 0 !important;
+}
+.news-card:hover .news-card-title { color: var(--link) !important; }
+
+@media (max-width: 767px) {
+  .news-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .news-cards { grid-template-columns: 1fr; }
 }
 
 /* Hash-anchor target highlight: when someone shares /publication.html#pub-deeponet
@@ -412,31 +467,83 @@ cite {
   }
 }
 
-/* About / home sidebar: photo + role label only */
+/* === Wang-style hero sidebar (info-dense) ============================== */
+.hero-split { display: flex; flex-wrap: wrap; }
+.hero-main { padding-left: 1.75rem; }
+.hero-h { margin-top: 0 !important; }
+
 .about-sidebar {
-  text-align: center;
   font-size: 0.95rem;
+  border-right: 1px solid var(--border);
+  padding-right: 1.5rem;
 }
 .about-sidebar img.img-thumbnail {
-  width: 100%;
-  max-width: 220px;
-  margin: 0 auto;
   display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 0 0.9rem;
+  border-radius: 4px;
 }
-.about-sidebar #title {
-  font-size: 1rem;
-  margin-top: 1rem;
+.sidebar-name {
+  margin: 0.4rem 0 0.3rem !important;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: var(--heading);
+  color: var(--heading) !important;
 }
-.about-sidebar #program {
-  font-size: 0.9rem;
-  color: var(--muted);
+.sidebar-role {
+  margin: 0 0 0.9rem;
+  line-height: 1.45;
+  color: var(--text);
+  font-size: 0.95rem;
   font-weight: 400;
 }
-@media (max-width: 767px) {
-  .about-sidebar { margin-bottom: 1.25rem; }
+.sidebar-role .muted { color: var(--muted); font-weight: 300; }
+
+.sidebar-office {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text);
+  font-weight: 300;
 }
+.sidebar-office strong { font-weight: 600; }
+
+.sidebar-roles {
+  list-style: disc;
+  padding-left: 1.1rem;
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+.sidebar-roles li { margin-bottom: 0.3rem; font-weight: 300; }
+
+.sidebar-links-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;       /* Wang convention: bold link list */
+  line-height: 1.7;
+}
+.sidebar-links-list li { padding: 0; }
+.sidebar-links-list a { color: var(--link) !important; }
+
+@media (max-width: 767px) {
+  .about-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero-main { padding-left: 15px; }
+  .about-sidebar img.img-thumbnail { max-width: 220px; margin-left: auto; margin-right: auto; }
+}
+
+/* Legacy id selectors used elsewhere on the page — keep simple defaults */
+#title { color: var(--heading); margin: 0; }
+#program { color: var(--muted); }
 
 p {
   line-height: 1.7;
@@ -504,10 +611,59 @@ iframe {
   background: #fff;
 }
 
+/* === Wang/CWD-2024-style site chrome: brand band, accent strip, nav band === */
+
+#site-brand {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0 1rem;
+}
+#site-brand .brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+}
+.brand-name {
+  font-family: 'Roobert', 'Inter', Verdana, Helvetica, sans-serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--heading) !important;
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.1;
+}
+.brand-name:hover {
+  color: var(--accent) !important;
+  border-bottom: 0 !important;
+}
+.brand-unit {
+  font-family: 'Roobert', 'Inter', Verdana, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin: 0.15rem 0 0;
+  line-height: 1.3;
+}
+
+/* Accent strip — Wang uses a hilltop photo here; we use a flat navy line. */
+#image-band {
+  height: 6px;
+  background: var(--accent);
+}
+
+/* Hide the Bootstrap navbar-brand label on desktop; the brand band already
+   shows the name. Keep visible on mobile (collapsed nav) for orientation. */
+@media (min-width: 768px) {
+  .navbar-brand { display: none !important; }
+}
+
 /* Format the nav  ---------------------------------------------------------- */
 nav {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -579,9 +735,23 @@ nav {
 }
 
 .navbar-inverse {
-  background: var(--heading);
-  border-color: var(--heading);
+  background: var(--accent);     /* Wang uses a near-black; we use ND navy as a brand cue */
+  border-color: var(--accent);
   margin-bottom: 0;
+  border-radius: 0;
+  min-height: 44px;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  font-weight: 500;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background: transparent !important;
+  color: #fff !important;
 }
 
 .navbar-brand {
@@ -650,7 +820,7 @@ nav {
 }
 
 .spacer-div-3 {
-  height: 45px !important;
+  height: 1.5rem !important;       /* Brand band + nav supply most chrome already */
 }
 
 #link-to-docs,
