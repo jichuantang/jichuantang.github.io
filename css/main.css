@@ -800,10 +800,28 @@ iframe {
   line-height: 1.3;
 }
 
-/* Accent strip — Wang uses a hilltop photo here; we use a flat navy line. */
+/* Image band — Wang uses a hilltop photo; we use the Notre Dame Dome +
+   Basilica spire skyline. The same banner doubles as institutional cue
+   and as a tonal break between the brand row and the dark nav band. */
 #image-band {
-  height: 6px;
-  background: var(--accent);
+  height: 130px;
+  background-image:
+    /* Soft navy gradient at the bottom for visual continuity into the nav band */
+    linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(12,35,64,0.18) 100%),
+    url("../img/nd-banner.jpg");
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--border-soft);
+}
+@media (max-width: 767px) {
+  #image-band { height: 80px; }
+}
+[data-theme="dark"] #image-band {
+  background-image:
+    linear-gradient(180deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.85) 100%),
+    url("../img/nd-banner.jpg");
+  border-bottom-color: var(--border);
 }
 
 /* Hide the Bootstrap navbar-brand label on desktop; the brand band already
