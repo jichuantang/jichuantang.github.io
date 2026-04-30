@@ -22,7 +22,13 @@
   <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
   <meta property="og:url" content="https://jichuantang.github.io/about.html">
   <link rel="canonical" href="https://jichuantang.github.io/about.html">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jichuan Tang - About">
+  <meta name="twitter:description" content="Ph.D. student in Civil Engineering at the University of Notre Dame, specializing in structural dynamics, control theory, and smart sensing technologies.">
+  <meta name="twitter:image" content="https://jichuantang.github.io/img/tang.jpg">
 
   <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
   <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
@@ -68,7 +74,9 @@
 
 </head>
 
-<body>
+<body id="top">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- navbar include -->
   <div w3-include-html="navbar.html"></div>
@@ -76,6 +84,7 @@
   <div class="spacer-div-3 hidden-xs"></div>
 
   <!-- Main content    -->
+  <main id="main" tabindex="-1">
   <div id="main-container" class="container">
 
       <!--
@@ -309,8 +318,9 @@
       </div> <!-- /.col-sm-12 -->
     </div> <!-- /.row -->
   </div> <!-- /.container -->
+  </main>
   <!-- Back-to-top button -->
-  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" aria-label="Back to top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
 
   <!-- footer include -->

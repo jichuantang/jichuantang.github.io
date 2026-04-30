@@ -24,6 +24,48 @@
    <link rel="canonical" href="https://jichuantang.github.io/">
    <meta property="og:type" content="website">
 
+   <!-- Twitter Card -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Jichuan Tang - Research">
+   <meta name="twitter:description" content="Projects and research by Jichuan Tang, covering multi-fidelity models, smart transportation, and structural health monitoring.">
+   <meta name="twitter:image" content="https://jichuantang.github.io/img/tang.jpg">
+
+   <!-- Structured data: Person -->
+   <script type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "Person",
+     "name": "Jichuan Tang",
+     "url": "https://jichuantang.github.io/",
+     "image": "https://jichuantang.github.io/img/tang.jpg",
+     "jobTitle": "Ph.D. Student in Civil Engineering",
+     "email": "mailto:jtang4@nd.edu",
+     "affiliation": {
+       "@type": "CollegeOrUniversity",
+       "name": "University of Notre Dame",
+       "url": "https://www.nd.edu/"
+     },
+     "alumniOf": [
+       {"@type": "CollegeOrUniversity", "name": "Tianjin University", "url": "https://www.tju.edu.cn/english/index.htm"},
+       {"@type": "CollegeOrUniversity", "name": "Hubei University of Technology", "url": "https://en.hbut.edu.cn/index.htm"}
+     ],
+     "knowsAbout": [
+       "Structural dynamics",
+       "Structural health monitoring",
+       "Scientific machine learning",
+       "Deep reinforcement learning",
+       "Multi-fidelity surrogate modeling",
+       "Uncertainty quantification"
+     ],
+     "sameAs": [
+       "https://scholar.google.com/citations?user=e0d84u0AAAAJ&hl=en",
+       "https://www.researchgate.net/profile/Jichuan-Tang/",
+       "https://github.com/jichuantang",
+       "https://www.linkedin.com/in/jichuan-tang-1281b1218/"
+     ]
+   }
+   </script>
+
    <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
@@ -70,16 +112,19 @@
 
 </head>
 
-<body>
+<body id="top">
+
+   <a class="skip-link" href="#main">Skip to main content</a>
 
    <!-- navbar include -->
    <div w3-include-html="navbar.html"></div>
 
    <div class="spacer-div-3 hidden-xs"></div>
-   
+
 <!-- ################################# -->
    <!-- Main content    -->
- 
+
+   <main id="main" tabindex="-1">
    <div id="main-container" class="container">
 
       <div class="section-card">
@@ -240,9 +285,10 @@
       </div> <!-- /.section-card -->
 
    </div> <!-- /.container -->
+   </main>
 
    <!-- Back-to-top button -->
-   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" aria-label="Back to top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
    <!-- footer include -->
    <div w3-include-html="footer.html"></div>

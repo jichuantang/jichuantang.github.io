@@ -14,15 +14,21 @@
    <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com">
 
    <meta name="description" content="List of publications by Jichuan Tang, focusing on civil engineering, structural dynamics, and scientific AI.">
-   <title>Jichuan Tang - Publication</title>
+   <title>Jichuan Tang - Publications</title>
 
    <!-- Open Graph -->
-   <meta property="og:title" content="Jichuan Tang - Publication">
+   <meta property="og:title" content="Jichuan Tang - Publications">
    <meta property="og:description" content="List of publications by Jichuan Tang, focusing on civil engineering, structural dynamics, and scientific AI.">
    <meta property="og:image" content="https://jichuantang.github.io/img/tang.jpg">
    <meta property="og:url" content="https://jichuantang.github.io/publication.html">
    <link rel="canonical" href="https://jichuantang.github.io/publication.html">
    <meta property="og:type" content="website">
+
+   <!-- Twitter Card -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Jichuan Tang - Publications">
+   <meta name="twitter:description" content="List of publications by Jichuan Tang, focusing on civil engineering, structural dynamics, and scientific AI.">
+   <meta name="twitter:image" content="https://jichuantang.github.io/img/tang.jpg">
 
    <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
@@ -68,7 +74,9 @@
 
 </head>
 
-<body>
+<body id="top">
+
+   <a class="skip-link" href="#main">Skip to main content</a>
 
    <!-- navbar include -->
    <div w3-include-html="navbar.html"></div>
@@ -76,6 +84,7 @@
    <div class="spacer-div-3 hidden-xs"></div>
 
    <!-- Main content    -->
+   <main id="main" tabindex="-1">
    <div id="main-container" class="container">
 
       <!-- Journal Publications -->
@@ -99,13 +108,13 @@
                "Reinforcement Learning Control Method for Real-time Hybrid Simulation based on Deep Deterministic Policy Gradient Algorithm."
                <em>Structural Control and Health Monitoring</em>, vol. 29, no. 10, e3035, 2022.
                <small class="text-muted">(Co-first author)</small>
-               [<a href="https://doi.org/10.1002/stc.3035" target="_blank">DOI</a>]
+               [<a href="https://doi.org/10.1002/stc.3035" target="_blank" rel="noopener noreferrer">DOI</a>]
             </li>
             <li id="pub-shaking-table">
                <strong>Jichuan Tang</strong>, Ning Li*, and Zhong-Xian Li.
                "Underwater Shaking Table Time Delay Compensation and Control Optimization based on Reinforcement Learning."
                <em>Engineering Mechanics</em>, vol. 40, no. 12, pp. 65-75, 2022.
-               [<a href="https://doi.org/10.6052/j.issn.1000-4750.2021.11.0900" target="_blank">DOI</a>]
+               [<a href="https://doi.org/10.6052/j.issn.1000-4750.2021.11.0900" target="_blank" rel="noopener noreferrer">DOI</a>]
             </li>
          </ul>
       </div>
@@ -135,7 +144,7 @@
                <strong>Jichuan Tang</strong>.
                "Research on Control Method for Real-time Hybrid Simulation Based on Reinforcement Learning."
                <em>Master's Thesis</em>, Tianjin University, 2022.
-               [<a href="https://www.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&dbname=CMFDTEMP&filename=1024399281.nh&uniplatform=OVERSEA&v=xDb0PbbKwEUSdLTDOwhrZy9gtqCdWAQ2-aw84oMeKMPBrAVQIhTkGEFnow25z_Bc" target="_blank">PDF</a>]
+               [<a href="https://www.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&dbname=CMFDTEMP&filename=1024399281.nh&uniplatform=OVERSEA&v=xDb0PbbKwEUSdLTDOwhrZy9gtqCdWAQ2-aw84oMeKMPBrAVQIhTkGEFnow25z_Bc" target="_blank" rel="noopener noreferrer">PDF</a>]
             </li>
          </ul>
 
@@ -145,9 +154,10 @@
       </div>
 
    </div> <!-- /.container -->
+   </main>
 
    <!-- Back-to-top button -->
-   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" aria-label="Back to top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
    <!-- footer include -->
    <div w3-include-html="footer.html"></div>
@@ -169,8 +179,8 @@
 
    <script>
       $(document).ready(function() {
-         $("li#research a").addClass("active");
-         $("li#research a").addClass("hvr-bubble-bottom");
+         $("li#publication a").addClass("active");
+         $("li#publication a").addClass("hvr-bubble-bottom");
 
       });
    </script>

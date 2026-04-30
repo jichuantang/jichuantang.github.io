@@ -24,6 +24,12 @@
    <link rel="canonical" href="https://jichuantang.github.io/news.html">
    <meta property="og:type" content="website">
 
+   <!-- Twitter Card -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Jichuan Tang - News">
+   <meta name="twitter:description" content="Latest news and updates from Jichuan Tang's academic and research journey.">
+   <meta name="twitter:image" content="https://jichuantang.github.io/img/tang.jpg">
+
    <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
@@ -177,7 +183,9 @@
 
 </head>
 
-<body>
+<body id="top">
+
+   <a class="skip-link" href="#main">Skip to main content</a>
 
    <!-- navbar include -->
    <div w3-include-html="navbar.html"></div>
@@ -185,6 +193,7 @@
    <div class="spacer-div-3 hidden-xs"></div>
 
    <!-- Main content -->
+   <main id="main" tabindex="-1">
    <div id="main-container" class="container">
 
       <div class="section-card">
@@ -230,7 +239,7 @@
                </div>
                <h4 class="news-title">New Publication on ArXiv</h4>
                <div class="news-content">
-                  <p>Our latest paper "A Full-field Extended Deep Operator Network for Spatio-temporal Surrogates in Structural Dynamic" has been published on arXiv. This work presents a novel approach to creating surrogate models for complex structural dynamics problems.</p>
+                  <p>Our latest paper "A Full-field Extended Deep Operator Network as a Spatio-temporal Surrogate for Structural Dynamics" has been published on arXiv. This work presents a novel approach to creating surrogate models for complex structural dynamics problems.</p>
                   <div class="news-tags">
                      <span class="news-tag">Publication</span>
                      <span class="news-tag">Deep Learning</span>
@@ -354,9 +363,10 @@
       </div> <!-- /.section-card -->
 
    </div>
+   </main>
 
    <!-- Back-to-top button -->
-   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+   <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" aria-label="Back to top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
 
    <!-- footer include -->
    <div w3-include-html="footer.html"></div>
@@ -384,7 +394,8 @@
          // Optional: Add click functionality for gallery images
          $('.news-images img').click(function() {
             var src = $(this).attr('src');
-            window.open(src, '_blank');
+            var w = window.open(src, '_blank', 'noopener,noreferrer');
+            if (w) { w.opener = null; }
          });
       });
    </script>
