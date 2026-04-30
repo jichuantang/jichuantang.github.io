@@ -115,33 +115,6 @@ body {
 
 .university { color: var(--muted); }
 
-/* Contact definition list (home page) */
-.contact-list {
-  margin: 0;
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  row-gap: 0.5rem;
-  column-gap: 1rem;
-  font-size: 0.97rem;
-}
-.contact-list dt {
-  font-weight: 600;
-  color: var(--muted);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding-top: 0.15rem;
-}
-.contact-list dd { margin: 0; }
-
-@media (max-width: 575px) {
-  .contact-list {
-    grid-template-columns: 1fr;
-    row-gap: 0.15rem;
-  }
-  .contact-list dt { padding-top: 0.6rem; }
-}
-
 /* Awards — flat list, no accordion */
 .award-list {
   list-style: disc;
@@ -161,6 +134,80 @@ body {
 
 /* Affiliations strip (no card chrome) */
 .school-affiliations { padding-top: 0.5rem; }
+
+/* Sidebar contact list (under photo on home page) */
+.sidebar-contact {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.sidebar-contact li {
+  margin-bottom: 0.5rem;
+}
+.sidebar-contact li:last-child { margin-bottom: 0; }
+.sidebar-contact .muted-note {
+  font-size: 0.82rem;
+  margin: 0.4rem 0;
+}
+.sidebar-contact .sidebar-links {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Recent / news-mini list (home page) */
+.news-mini {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.news-mini li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.news-mini li:last-child { border-bottom: 0; }
+.news-mini-date {
+  display: inline-block;
+  min-width: 70px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-right: 0.6rem;
+}
+
+/* Hash-anchor target highlight: when someone shares /publication.html#pub-deeponet
+   the targeted entry briefly receives a tinted background, and the scroll lands
+   below the navbar rather than under it. */
+:target {
+  scroll-margin-top: 90px;
+}
+.publications li:target,
+.project:target,
+.news-entry:target {
+  background: rgba(12, 35, 64, 0.06);
+  margin-left: -0.8rem;
+  margin-right: -0.8rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border-radius: 3px;
+  animation: target-flash 2s ease-out 1;
+}
+@keyframes target-flash {
+  0%   { background: rgba(12, 35, 64, 0.18); }
+  100% { background: rgba(12, 35, 64, 0.06); }
+}
+[data-theme="dark"] .publications li:target,
+[data-theme="dark"] .project:target,
+[data-theme="dark"] .news-entry:target {
+  background: rgba(88, 166, 255, 0.10);
+  animation: none; /* skip the navy flash; the static tint is enough on dark */
+}
 
 /* Typography — academic scale, single family, two weights only */
 h1, h2, h3, h4, h5, h6 {
@@ -390,26 +437,9 @@ blockquote footer {
   padding-bottom: 1.5rem;
 }
 
-#title {
-  color: var(--heading);
-  margin-top: 2rem;
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-#program {
-  color: var(--muted);
-  text-align: center;
-}
-
-#contact-table td {
-  vertical-align: top;
-}
-
-#contact-table i {
-  color: var(--muted);
-}
+/* #title / #program are styled inside .about-sidebar — kept centered there only.
+   The legacy global rules and #contact-table styles were removed when the
+   contact information moved into the sidebar list. */
 
 iframe {
   padding: 3px;

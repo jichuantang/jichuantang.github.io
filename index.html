@@ -94,39 +94,64 @@
    <main id="main" tabindex="-1">
    <div id="main-container" class="container">
 
-      <!-- ===== Bio ===== -->
+      <!-- ===== Bio + sidebar contact ===== -->
       <section class="section-card" aria-labelledby="bio-h">
          <div class="row">
             <div class="col-sm-4 col-md-3 about-sidebar">
                <img class="img-responsive img-thumbnail" src="img/tang.jpg" alt="Photograph of Jichuan Tang">
                <p id="title">Ph.D. Student<br><span id="program">Civil Engineering</span></p>
+               <ul class="sidebar-contact" aria-label="Contact">
+                  <li><a href="mailto:jtang4@nd.edu">jtang4@nd.edu</a></li>
+                  <li class="muted-note">155 Fitzpatrick Hall<br>University of Notre Dame</li>
+                  <li class="sidebar-links">
+                     <a href="https://scholar.google.com/citations?user=e0d84u0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Scholar</a> ·
+                     <a href="https://github.com/jichuantang" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+                     <a href="https://www.linkedin.com/in/jichuan-tang-1281b1218/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  </li>
+                  <li><a href="Resume_Jichuan_Tang_2025.pdf" target="_blank" rel="noopener"><strong>CV (PDF)</strong></a></li>
+               </ul>
             </div>
             <div class="col-sm-8 col-md-9">
                <h1 id="bio-h">Jichuan Tang</h1>
-               <p>Jichuan Tang is a Ph.D. student in Civil Engineering at the University of Notre Dame, where he is a Graduate Research Assistant in the <a href="https://www.brewicklab.org/">Brewick Group</a> advised by Prof. <a href="https://engineering.nd.edu/faculty/patrick-brewick/">Patrick Brewick</a>. His research develops scientific machine learning methods — neural operators, multi-fidelity surrogates, and reinforcement learning controllers — for problems in structural dynamics and structural health monitoring.</p>
+               <p>Jichuan Tang is a Ph.D. student in Civil Engineering at the University of Notre Dame, where he is a Graduate Research Assistant in the <a href="https://www.brewicklab.org/">Brewick Group</a> advised by Prof. <a href="https://engineering.nd.edu/faculty/patrick-brewick/">Patrick Brewick</a>. His research develops scientific machine learning methods — neural operators, multi-fidelity surrogates, and reinforcement-learning controllers — for problems in structural dynamics and structural health monitoring.</p>
                <p>He earned his M.S. in Civil Engineering from Tianjin University in 2022, including a research visit to the <a href="https://www.yfulift.org/">LIFT Laboratory</a> at Nanyang Technological University. Before Notre Dame, he was a research assistant at the Institute of Urban Smart Transportation and Safety Maintenance at Shenzhen University.</p>
             </div>
          </div>
       </section>
 
-      <!-- ===== Contact ===== -->
-      <section class="section-card" aria-labelledby="contact-h">
-         <h2 id="contact-h">Contact</h2>
-         <dl class="contact-list">
-            <dt>Email</dt>
-            <dd><a href="mailto:jtang4@nd.edu">jtang4@nd.edu</a></dd>
-            <dt>Office</dt>
-            <dd>155 Fitzpatrick Hall, University of Notre Dame, Notre Dame, IN 46556</dd>
-            <dt>Profiles</dt>
-            <dd>
-               <a href="https://scholar.google.com/citations?user=e0d84u0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> ·
-               <a href="https://github.com/jichuantang" target="_blank" rel="noopener noreferrer">GitHub</a> ·
-               <a href="https://www.linkedin.com/in/jichuan-tang-1281b1218/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
-               <a href="https://www.researchgate.net/profile/Jichuan-Tang/" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-            </dd>
-            <dt>CV</dt>
-            <dd><a href="Resume_Jichuan_Tang_2025.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a></dd>
-         </dl>
+      <!-- ===== Selected publications (academic landing convention) ===== -->
+      <section class="section-card" aria-labelledby="selpubs-h">
+         <h2 id="selpubs-h">Selected Publications</h2>
+         <ul class="publications">
+            <li>
+               <strong>Jichuan Tang</strong>, R. G. McClarren, C. Sweet, P. T. Brewick.
+               &ldquo;A Full-field Extended Deep Operator Network as a Spatio-temporal Surrogate for Structural Dynamics.&rdquo;
+               <em>Engineering Structures</em>, 2025.
+               <span class="pub-badge pub-badge-review">Under Review</span>
+            </li>
+            <li>
+               N. Li, <strong>Jichuan Tang</strong>, Z.-X. Li, S. Gao.
+               &ldquo;Reinforcement Learning Control Method for Real-time Hybrid Simulation based on Deep Deterministic Policy Gradient Algorithm.&rdquo;
+               <em>Structural Control and Health Monitoring</em>, 2022.
+               <small class="text-muted">(Co-first author)</small>
+               <div class="pub-links">
+                  <a href="https://doi.org/10.1002/stc.3035" target="_blank" rel="noopener noreferrer">[DOI]</a>
+               </div>
+            </li>
+         </ul>
+         <p class="muted-note"><a href="publication.html">Full publication list &rarr;</a></p>
+      </section>
+
+      <!-- ===== Recent activity (mini news preview) ===== -->
+      <section class="section-card" aria-labelledby="recent-h">
+         <h2 id="recent-h">Recent</h2>
+         <ul class="news-mini">
+            <li><span class="news-mini-date">Jan 2026</span> Tutorial &amp; poster at the UPR–ND Winter School for Scientific AI.</li>
+            <li><span class="news-mini-date">Jun 2025</span> Preprint: full-field DeepONet for structural dynamics.</li>
+            <li><span class="news-mini-date">May 2025</span> Talk at EMI 2025 (Anaheim, CA).</li>
+            <li><span class="news-mini-date">Jan 2025</span> Selected as a Notre Dame SAI Fellow.</li>
+         </ul>
+         <p class="muted-note"><a href="news.html">Older news &rarr;</a></p>
       </section>
 
       <!-- ===== Education ===== -->
