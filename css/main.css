@@ -135,6 +135,46 @@ body {
 /* Affiliations strip (no card chrome) */
 .school-affiliations { padding-top: 0.5rem; }
 
+/* Hero subtitle line under H1 — institution / role / lab */
+.role-line {
+  margin: -0.4rem 0 1rem !important;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.role-line a {
+  color: var(--muted) !important;
+  border-bottom: 1px dotted var(--border) !important;
+  font-weight: 500 !important;
+}
+.role-line a:hover {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent) !important;
+}
+
+/* Lede paragraph — slightly larger / heavier than body for the bio's first sentence */
+.lede {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--heading);
+  margin-bottom: 1.2rem !important;
+}
+
+/* Research interests — pipe-separated inline blocks, no bullets, dense academic look */
+.interests {
+  margin: 0 0 0.6rem !important;
+  line-height: 2.1;
+}
+.interests .interest {
+  display: inline;
+}
+.interests .interest:not(:last-child)::after {
+  content: " · ";
+  color: var(--border);
+  margin: 0 0.35rem;
+}
+
 /* Sidebar contact list (under photo on home page) */
 .sidebar-contact {
   list-style: none;
