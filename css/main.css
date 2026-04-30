@@ -1,13 +1,16 @@
 /* Global page and element settings ----------------------------------------------------- */
+/* Academic palette: near-black on off-white, single accent.
+   Inter is the only typeface family; weights limited to 400 + 600. */
 :root {
-  --text: #334155;
-  --muted: #64748b;
-  --heading: #1e293b;
-  --accent: #2563eb;
+  --text: #1f2933;
+  --muted: #5b6671;
+  --heading: #0f172a;
+  --accent: #0c2340;          /* Notre Dame navy — single accent */
   --accent-hover: #1d4ed8;
-  --border: #e2e8f0;
-  --panel: #f8fafc;
-  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.35);
+  --border: #e3e6eb;
+  --panel: #f7f7f5;           /* warm off-white */
+  --bg: #fbfbf9;
+  --focus-ring: 0 0 0 3px rgba(12, 35, 64, 0.30);
 }
 
 /* Skip-to-content link for keyboard / screen-reader users */
@@ -41,67 +44,31 @@ button:focus-visible,
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
   scroll-behavior: smooth;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: 1200px) {
-  html {
-    font-size: 16px;
-  }
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-size: 1rem;
-  font-family: "Open Sans", Arial, sans-serif;
-  background: #FFFFFF;
+  /* Single typeface: Inter + system fallbacks */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern", "liga", "calt", "ss01";
 }
 
-/* Fade-in animation for page content */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section-card {
-  animation: fadeInUp 0.5s ease-out both;
-}
-
-.section-card:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.section-card:nth-child(3) {
-  animation-delay: 0.2s;
-}
-
-/* Respect users who request less motion */
+/* Respect users who request less motion (kept even though we removed
+   most animations — covers any remaining hover transitions). */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .section-card,
-  .news-item:hover,
-  .news-images img:hover {
-    animation: none !important;
-    transform: none !important;
   }
 }
 
@@ -116,83 +83,144 @@ body {
   cursor: pointer;
 }
 
-/* Font style */
+/* Legacy class kept for navbar compatibility — now resolves to the single typeface. */
 .montserrat {
-  font-family: "Montserrat", Helvetica, sans-serif !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
-/* Degree area -------------------------------------------------------------------- */
+/* Degree / education list ------------------------------------------------- */
 #education {
   list-style-type: none;
   padding-left: 0;
 }
 
 #education li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.45;
 }
 
-.university {
-  color: var(--muted);
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", Helvetica, sans-serif;
+#education li strong {
   color: var(--heading);
   font-weight: 600;
-  letter-spacing: 0.2px;
 }
 
-h1 {
-  margin-bottom: 2.75rem;
-  font-size: 2.6rem;
+#education li .ed-meta {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.university { color: var(--muted); }
+
+/* Contact definition list (home page) */
+.contact-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+  font-size: 0.97rem;
+}
+.contact-list dt {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.15rem;
+}
+.contact-list dd { margin: 0; }
+
+@media (max-width: 575px) {
+  .contact-list {
+    grid-template-columns: 1fr;
+    row-gap: 0.15rem;
+  }
+  .contact-list dt { padding-top: 0.6rem; }
+}
+
+/* Awards — flat list, no accordion */
+.award-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+.award-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.muted-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.8rem;
+}
+
+/* Affiliations strip (no card chrome) */
+.school-affiliations { padding-top: 0.5rem; }
+
+/* Typography — academic scale, single family, two weights only */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  color: var(--heading);
+  font-weight: 600;
+  letter-spacing: -0.005em;
   line-height: 1.25;
 }
 
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.95rem;
+}
+
 h2, h3 {
-  margin: 0 0 1.5rem !important;
+  margin: 0 0 1rem !important;
   color: var(--heading);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.55rem;
 }
 
 h3 {
-  font-size: 1.65rem;
+  font-size: 1.3rem;
 }
 
+/* h4 is used as section sub-head (e.g., year in publications); avoid the dated all-caps */
 h4 {
-  text-transform: uppercase;
-  font-size: 1.35rem;
-}
-
-h4, h5, h6 {
-  color: var(--text) !important;
+  text-transform: none;
+  font-size: 1.05rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.75rem;
+  color: var(--heading) !important;
+  font-weight: 600;
 }
 
 h5 {
-  font-size: 1.2rem;
-}
-
-h6 {
   font-size: 1rem;
 }
 
+h6 {
+  font-size: 0.95rem;
+}
+
 .panel-heading h5 {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--accent) !important;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--heading) !important;
 }
 
 #projects .panel-heading h5 {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--heading) !important;
 }
 
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
   font-size: 1rem;
-  font-family: "Montserrat", Helvetica, sans-serif;
+  font-family: inherit;
   font-weight: 400;
 }
 
@@ -201,11 +229,13 @@ dt {
 }
 
 blockquote {
-  border-left: 4px solid var(--accent);
-  color: var(--text);
-  background: var(--panel);
-  padding: 1.2rem 1.6rem;
-  border-radius: 6px;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+  padding: 0.4rem 1.1rem;
+  border-radius: 0;
+  margin: 1.4rem 0;
+  font-size: 0.95rem;
 }
 
 blockquote blockquote {
@@ -287,60 +317,30 @@ cite {
   }
 }
 
-/* About sidebar: slightly more compact to give the main column more room */
+/* About / home sidebar: photo + role label only */
 .about-sidebar {
-  font-size: 0.82rem;
-  overflow-wrap: anywhere;
-  word-break: normal;
-}
-
-/* Only force single-line labels on wider screens to avoid overlap on narrow widths */
-@media (min-width: 992px) {
-  .about-sidebar .nowrap {
-    white-space: nowrap;
-  }
-}
-
-/* Global styles set p/table/ul/li to 1rem; override for the sidebar */
-.about-sidebar p,
-.about-sidebar table,
-.about-sidebar tr,
-.about-sidebar td,
-.about-sidebar ul,
-.about-sidebar li,
-.about-sidebar a {
-  font-size: 0.78rem !important;
-}
-
-.about-sidebar #title {
+  text-align: center;
   font-size: 0.95rem;
-  margin-top: 1.4rem;
 }
-
+.about-sidebar img.img-thumbnail {
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  display: block;
+}
+.about-sidebar #title {
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--heading);
+}
 .about-sidebar #program {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 400;
 }
-
-.about-sidebar #contact-table {
-  font-size: 0.78rem;
-}
-
-.about-sidebar h3 {
-  font-size: 1.15rem;
-}
-
-.about-sidebar #education {
-  font-size: 0.78rem;
-}
-
-.about-sidebar #education li {
-  margin-bottom: 0.7rem;
-}
-
-@media (min-width: 768px) {
-  .about-sidebar img.img-thumbnail {
-    width: 88%;
-  }
+@media (max-width: 767px) {
+  .about-sidebar { margin-bottom: 1.25rem; }
 }
 
 p {
@@ -417,9 +417,11 @@ iframe {
 }
 
 .img-thumbnail {
-  border-radius: 8px;
+  border-radius: 2px;
   border-color: var(--border);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: none;
+  padding: 4px;
+  background: #fff;
 }
 
 /* Format the nav  ---------------------------------------------------------- */
@@ -498,6 +500,8 @@ nav {
 
 .navbar-inverse {
   background: var(--heading);
+  border-color: var(--heading);
+  margin-bottom: 0;
 }
 
 .navbar-brand {
@@ -520,7 +524,7 @@ nav {
 }
 
 .active {
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid #fff;
   border-radius: 0;
 }
 
@@ -601,15 +605,20 @@ footer hr {
 
 .copyright-text {
   color: var(--muted);
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  margin: 0;
   font-weight: 400;
-  letter-spacing: 0.3px;
+  text-align: center;
+  line-height: 1.6;
 }
 
-.copyright-text i {
-  margin-right: 0.25rem;
-  font-size: 0.85rem;
+.copyright-text a {
+  color: var(--muted);
+  font-weight: 400;
+}
+.copyright-text a:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 /* Format the social-professional network icons ------------------------------ */
@@ -637,171 +646,187 @@ footer hr {
   text-decoration: none !important;
 }
 
-/* ===== Global section card — wraps entire page sections ================ */
+/* ===== Section block — no card chrome, just spacing.
+   Academic convention: rely on whitespace + a thin rule, not boxed cards. */
 .section-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  padding: 1.8rem 2rem;
-  margin-bottom: 2rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
 }
 
-.section-card:hover {
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
-  transition: box-shadow 0.3s ease;
-}
-
-/* Suppress inner panel chrome when panel is sole child of a section-card */
-.section-card > .panel {
-  border: none;
-  box-shadow: none;
-  margin-bottom: 0;
-}
-.section-card > .panel:hover {
-  box-shadow: none;
-}
-.section-card > .panel > .panel-heading {
-  background: none;
-  padding: 0;
-  border-bottom: none;
-}
-.section-card > .panel > .panel-collapse > .panel-body,
-.section-card > .panel > .panel-body {
-  background: none;
-  padding: 0;
-  padding-top: 0.8rem;
+/* Subtle horizontal rule between sections on the same page, when stacked. */
+.section-card + .section-card {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
 }
 
 @media (max-width: 767px) {
   .section-card {
-    padding: 1.2rem 1rem;
+    margin-bottom: 1.75rem;
   }
 }
 
-/* ===== Local panel / inner card style (accordions, items) ============== */
+/* ===== Inner panels (Bootstrap defaults overridden to flat) ============ */
 
 .panel {
-  border-color: var(--border);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0.6rem;
 }
 
-.panel:hover {
-  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.25s ease;
-}
+.panel:hover { box-shadow: none; }
 
 .panel-body {
-  background-color: #f6f7fb;
+  background-color: transparent;
+  padding: 0.4rem 0 0.6rem;
 }
 
-.panel-title {
-  font-weight: 600 !important;
-}
+.panel-title { font-weight: 600 !important; }
 
 .panel-heading {
-  border-radius: 6px 6px 0 0;
+  background: transparent;
+  border: 0;
+  padding: 0.2rem 0;
 }
 
-/* News items — match card styling */
+/* News items — flat, separated by a hairline rule, no hover lift */
 .news-item {
-  border: 1px solid var(--border) !important;
-  border-radius: 6px !important;
-  background-color: #fafafa;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  border: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  background: transparent;
+  box-shadow: none !important;
+  padding: 1.2rem 0 1.4rem !important;
+  margin-bottom: 0;
+  transition: none;
 }
 
-.news-item:hover {
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
-  transform: translateY(-2px);
+.news-item:last-child { border-bottom: 0 !important; }
+.news-item:hover { box-shadow: none !important; transform: none; }
+
+.project-figures { margin-top: 1rem; }
+
+/* Publications — citation-style entries, no boxes */
+.publications {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: pubs;
 }
 
-/* Project +/- toggle */
-.project-toggle {
-  display: inline-block;
-  width: 1.4em;
-  height: 1.4em;
-  line-height: 1.35em;
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--accent);
-  border: 1.5px solid var(--accent);
-  border-radius: 3px;
-  cursor: pointer;
-  margin-right: 0.5em;
-  vertical-align: middle;
-  user-select: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.project-toggle:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-.project-figures {
-  margin-top: 0.8rem;
-}
-
-/* Publication spacing */
 .publications li {
-  margin-bottom: 1.2rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid var(--border);
-  line-height: 1.65;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+  font-size: 0.97rem;
 }
 
 .publications li:last-child {
   margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
 }
 
-.publications em {
+.publications em { color: var(--muted); font-style: italic; }
+.publications strong { color: var(--heading); font-weight: 600; }
+
+/* Year subhead in publication list */
+.pub-year {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 1.6rem 0 0.6rem;
+}
+
+/* Inline link group — [PDF] [arXiv] [DOI] [Code] [BibTeX] */
+.pub-links {
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
   color: var(--muted);
 }
+.pub-links a {
+  color: var(--accent) !important;
+  margin-right: 0.6rem;
+  font-weight: 500;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.pub-links a:hover {
+  text-decoration: underline;
+  border-bottom: 0 !important;
+}
+.pub-links .todo {
+  color: var(--muted) !important;
+  font-style: italic;
+  cursor: not-allowed;
+}
 
-/* Project item spacing and title style */
+/* Research projects — single-column flow, problem-first headings */
 #projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  display: block;
 }
 
-#projects .news-item {
-  flex: 1 1 calc(50% - 0.75rem);
-  max-width: calc(50% - 0.75rem);
-  margin-bottom: 0;
-  padding: 1.2rem 1.4rem;
+#projects .project {
+  border-top: 1px solid var(--border);
+  padding: 1.6rem 0 0.4rem;
+  margin: 0;
 }
-
-@media (max-width: 767px) {
-  #projects .news-item {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+#projects .project:first-child {
+  border-top: 0;
+  padding-top: 0.5rem;
 }
 
 .project-title {
-  font-family: "Montserrat", Helvetica, sans-serif !important;
-  font-size: 0.95rem !important;
+  font-family: inherit !important;
+  font-size: 1.15rem !important;
   font-weight: 600 !important;
   color: var(--heading) !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
-  line-height: 1.5 !important;
-  margin: 0 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 0.35rem !important;
 }
 
-.project-subtitle {
-  font-size: 0.82rem !important;
-  color: var(--muted) !important;
-  font-weight: 400 !important;
-  margin: 0.3rem 0 0 2.4em !important;
-  line-height: 1.4 !important;
+.project-meta {
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.project-problem {
+  margin: 0 0 0.7rem !important;
+  color: var(--text);
+}
+
+.project-method {
+  margin: 0 0 0.8rem !important;
+  color: var(--text);
+}
+
+.project-figure {
+  margin: 0.6rem 0 0.4rem;
+  text-align: center;
+}
+.project-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: #fff;
+  padding: 4px;
+}
+.project-figure figcaption {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
   font-style: italic;
 }
 
@@ -917,20 +942,15 @@ dd {
   display: block;
 }
 
-/* Narrow the viewport ----------------------------------------------- */
-/* Customize container */
-@media only screen and (min-width: 767px) {
-  .container {
-    max-width: 780px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
+/* Container — narrow for prose, slightly wider for content-rich pages.
+   Academic convention: ~720px line length keeps reading comfortable on desktop. */
 @media only screen and (min-width: 768px) {
-
-  /* Remove the padding we set earlier */
   .container {
-    max-width: 1120px;
+    max-width: 760px;
+  }
+  /* Pages with publication lists or research figures get a touch more room. */
+  body.wide-page .container {
+    max-width: 920px;
   }
 }
 
@@ -996,11 +1016,14 @@ dd {
   opacity: .8;
 }
 
-/* Make the website width responsive to larger screens */
+/* Larger screens: cap at the same prose / wide widths — no full-bleed. */
 @media (min-width: 1200px) {
   .container {
-    width: 90%;
-    max-width: 1280px;
+    width: auto;
+    max-width: 760px;
+  }
+  body.wide-page .container {
+    max-width: 920px;
   }
 }
 
