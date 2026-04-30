@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <meta name="description" content="404 — page not found on Jichuan Tang's site.">
+   <title>404 · Jichuan Tang</title>
+
+   <link rel="canonical" href="https://jichuantang.github.io/">
+   <meta name="robots" content="noindex">
+
+   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+   <meta name="theme-color" content="#0c2340">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   <link rel="stylesheet" href="/css/main.css">
+
+   <script>
+     (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark');})()
+   </script>
+
+   <style>
+      .err-wrap {
+         text-align: center;
+         padding: 4rem 1.5rem 5rem;
+      }
+      .err-code {
+         font-size: 5.5rem;
+         font-weight: 600;
+         line-height: 1;
+         color: var(--accent);
+         letter-spacing: -0.02em;
+         margin: 0;
+      }
+      .err-title {
+         font-size: 1.6rem;
+         font-weight: 600;
+         color: var(--heading);
+         margin: 1rem 0 0.6rem;
+      }
+      .err-body {
+         max-width: 32rem;
+         margin: 0 auto 1.6rem;
+         color: var(--text);
+         line-height: 1.6;
+      }
+      .err-body a { color: var(--link); }
+      .err-links {
+         display: flex;
+         gap: 1rem;
+         justify-content: center;
+         flex-wrap: wrap;
+         font-size: 0.95rem;
+      }
+      .err-links a {
+         color: var(--link);
+         border: 1px solid var(--border);
+         padding: 0.45rem 1.1rem;
+         border-radius: 999px;
+         text-decoration: none;
+         transition: border-color 0.2s ease, background 0.2s ease;
+      }
+      .err-links a:hover {
+         border-color: var(--accent);
+         background: var(--accent-soft);
+      }
+   </style>
+</head>
+
+<body id="top">
+   <a class="skip-link" href="#main">Skip to main content</a>
+
+   <div w3-include-html="navbar.html"></div>
+
+   <main id="main" tabindex="-1">
+      <div id="main-container" class="container">
+         <section class="section-card err-wrap">
+            <p class="err-code">404</p>
+            <h1 class="err-title">Page not found</h1>
+            <p class="err-body">
+               The page you tried to open doesn't exist or has moved. If you got
+               here from a link on another site, please <a href="mailto:jtang4@nd.edu">let me know</a> so I can fix it.
+            </p>
+            <p class="err-links">
+               <a href="/">Home</a>
+               <a href="/research.html">Research</a>
+               <a href="/publication.html">Publications</a>
+               <a href="/news.html">News</a>
+            </p>
+         </section>
+      </div>
+   </main>
+
+   <div w3-include-html="footer.html"></div>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+   <script src="/js/w3data.js"></script>
+   <script>w3IncludeHTML()</script>
+   <script src="/js/main.js"></script>
+</body>
+</html>

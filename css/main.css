@@ -1041,6 +1041,27 @@ footer hr {
   text-decoration: underline;
 }
 
+/* Quiet "Last updated" line under the copyright */
+.last-updated {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: center;
+  margin-top: 0.35rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+.last-updated a {
+  color: var(--muted);
+  font-weight: 400;
+}
+.last-updated a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+[data-theme="dark"] .last-updated,
+[data-theme="dark"] .last-updated a { color: var(--muted); }
+
 /* Format the social-professional network icons ------------------------------ */
 .social-icons {
   list-style-type: none;
