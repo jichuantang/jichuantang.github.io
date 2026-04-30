@@ -1580,14 +1580,79 @@ dd {
   --muted: #9ca3af;
   --heading: #f3f4f6;
   --accent: #58a6ff;
+  --accent-soft: #1e3a8a;       /* deep navy tint for tinted backgrounds in dark */
+  --link: #58a6ff;              /* link blue tracks accent in dark */
   --border: #374151;
+  --border-soft: #2a3441;       /* dim hairline */
   --panel: #1e293b;
+  --panel-tint: #182232;        /* one notch darker than panel */
+  --bg: #0f172a;                /* page background */
+  /* Card category accents stay distinct but slightly muted in dark mode */
+  --tone-1: #58a6ff;
+  --tone-2: #38bdf8;
+  --tone-3: #5eead4;
+  /* Shadows are nearly invisible on dark; use very low-opacity black for depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.40), 0 1px 3px rgba(0, 0, 0, 0.30);
+  --shadow-lg: 0 14px 30px rgba(0, 0, 0, 0.50), 0 4px 8px rgba(0, 0, 0, 0.35);
+  --focus-ring: 0 0 0 3px rgba(88, 166, 255, 0.45);
 }
 
 [data-theme="dark"] body {
-  background: #0f172a;
+  background: var(--bg);
   color: var(--text);
 }
+
+/* Brand band: dark variant of the white -> tint gradient */
+[data-theme="dark"] #site-brand {
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-tint) 100%);
+  border-bottom: 1px solid var(--border);
+}
+[data-theme="dark"] .brand-name { color: var(--heading) !important; }
+[data-theme="dark"] .brand-name:hover { color: var(--accent) !important; }
+[data-theme="dark"] .brand-unit { color: var(--muted); }
+
+/* Cards on dark: panel background, dim border, low-opacity shadow */
+[data-theme="dark"] .news-card,
+[data-theme="dark"] .priority-card {
+  background: var(--panel);
+  border-color: var(--border);
+}
+[data-theme="dark"] .news-card-img,
+[data-theme="dark"] .priority-img {
+  background: var(--panel-tint);
+}
+[data-theme="dark"] .news-card-title,
+[data-theme="dark"] .priority-title {
+  color: var(--heading) !important;
+}
+[data-theme="dark"] .news-card-date,
+[data-theme="dark"] .priority-desc {
+  color: var(--muted);
+}
+
+/* Project & vision figures get a muted dark backdrop instead of white */
+[data-theme="dark"] .project-figure img,
+[data-theme="dark"] .vision-figure img {
+  background: var(--panel-tint);
+  border-color: var(--border);
+}
+
+/* News-page thumbnail strip uses a hardcoded background in news.html — override here */
+[data-theme="dark"] .news-images img {
+  background: var(--panel-tint);
+  border-color: var(--border);
+}
+
+/* Sidebar bullets and contact text on dark */
+[data-theme="dark"] .sidebar-name { color: var(--heading) !important; }
+[data-theme="dark"] .sidebar-role,
+[data-theme="dark"] .sidebar-office,
+[data-theme="dark"] .sidebar-roles { color: var(--text); }
+
+/* Footer line readability on dark */
+[data-theme="dark"] .copyright-text,
+[data-theme="dark"] .copyright-text a { color: var(--muted); }
 
 [data-theme="dark"] .navbar-inverse {
   background: #0d1b2a !important;
