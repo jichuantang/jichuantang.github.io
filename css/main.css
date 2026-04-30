@@ -1108,14 +1108,20 @@ footer hr {
 }
 
 /* === Research projects — UST/AIR-Lab inspired layout (高级感):
-   title -> tag pills -> single big figure -> prose paragraphs.
-   No card chrome; projects separated by a hairline + generous whitespace. */
+   title (full width) -> pill tags (full width) -> 2-column body:
+     left column = problem + method prose; right column = figure.
+   Achieved with explicit grid placement so no HTML reorder is needed. */
 #projects { display: block; }
 
 #projects .project {
   border-top: 1px solid var(--border);
   padding: 3rem 0 0.5rem;
   margin: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  column-gap: 2.5rem;
+  row-gap: 0.5rem;
 }
 #projects .project:first-child {
   border-top: 0;
@@ -1123,6 +1129,7 @@ footer hr {
 }
 
 .project-title {
+  grid-column: 1 / -1;
   font-family: inherit !important;
   font-size: 1.55rem !important;
   font-weight: 600 !important;
@@ -1133,8 +1140,9 @@ footer hr {
   margin: 0 0 0.6rem !important;
 }
 
-/* Pill tags below the title (UST/AIR Lab convention) */
+/* Pill tags below the title — span full width too */
 .project-tags {
+  grid-column: 1 / -1;
   list-style: none;
   padding: 0;
   margin: 0 0 1.5rem !important;
@@ -1160,39 +1168,65 @@ footer hr {
   border-color: rgba(88, 166, 255, 0.22);
 }
 
-/* Figure first, big and clean (no border, no background card) */
+/* Figure pinned to the right column, spanning both prose rows.
+   In source order it precedes the prose, but explicit grid placement
+   wins over auto-placement so no HTML edit is needed. */
 .project-figure {
-  margin: 0 0 1.5rem;
+  grid-column: 2;
+  grid-row: 3 / span 2;
+  align-self: start;
+  margin: 0;
   text-align: center;
 }
 .project-figure img {
   max-width: 100%;
+  width: 100%;
   height: auto;
   border: 0;
-  border-radius: 4px;
-  background: transparent;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  background: #fff;
   padding: 0;
   display: block;
-  margin: 0 auto;
+  margin: 0;
 }
 .project-figure figcaption {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--muted);
-  margin-top: 0.6rem;
+  margin-top: 0.55rem;
   font-style: italic;
-  max-width: 38rem;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.5;
+  line-height: 1.45;
+  text-align: left;
 }
 
 .project-problem {
+  grid-column: 1;
+  grid-row: 3;
   margin: 0 0 1rem !important;
   color: var(--text);
 }
 .project-method {
+  grid-column: 1;
+  grid-row: 4;
   margin: 0 0 0.5rem !important;
   color: var(--text);
+}
+
+/* Mobile: collapse to single column, image flows below the prose */
+@media (max-width: 767px) {
+  #projects .project {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+  .project-figure,
+  .project-problem,
+  .project-method {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .project-figure {
+    margin-bottom: 1.25rem;
+  }
 }
 
 /* Publication status badges */
