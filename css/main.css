@@ -765,29 +765,29 @@ iframe {
    The earlier white brand band was removed; the brand link now lives
    inside the dark nav at the left (re-shown via .navbar-brand below). */
 
-/* Image band — Notre Dame Dome + Basilica spire skyline.
-   Now the only chrome above the nav, so it carries more visual weight.
-   Sized roughly to the photo's aspect (1600x300 source) so the dome is
-   prominent without dominating the fold. */
+/* Image band — Notre Dame sunset over St. Joseph Lake.
+   Uses an <img> element so the photo always shows in full, no matter how
+   wide the viewport gets. Earlier "background-size: cover" cropped the
+   sides on wide screens; with an <img> the image just scales to width,
+   keeping its native 1000x288 aspect (~3.47:1).
+   max-height caps it so it never dominates ultrawide screens. */
 #image-band {
-  height: 220px;
-  background-image:
-    /* Very faint dark fade at the bottom; the photo's silhouettes already
-       transition naturally into the navy nav band below. */
-    linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,0.10) 100%),
-    url("../img/nd-banner.jpg");
-  background-size: cover;
-  background-position: center center;    /* sunset + dome silhouette already centred */
-  background-repeat: no-repeat;
+  width: 100%;
+  line-height: 0;                /* kill the inline-img descender gap */
+  position: relative;
   border-bottom: 0;
+  background: var(--bg);
 }
-@media (max-width: 991px) { #image-band { height: 160px; } }
-@media (max-width: 600px) { #image-band { height: 110px; } }
-
+#image-band img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 360px;             /* cap on very wide screens */
+  object-fit: cover;
+  object-position: center center;
+}
 [data-theme="dark"] #image-band {
-  background-image:
-    linear-gradient(180deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.85) 100%),
-    url("../img/nd-banner.jpg");
+  background: var(--bg);
 }
 
 /* Brand text inside the nav (the white brand band is gone) */
