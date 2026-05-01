@@ -772,11 +772,12 @@ iframe {
 #image-band {
   height: 220px;
   background-image:
-    /* Soft navy gradient at the bottom for visual continuity into the nav band */
-    linear-gradient(180deg, rgba(255,255,255,0) 55%, rgba(12,35,64,0.22) 100%),
+    /* Very faint dark fade at the bottom; the photo's silhouettes already
+       transition naturally into the navy nav band below. */
+    linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,0.10) 100%),
     url("../img/nd-banner.jpg");
   background-size: cover;
-  background-position: center 50%;       /* dome sits roughly in vertical centre */
+  background-position: center center;    /* sunset + dome silhouette already centred */
   background-repeat: no-repeat;
   border-bottom: 0;
 }
