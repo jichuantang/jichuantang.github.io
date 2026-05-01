@@ -776,7 +776,7 @@ iframe {
     linear-gradient(180deg, rgba(255,255,255,0) 55%, rgba(12,35,64,0.22) 100%),
     url("../img/nd-banner.jpg");
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 50%;       /* dome sits roughly in vertical centre */
   background-repeat: no-repeat;
   border-bottom: 0;
 }
