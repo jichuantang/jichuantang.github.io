@@ -771,24 +771,26 @@ iframe {
    sides on wide screens; with an <img> the image just scales to width,
    keeping its native 1000x288 aspect (~3.47:1).
    max-height caps it so it never dominates ultrawide screens. */
+/* Banner: image is shown in full (never cropped) and capped at a sane size.
+   The cap is on the image's width, not the banner's height — that way
+   the photo always shows complete and the banner stays a reasonable
+   proportion of the page. On viewports wider than the cap, the image
+   centres with the page background filling the gutters. */
 #image-band {
   width: 100%;
-  line-height: 0;                /* kill the inline-img descender gap */
-  position: relative;
-  border-bottom: 0;
   background: var(--bg);
+  line-height: 0;
+  text-align: center;
+  overflow: hidden;
 }
 #image-band img {
   display: block;
+  margin: 0 auto;
   width: 100%;
-  height: auto;
-  max-height: 360px;             /* cap on very wide screens */
-  object-fit: cover;
-  object-position: center center;
+  max-width: 1200px;            /* image never exceeds this on desktop */
+  height: auto;                 /* aspect preserved; full image always visible */
 }
-[data-theme="dark"] #image-band {
-  background: var(--bg);
-}
+[data-theme="dark"] #image-band { background: var(--bg); }
 
 /* Brand text inside the nav (the white brand band is gone) */
 .navbar-brand {
