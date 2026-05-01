@@ -1,15 +1,7 @@
-   <!-- Wang/CWD-2024-style chrome: brand band -> accent strip -> dark nav band -->
+   <!-- Wang/CWD-2024-style chrome: ND skyline image-band -> dark nav band.
+        The earlier white brand band was removed; the brand link now lives
+        inside the dark nav at the left. -->
 
-   <header id="site-brand" aria-label="Site identity">
-      <div class="container brand-row">
-         <div class="brand-text">
-            <a href="index.html" class="brand-name">Jichuan Tang</a>
-            <p class="brand-unit">Civil Engineering &middot; University of Notre Dame</p>
-         </div>
-      </div>
-   </header>
-
-   <!-- Decorative accent strip (replaces Wang's photo image-band; kept thin & flat) -->
    <div id="image-band" aria-hidden="true"></div>
 
    <nav class="navbar navbar-inverse" aria-label="Primary">
@@ -19,16 +11,14 @@
                <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand montserrat" href="index.html"><span class="visible-xs-inline">Jichuan Tang</span></a>
+            <a class="navbar-brand montserrat" href="index.html">Jichuan Tang</a>
          </div>
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
+            <ul class="nav navbar-nav navbar-right">
                <li id="home"><a class="montserrat" href="index.html">Home</a></li>
                <li id="research"><a class="montserrat" href="research.html">Research</a></li>
                <li id="publication"><a class="montserrat" href="publication.html">Publications</a></li>
                <li id="news"><a class="montserrat" href="news.html">News</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                <li><a href="#" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></a></li>
             </ul>
          </div>
