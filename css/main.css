@@ -765,29 +765,27 @@ iframe {
    The earlier white brand band was removed; the brand link now lives
    inside the dark nav at the left (re-shown via .navbar-brand below). */
 
-/* Image band — Notre Dame Dome + Basilica spire skyline.
-   Now the only chrome above the nav, so it carries more visual weight.
-   Sized roughly to the photo's aspect (1600x300 source) so the dome is
-   prominent without dominating the fold. */
+/* Image band — Notre Dame sunset over St. Joseph Lake.
+   Uses an <img> element so the photo always shows in full, no matter how
+   wide the viewport gets. Earlier "background-size: cover" cropped the
+   sides on wide screens; with an <img> the image just scales to width,
+   keeping its native 1000x288 aspect (~3.47:1).
+   max-height caps it so it never dominates ultrawide screens. */
+/* Banner: full image, full width, never cropped. Banner height is whatever
+   the photo's native aspect (830x294 ≈ 2.82:1) produces at the current
+   viewport width. On wide screens the banner becomes proportionally taller. */
 #image-band {
-  height: 220px;
-  background-image:
-    /* Soft navy gradient at the bottom for visual continuity into the nav band */
-    linear-gradient(180deg, rgba(255,255,255,0) 55%, rgba(12,35,64,0.22) 100%),
-    url("../img/nd-banner.jpg");
-  background-size: cover;
-  background-position: center 50%;       /* dome sits roughly in vertical centre */
-  background-repeat: no-repeat;
-  border-bottom: 0;
+  width: 100%;
+  background: var(--bg);
+  line-height: 0;
+  overflow: hidden;
 }
-@media (max-width: 991px) { #image-band { height: 160px; } }
-@media (max-width: 600px) { #image-band { height: 110px; } }
-
-[data-theme="dark"] #image-band {
-  background-image:
-    linear-gradient(180deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.85) 100%),
-    url("../img/nd-banner.jpg");
+#image-band img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
+[data-theme="dark"] #image-band { background: var(--bg); }
 
 /* Brand text inside the nav (the white brand band is gone) */
 .navbar-brand {
