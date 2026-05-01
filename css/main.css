@@ -771,11 +771,14 @@ iframe {
    sides on wide screens; with an <img> the image just scales to width,
    keeping its native 1000x288 aspect (~3.47:1).
    max-height caps it so it never dominates ultrawide screens. */
-/* Banner: full image, full width, never cropped. Banner height is whatever
-   the photo's native aspect (830x294 ≈ 2.82:1) produces at the current
-   viewport width. On wide screens the banner becomes proportionally taller. */
+/* Banner: keeps the photo's native aspect at narrow viewports (so the
+   whole image is visible) but caps banner height at 280px on wide ones,
+   cropping vertically rather than letting the banner dominate the page.
+   object-position favours the upper portion where the silhouettes live. */
 #image-band {
   width: 100%;
+  aspect-ratio: 1000 / 288;       /* match the source photo's aspect */
+  max-height: 280px;              /* cap; engages above ~970px viewport */
   background: var(--bg);
   line-height: 0;
   overflow: hidden;
@@ -783,7 +786,9 @@ iframe {
 #image-band img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;    /* silhouettes sit ~40% from top */
 }
 [data-theme="dark"] #image-band { background: var(--bg); }
 
