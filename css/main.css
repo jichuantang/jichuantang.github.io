@@ -1421,12 +1421,11 @@ dd {
   display: block;
 }
 
-/* Container — wider than strict prose to match the user's preference for a
-   more horizontal layout. Pages with figures and publication lists get extra room. */
+/* Unified container width — matches the Research page's old wide-page width.
+   Was inconsistent before: Home/News at 960px and Research/Publications at
+   1140px caused the navbar brand to shift horizontally between pages. */
 @media only screen and (min-width: 768px) {
-  .container {
-    max-width: 960px;
-  }
+  .container,
   body.wide-page .container {
     max-width: 1140px;
   }
@@ -1494,13 +1493,11 @@ dd {
   opacity: .8;
 }
 
-/* Larger screens: hold the same wider widths set above. */
+/* Larger screens: hold the same unified width set above. */
 @media (min-width: 1200px) {
-  .container {
-    width: auto;
-    max-width: 960px;
-  }
+  .container,
   body.wide-page .container {
+    width: auto;
     max-width: 1140px;
   }
 }
