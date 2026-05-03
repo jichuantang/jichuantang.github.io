@@ -1847,3 +1847,135 @@ dd {
     max-width: 100% !important;
   }
 }
+
+/* === Immersive browsing layer ==========================================
+   A thin atmospheric layer on top of the otherwise flat academic page:
+   scroll-triggered reveals on section cards and image grids, a slow
+   parallax on the banner photo, a soft ambient backdrop, and a top-edge
+   scroll progress strip. Everything is gated behind prefers-reduced-motion
+   and IntersectionObserver support — gracefully degrades to the original
+   static page if either is unavailable. */
+
+/* Soft ambient backdrop — a faint navy halo from the top of the page
+   that fades out around the bio. Adds depth without color shift. */
+body {
+  background:
+    radial-gradient(ellipse 1100px 540px at 50% -120px,
+                    rgba(12, 35, 64, 0.05) 0%,
+                    rgba(12, 35, 64, 0.00) 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse 1100px 540px at 50% -120px,
+                    rgba(88, 166, 255, 0.10) 0%,
+                    rgba(88, 166, 255, 0.00) 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* Reveal-on-scroll: section cards lift gently into view */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children inside revealed grids (priority cards, news cards) */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.45s; }
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Banner: cinematic parallax + initial scale-settle.
+   The image starts slightly zoomed (1.08x) so the parallax translate
+   never exposes the edges. JS sets --parallax in pixels on scroll. */
+#image-band {
+  position: relative;
+}
+#image-band img {
+  transform: translate3d(0, var(--parallax, 0px), 0) scale(1.08);
+  transition: transform 0.05s linear;
+  will-change: transform;
+}
+/* Soft gradient at the bottom of the banner that fades into the dark
+   navbar — gives a continuous, immersive "horizon → chrome" feel
+   instead of the hard image edge the original had. */
+#image-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 35, 64, 0.00) 0%,
+    rgba(12, 35, 64, 0.00) 60%,
+    rgba(12, 35, 64, 0.55) 100%
+  );
+  pointer-events: none;
+}
+[data-theme="dark"] #image-band::after {
+  background: linear-gradient(
+    180deg,
+    rgba(13, 27, 42, 0.00) 0%,
+    rgba(13, 27, 42, 0.30) 55%,
+    rgba(13, 27, 42, 0.95) 100%
+  );
+}
+
+/* Scroll progress strip — a thin accent line at the very top edge of
+   the viewport that fills as the visitor moves down the page. */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--link));
+  z-index: 1031;                         /* above Bootstrap navbar (1030) */
+  pointer-events: none;
+  transition: width 0.08s linear, opacity 0.3s ease;
+  opacity: 0.85;
+}
+[data-theme="dark"] #scroll-progress {
+  background: linear-gradient(90deg, #58a6ff, #5eead4);
+}
+
+/* Section transitions — slightly more breathing room between cards
+   when revealed, so each section reads as a "chapter". The hairline
+   that already separates them stays. */
+.section-card + .section-card {
+  margin-top: 0.75rem;
+}
+
+/* Honor reduced-motion: disable every immersive animation/parallax */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  #image-band img {
+    transform: none !important;
+    transition: none !important;
+  }
+  #scroll-progress { display: none; }
+}
