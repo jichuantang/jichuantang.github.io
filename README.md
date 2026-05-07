@@ -1,6 +1,6 @@
 # jichuantang.github.io
 
-Personal academic website of **Jichuan Tang**, Ph.D. student in Civil Engineering at the University of Notre Dame.
+Personal academic website of **Jichuan Tang**, Ph.D. candidate in Civil Engineering at the University of Notre Dame.
 
 Live site: <https://jichuantang.github.io>
 
