@@ -1,7 +1,7 @@
 /* TEAM */
 
   Owner & Author: Jichuan Tang
-  Role: Ph.D. Student, Civil Engineering — University of Notre Dame
+  Role: Ph.D. Candidate, Civil Engineering — University of Notre Dame
   Contact: jtang4 [at] nd.edu
   Site: https://jichuantang.github.io
 
