@@ -111,8 +111,8 @@ $(document).ready(function() {
 });
 
 /* ===== Immersive layer ====================================================
-   Scroll progress bar, IntersectionObserver-driven section reveals, and
-   banner parallax. Lives outside the jQuery ready block so it can use
+   Scroll progress bar and IntersectionObserver-driven section reveals.
+   Lives outside the jQuery ready block so it can use
    native APIs and feature-detect cleanly. */
 (function() {
   var prefersReduced =
@@ -171,52 +171,10 @@ $(document).ready(function() {
     });
   }
 
-  // 3. Banner parallax. The banner sits inside navbar.html, which is
-  //    injected via w3IncludeHTML — poll briefly until it appears.
-  function setupBannerParallax() {
-    if (prefersReduced) return;
-    var band = document.getElementById('image-band');
-    if (!band) return false;
-    var img = band.querySelector('img');
-    if (!img) return false;
-
-    var rafBand = false;
-    function updateBand() {
-      var rect = band.getBoundingClientRect();
-      // Only animate while the banner is anywhere near the viewport
-      if (rect.bottom < -100 || rect.top > window.innerHeight + 100) {
-        rafBand = false;
-        return;
-      }
-      // Slow parallax: image drifts up at ~25% of scroll distance
-      var offset = -rect.top * 0.25;
-      // Clamp so the image never slips past its 1.08x scale buffer
-      var max = rect.height * 0.08;
-      if (offset > max) offset = max;
-      if (offset < -max) offset = -max;
-      img.style.setProperty('--parallax', offset.toFixed(1) + 'px');
-      rafBand = false;
-    }
-    window.addEventListener('scroll', function() {
-      if (!rafBand) { requestAnimationFrame(updateBand); rafBand = true; }
-    }, { passive: true });
-    updateBand();
-    return true;
-  }
-
-  // Reveal can run once DOM is ready; navbar is injected synchronously
-  // by w3IncludeHTML in the HTML, but parallax reads the included
-  // markup, so we poll a few times for safety.
+  // The static banner needs no polling or scroll listener.
   if (document.readyState !== 'loading') {
     setupReveal();
   } else {
     document.addEventListener('DOMContentLoaded', setupReveal);
   }
-
-  var tries = 0;
-  function tryBanner() {
-    if (setupBannerParallax()) return;
-    if (++tries < 20) setTimeout(tryBanner, 50);
-  }
-  tryBanner();
 })();

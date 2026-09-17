@@ -574,47 +574,38 @@ cite {
   }
 }
 
-/* School / affiliation logos — equal-width slots so each logo carries similar
-   visual weight regardless of its native aspect ratio. CSS grid puts each
-   image in a 1fr column; max-height + object-fit:contain keeps them balanced. */
+/* Equal display boxes, with SVG view boxes trimming the differing blank
+   margins in the original PNGs. Logos retain their original proportions. */
 .school-logos {
   margin: 1.5rem 0 2rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
   gap: 24px 32px;
 }
 
-.school-logos img {
-  max-height: 56px;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.9;
-  filter: grayscale(20%);
-  transition: opacity 0.2s ease, filter 0.2s ease;
-}
-.school-logos img:hover {
-  opacity: 1;
-  filter: none;
+.school-logos .school-logo {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 84px;
+  overflow: hidden;
 }
 
 @media (max-width: 767px) {
   .school-logos {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px 28px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 24px;
   }
-  .school-logos img { max-height: 50px; }
+  .school-logos .school-logo { height: 72px; }
 }
 
 @media (max-width: 420px) {
   .school-logos {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 12px 18px;
   }
-  .school-logos img { max-height: 44px; }
+  .school-logos .school-logo { height: 60px; }
 }
 
 /* === Wang-style hero sidebar (info-dense) ============================== */
@@ -769,20 +760,14 @@ iframe {
    The earlier white brand band was removed; the brand link now lives
    inside the dark nav at the left (re-shown via .navbar-brand below). */
 
-/* Image band — Notre Dame sunset over St. Joseph Lake.
-   Uses an <img> element so the photo always shows in full, no matter how
-   wide the viewport gets. Earlier "background-size: cover" cropped the
-   sides on wide screens; with an <img> the image just scales to width,
-   keeping its native 1000x288 aspect (~3.47:1).
-   max-height caps it so it never dominates ultrawide screens. */
-/* Banner: keeps the photo's native aspect at narrow viewports (so the
-   whole image is visible) but caps banner height at 280px on wide ones,
-   cropping vertically rather than letting the banner dominate the page.
-   object-position favours the upper portion where the silhouettes live. */
+/* User-selected campus panorama. Favor the lower part of the photo so the
+   Golden Dome and Basilica remain visible instead of mostly empty sky.
+   A taller mobile frame keeps both landmarks legible on small screens. */
 #image-band {
   width: 100%;
-  aspect-ratio: 1000 / 288;       /* match the source photo's aspect */
-  max-height: 280px;              /* cap; engages above ~970px viewport */
+  aspect-ratio: 4 / 1;
+  min-height: 160px;
+  max-height: 480px;
   background: var(--bg);
   line-height: 0;
   overflow: hidden;
@@ -792,9 +777,18 @@ iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 40%;    /* silhouettes sit ~40% from top */
+  object-position: center 80%;
 }
 [data-theme="dark"] #image-band { background: var(--bg); }
+
+@media (min-width: 1921px) {
+  #image-band img { object-position: center 55%; }
+}
+
+@media (max-width: 767px) {
+  #image-band { aspect-ratio: 12 / 5; max-height: 260px; }
+  #image-band img { object-position: 44% center; }
+}
 
 /* Brand text inside the nav (the white brand band is gone) */
 .navbar-brand {
@@ -1352,7 +1346,8 @@ footer hr {
   color: #92400e;
 }
 
-.pub-badge-published {
+.pub-badge-published,
+.pub-badge-accepted {
   background: #d1fae5;
   color: #065f46;
 }
@@ -1362,7 +1357,8 @@ footer hr {
   color: #fef3c7;
 }
 
-[data-theme="dark"] .pub-badge-published {
+[data-theme="dark"] .pub-badge-published,
+[data-theme="dark"] .pub-badge-accepted {
   background: #064e3b;
   color: #d1fae5;
 }
@@ -1877,8 +1873,8 @@ dd {
 
 /* === Immersive browsing layer ==========================================
    A thin atmospheric layer on top of the otherwise flat academic page:
-   scroll-triggered reveals on section cards and image grids, a slow
-   parallax on the banner photo, a soft ambient backdrop, and a top-edge
+   scroll-triggered reveals on section cards and image grids,
+   a soft ambient backdrop, and a top-edge
    scroll progress strip. Everything is gated behind prefers-reduced-motion
    and IntersectionObserver support — gracefully degrades to the original
    static page if either is unavailable. */
@@ -1932,16 +1928,13 @@ body {
   transform: none;
 }
 
-/* Banner: cinematic parallax + initial scale-settle.
-   The image starts slightly zoomed (1.08x) so the parallax translate
-   never exposes the edges. JS sets --parallax in pixels on scroll. */
+/* Keep the architecture crisp and the responsive crop stable: no extra
+   zoom or parallax. Other page reveal animations remain unchanged. */
 #image-band {
   position: relative;
 }
 #image-band img {
-  transform: translate3d(0, var(--parallax, 0px), 0) scale(1.08);
-  transition: transform 0.05s linear;
-  will-change: transform;
+  transform: none;
 }
 /* Soft gradient at the bottom of the banner that fades into the dark
    navbar — gives a continuous, immersive "horizon → chrome" feel
@@ -1953,8 +1946,8 @@ body {
   background: linear-gradient(
     180deg,
     rgba(12, 35, 64, 0.00) 0%,
-    rgba(12, 35, 64, 0.00) 60%,
-    rgba(12, 35, 64, 0.55) 100%
+    rgba(12, 35, 64, 0.00) 80%,
+    rgba(12, 35, 64, 0.32) 100%
   );
   pointer-events: none;
 }
@@ -1962,8 +1955,8 @@ body {
   background: linear-gradient(
     180deg,
     rgba(13, 27, 42, 0.00) 0%,
-    rgba(13, 27, 42, 0.30) 55%,
-    rgba(13, 27, 42, 0.95) 100%
+    rgba(13, 27, 42, 0.00) 75%,
+    rgba(13, 27, 42, 0.50) 100%
   );
 }
 
