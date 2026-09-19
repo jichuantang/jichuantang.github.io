@@ -1332,6 +1332,16 @@ footer hr {
   margin: 0;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+.project-figure-link {
+  display: block;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.project-figure-link:hover,
+.project-figure-link:focus {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
 .project-figure img:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);

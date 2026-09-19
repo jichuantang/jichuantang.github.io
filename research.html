@@ -71,25 +71,28 @@
                   <li>Structural dynamics</li>
                </ul>
 
-               <!-- Full-field DeepONet architecture (Figure 2 of arXiv:2506.11761) -->
+               <!-- Poster presented at the UPR–ND Winter School for Scientific AI -->
                <figure class="project-figure">
-                  <img src="img/paper-deeponet-arch.png" alt="Full-field DeepONet branch–trunk architecture from the structural-dynamics paper" width="1662" height="1194" loading="lazy">
-                  <figcaption>Full-field DeepONet architecture used as the surrogate for cable-stayed bridge dynamics.</figcaption>
+                  <a class="project-figure-link" href="img/upr_sai_poster.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size research poster">
+                     <img src="img/upr_sai_poster.png" alt="Research poster presenting the full-field Extended DeepONet for cable-stayed bridge dynamics" width="4398" height="3299" loading="lazy">
+                  </a>
+                  <figcaption>Research poster presenting the full-field Extended DeepONet and its cable-stayed bridge application.</figcaption>
                </figure>
 
                <p class="project-problem">
-                  High-fidelity finite-element simulations of cable-stayed bridges resolve full-field dynamic
-                  response but are too expensive for design iteration, uncertainty quantification, or real-time
-                  decision support. Existing surrogates predict scalar outputs (e.g., peak displacement) and
-                  lose the spatial detail that engineers actually use.
+                  High-fidelity finite-element simulations resolve full-field bridge dynamics, but their cost
+                  limits design iteration, uncertainty quantification, and real-time decision support. Conventional
+                  surrogates often reduce the response to a few scalar quantities, losing spatial information that
+                  is important for engineering interpretation.
                </p>
 
                <p class="project-method">
-                  We propose a <em>spatio-temporal full-field DeepONet</em> that returns multiple dynamical fields
-                  in a single forward pass. The architecture strengthens branch–trunk interactions and inherently
-                  encodes spatial correlations between outputs. We benchmark three DeepONet variants on a
-                  cable-stayed bridge model; the full-field variant achieves the highest accuracy at the lowest
-                  inference cost, making it a practical surrogate for downstream UQ and control studies.
+                  We developed a <em>spatio-temporal full-field Extended DeepONet</em> that predicts multiple
+                  dynamical fields in a single forward pass while preserving correlations among spatial outputs.
+                  Across three DeepONet variants evaluated on a cable-stayed bridge model, the full-field model
+                  provides the best accuracy and lowest inference cost. The study is accepted in the
+                  <em>Journal of Computing in Civil Engineering</em> (2026) and is available as an
+                  <a href="https://arxiv.org/abs/2506.11761" target="_blank" rel="noopener noreferrer">arXiv preprint</a>.
                </p>
             </article>
 
