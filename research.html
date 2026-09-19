@@ -197,10 +197,21 @@
                   <li>Feedforward compensation</li>
                </ul>
 
-               <figure class="project-figure">
-                  <img src="img/rl_rths.jpg" alt="DDPG-with-feedforward controller for real-time hybrid simulation" width="1667" height="579" loading="lazy">
-                  <figcaption>DDPG + feedforward control architecture for the RTHS transfer system.</figcaption>
-               </figure>
+               <div class="project-figure project-figure-stack" role="group" aria-label="Real-time hybrid simulation system and control architecture">
+                  <figure class="project-figure-item">
+                     <a class="project-figure-link" href="img/tju_rths_setup.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size underwater shaking-table RTHS setup image">
+                        <img src="img/tju_rths_setup.jpg" alt="Underwater shaking-table test facility and real-time control hardware" width="1783" height="562" loading="lazy">
+                     </a>
+                     <figcaption>Underwater shaking-table facility and real-time control system.</figcaption>
+                  </figure>
+
+                  <figure class="project-figure-item">
+                     <a class="project-figure-link" href="img/rl_rths.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size DDPG and feedforward control architecture">
+                        <img src="img/rl_rths.jpg" alt="DDPG-with-feedforward controller for real-time hybrid simulation" width="1667" height="579" loading="lazy">
+                     </a>
+                     <figcaption>DDPG + feedforward control architecture for the RTHS transfer system.</figcaption>
+                  </figure>
+               </div>
 
                <p class="project-problem">
                   Real-time hybrid simulation (RTHS) of structures under wave and earthquake loading is limited
@@ -216,8 +227,6 @@
                   123.48% / 89.95% relative to no compensation). Adding feedforward compensation to DDPG yields
                   3.28% maximum perturbation versus 5.88% (PI) and 10.57% (FF only) on a benchmark RTHS problem.
                </p>
-               <!-- Companion experimental setup photo available:
-               <img src="img/shaking_table_test.jpg" alt="Underwater shaking table experimental setup"> -->
             </article>
 
          </div>

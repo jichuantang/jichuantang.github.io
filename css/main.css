@@ -1474,6 +1474,15 @@ footer hr {
   text-align: left;
 }
 
+.project-figure-stack {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.project-figure-item {
+  margin: 0;
+}
+
 .project-problem {
   grid-column: 1;
   grid-row: 3;
