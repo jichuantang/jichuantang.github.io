@@ -274,6 +274,26 @@ body {
 .priority-card:hover .priority-img img {
   transform: scale(1.03);
 }
+.priority-figure-link {
+  display: block;
+  border-bottom: 0 !important;
+}
+.priority-card .priority-title a {
+  color: inherit;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+.priority-full-figure {
+  font-size: 0.82rem;
+  text-align: center;
+  margin: -0.35rem 0 1rem;
+}
+.priority-figure-link:focus-visible,
+.priority-card .priority-title a:focus-visible,
+.priority-full-figure a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
 .priority-title {
   font-size: 1.05rem;
   font-weight: 600;
