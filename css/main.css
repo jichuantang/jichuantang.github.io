@@ -219,7 +219,7 @@ body {
    one-line description. The whole card is a link. */
 .priority-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 0.5rem 0 0.6rem;
 }
@@ -295,7 +295,7 @@ body {
 }
 
 @media (max-width: 767px) {
-  .priority-cards { grid-template-columns: 1fr 1fr; }
+  .priority-cards { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .priority-cards { grid-template-columns: 1fr; }
