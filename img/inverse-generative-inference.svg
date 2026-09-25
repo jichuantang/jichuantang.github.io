@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Structural force identification from sparse sensors</title>
+  <desc id="desc">A sensor-instrumented bridge yields sparse measurements. A generative inverse model uses the measurements and structural physics to recover an excitation force with uncertainty.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#edf4fb"/>
+    </linearGradient>
+    <linearGradient id="model" x2="1">
+      <stop stop-color="#eaf2ff"/>
+      <stop offset="1" stop-color="#e8f8fa"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#274766" flood-opacity=".08"/>
+    </filter>
+    <clipPath id="plot"><rect x="91" y="475" width="618" height="79" rx="2"/></clipPath>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 9 5 1 9" fill="none" stroke="#7392b3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#background)"/>
+
+  <!-- The bridge supplies a recognizable physical system without tiny paper-figure text. -->
+  <g filter="url(#shadow)">
+    <rect x="45" y="32" width="710" height="183" rx="17" fill="#fff" stroke="#d9e6f2"/>
+  </g>
+  <text x="74" y="70" fill="#263f5b" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Dynamic structure</text>
+  <text x="726" y="70" fill="#5a738c" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="end">Sparse sensors</text>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M104 170 H696" stroke="#263f5b" stroke-width="10"/>
+    <path d="M112 183 H688" stroke="#9db3c8" stroke-width="3"/>
+    <path d="M148 172 L164 195 H196 L212 172 M588 172 L604 195 H636 L652 172" stroke="#627e99" stroke-width="5"/>
+    <path d="M226 166 V102 M574 166 V102" stroke="#466789" stroke-width="7"/>
+    <path d="M109 165 C193 158 210 104 226 104 C319 180 481 180 574 104 C590 104 607 158 691 165" stroke="#7392b3" stroke-width="3"/>
+    <path d="M280 132 V166 M342 153 V166 M400 159 V166 M458 153 V166 M520 132 V166" stroke="#a9bfd1" stroke-width="2"/>
+  </g>
+  <g fill="#3480ee" stroke="#fff" stroke-width="4">
+    <circle cx="280" cy="166" r="10"/><circle cx="400" cy="166" r="10"/><circle cx="520" cy="166" r="10"/>
+  </g>
+  <g fill="none" stroke="#9bb5ce" stroke-width="2" stroke-dasharray="4 5">
+    <path d="M280 179 V222 M400 179 V222 M520 179 V222"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="45" y="238" width="296" height="184" rx="17" fill="#fff" stroke="#d9e6f2"/>
+    <rect x="459" y="238" width="296" height="184" rx="17" fill="url(#model)" stroke="#caddea"/>
+  </g>
+  <text x="70" y="275" fill="#263f5b" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Sparse observations</text>
+  <text x="483" y="275" fill="#263f5b" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Generative inference</text>
+  <g fill="none" stroke="#d8e3ee" stroke-width="1.5">
+    <path d="M74 374 H311 M74 329 H311 M74 310 V390 M311 310 V390"/>
+  </g>
+  <path d="M75 354 C96 358 111 321 130 329 S160 376 180 355 S210 318 228 335 S265 380 286 348 S300 335 311 333" fill="none" stroke="#b9c8d8" stroke-width="3" stroke-dasharray="5 7"/>
+  <g fill="#238dbb" stroke="#fff" stroke-width="3">
+    <circle cx="81" cy="351" r="7"/><circle cx="129" cy="329" r="7"/><circle cx="184" cy="352" r="7"/><circle cx="248" cy="357" r="7"/><circle cx="303" cy="335" r="7"/>
+  </g>
+  <path d="M363 330 H433" fill="none" stroke="#7392b3" stroke-width="3" marker-end="url(#arrow)"/>
+  <g fill="none" stroke-linecap="round">
+    <circle cx="520" cy="345" r="28" stroke="#a9bded" stroke-width="2" stroke-dasharray="3 5"/>
+    <circle cx="603" cy="345" r="28" stroke="#80b5df" stroke-width="2" stroke-dasharray="5 4"/>
+    <circle cx="686" cy="345" r="28" stroke="#23a4bd" stroke-width="3"/>
+    <path d="M548 345 H574 M631 345 H656" stroke="#7597b7" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M502 347 L509 335 L516 353 L522 340 L530 348 L537 341 M586 348 L594 342 L600 351 L607 338 L615 345 L621 342 M669 349 L677 343 L684 348 L691 336 L700 345" stroke="#3977cb" stroke-width="2.5"/>
+  </g>
+  <text x="483" y="402" fill="#536f8a" font-family="Arial, Helvetica, sans-serif" font-size="17">Structural physics + learned prior</text>
+
+  <g filter="url(#shadow)">
+    <rect x="45" y="440" width="710" height="131" rx="17" fill="#fff" stroke="#d9e6f2"/>
+  </g>
+  <text x="70" y="474" fill="#263f5b" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Identified force</text>
+  <text x="726" y="474" fill="#5a738c" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="end">with uncertainty</text>
+  <g clip-path="url(#plot)">
+    <path d="M91 518 C122 516 133 481 161 490 S201 547 234 529 S273 478 304 491 S339 542 372 526 S415 486 443 501 S484 545 516 519 S550 481 582 491 S629 542 660 520 S691 494 709 501 L709 524 C691 517 681 554 660 544 S611 510 582 515 S541 554 516 543 S470 515 443 524 S400 554 372 549 S330 515 304 515 S266 554 234 553 S187 510 161 515 S124 539 91 542 Z" fill="#81b7fb" opacity=".32"/>
+    <path d="M91 530 C122 527 133 494 161 503 S201 554 234 540 S273 491 304 503 S339 552 372 537 S415 498 443 512 S484 555 516 532 S550 493 582 503 S629 554 660 532 S691 504 709 512" fill="none" stroke="#246de0" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>
