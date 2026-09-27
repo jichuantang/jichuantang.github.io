@@ -311,50 +311,22 @@ body {
   margin-top: 0;
 }
 .applications-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.6rem;
   max-width: 1040px;
   margin: 0 auto;
 }
-.application-figure {
-  margin: 0;
-  min-width: 0;
-}
-.application-figure img {
+.applications-strip img {
   display: block;
   width: 100%;
-  height: 190px;
-  object-fit: contain;
-  border-radius: 7px;
-  box-shadow: var(--shadow-sm);
-  background: var(--panel-tint);
-}
-.application-figure figcaption {
-  margin-top: 0.5rem;
-  text-align: center;
-  font-size: 0.9rem;
-  line-height: 1.35;
-  color: var(--muted);
+  height: auto;
 }
 @media (max-width: 767px) {
   .applications-strip {
-    display: flex;
     overflow-x: auto;
-    gap: 0.6rem;
-    padding-bottom: 0.6rem;
-    scroll-snap-type: x mandatory;
   }
-  .application-figure {
-    flex: 0 0 min(78vw, 340px);
-    scroll-snap-align: start;
+  .applications-strip img {
+    width: 760px;
+    max-width: none;
   }
-}
-[data-theme="dark"] .application-figure img {
-  background: var(--panel-tint);
-}
-[data-theme="dark"] .application-figure figcaption {
-  color: var(--muted);
 }
 
 /* Sidebar contact list (under photo on home page) */
