@@ -1340,16 +1340,6 @@ footer hr {
   }
 }
 
-/* Year subhead in publication list */
-.pub-year {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin: 1.6rem 0 0.6rem;
-}
-
 /* Inline link group — [PDF] [arXiv] [DOI] [Code] [BibTeX] */
 .pub-links {
   margin-top: 0.25rem;
