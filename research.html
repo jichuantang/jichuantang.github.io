@@ -10,11 +10,11 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com">
 
-   <meta name="description" content="Research projects by Jichuan Tang on neural operators, multi-fidelity surrogates, reinforcement-learning control, and wireless sensing for civil-engineering systems.">
+   <meta name="description" content="Research projects by Jichuan Tang on conditional diffusion for inverse dynamics, neural operators, multi-fidelity surrogates, reinforcement-learning control, and wireless sensing.">
    <title>Research · Jichuan Tang</title>
 
    <meta property="og:title" content="Research · Jichuan Tang">
-   <meta property="og:description" content="Neural operators, multi-fidelity surrogates, reinforcement-learning control, and wireless sensing for civil-engineering systems.">
+   <meta property="og:description" content="Conditional diffusion for inverse dynamics, neural operators, multi-fidelity surrogates, reinforcement-learning control, and wireless sensing.">
    <meta property="og:image" content="https://jichuantang.github.io/img/og-card.png">
    <meta property="og:url" content="https://jichuantang.github.io/research.html">
    <link rel="canonical" href="https://jichuantang.github.io/research.html">
@@ -56,11 +56,48 @@
             Jichuan's research sits at the intersection of <strong>structural dynamics</strong>,
             <strong>scientific machine learning</strong>, and <strong>structural health monitoring</strong>.
             Recurring threads include neural-operator surrogates for full-field response prediction,
+            conditional diffusion for identifying unmeasured excitations from sparse sensors,
             multi-fidelity learning for systems where high-fidelity simulation is expensive,
             and reinforcement-learning controllers for vibration mitigation and real-time hybrid simulation.
          </p>
 
          <div id="projects">
+
+            <!-- InvSHMDiff: ground motion identification from sparse structural sensing -->
+            <article class="project" id="proj-invshmdiff">
+               <h2 class="project-title">InvSHMDiff: ground motion identification from sparse structural responses</h2>
+               <ul class="project-tags">
+                  <li>Conditional diffusion</li>
+                  <li>Inverse dynamics</li>
+                  <li>Virtual sensing</li>
+               </ul>
+
+               <!-- Same clickable-poster presentation as the full-field Extended DeepONet study -->
+               <figure class="project-figure">
+                  <a class="project-figure-link" href="files/InvSHMDiff-poster.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the full InvSHMDiff research poster as a PDF">
+                     <img src="img/invshmdiff-poster.webp" alt="InvSHMDiff research poster presenting conditional diffusion for ground motion identification, sensor loss, noise robustness, uncertainty and virtual sensing" width="2200" height="1467" loading="lazy">
+                  </a>
+                  <figcaption>InvSHMDiff research poster. Select the image to read the full-resolution PDF.</figcaption>
+               </figure>
+
+               <p class="project-problem">
+                  Ground motion is often unmeasured, while structural monitoring networks provide only sparse
+                  and sometimes noisy acceleration records. Recovering the excitation from those responses is
+                  an ill-posed inverse problem, especially when entire sensor channels are unavailable.
+               </p>
+
+               <p class="project-method">
+                  InvSHMDiff combines a Vision Transformer sensor encoder with a conditional diffusion model
+                  to generate plausible ground-acceleration histories from incomplete bridge responses.
+                  On a simulated cable-stayed bridge, mean R² exceeds 99.79% with half of the 26 sensors missing.
+                  The model also reconstructs 76 recorded earthquake inputs from simulated bridge responses;
+                  its excitation ensembles provide relative uncertainty indicators and support virtual sensing
+                  through a calibrated forward model. The study is accepted in
+                  <em>Advanced Engineering Informatics</em> (2026). See the
+                  <a href="publication.html#pub-conditional-diffusion">publication</a> and the
+                  <a href="img/invshmdiff-method.png" target="_blank" rel="noopener noreferrer">full method diagram</a>.
+               </p>
+            </article>
 
             <!-- Neural-operator surrogates for cable-stayed bridges -->
             <article class="project" id="proj-deeponet">
