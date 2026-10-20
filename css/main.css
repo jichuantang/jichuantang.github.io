@@ -869,34 +869,48 @@ iframe {
    The earlier white brand band was removed; the brand link now lives
    inside the dark nav at the left (re-shown via .navbar-brand below). */
 
-/* User-selected campus panorama. Favor the lower part of the photo so the
-   Golden Dome and Basilica remain visible instead of mostly empty sky.
-   A taller mobile frame keeps both landmarks legible on small screens. */
+/* Banner photo, set per page via <body data-page="...">. The default is the
+   campus panorama (Home, 404); favor its lower part so the Golden Dome and
+   Basilica stay visible. Each photo's background-position keeps its subject
+   in frame. A taller mobile frame keeps subjects legible on small screens. */
 #image-band {
   width: 100%;
   aspect-ratio: 4 / 1;
   min-height: 160px;
   max-height: 480px;
-  background: var(--bg);
-  line-height: 0;
+  background-color: var(--bg);
+  background-image: url("../img/nd-campus-panorama.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 80%;
   overflow: hidden;
 }
-#image-band img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 80%;
+body[data-page="research"] #image-band {
+  background-image: url("../img/banner-research.jpg");
+  background-position: center 45%;
 }
-[data-theme="dark"] #image-band { background: var(--bg); }
+body[data-page="news"] #image-band {
+  background-image: url("../img/banner-news.jpg");
+  background-position: center 44%;
+}
+body[data-page="publication"] #image-band {
+  background-image: url("../img/banner-publications.jpg");
+  background-position: center 42%;
+}
+body[data-page="gallery"] #image-band {
+  background-image: url("../img/banner-gallery.jpg");
+  background-position: center 22%;
+}
 
 @media (min-width: 1921px) {
-  #image-band img { object-position: center 55%; }
+  body:not([data-page]) #image-band,
+  body[data-page="home"] #image-band { background-position: center 55%; }
 }
 
 @media (max-width: 767px) {
   #image-band { aspect-ratio: 12 / 5; max-height: 260px; }
-  #image-band img { object-position: 44% center; }
+  body:not([data-page]) #image-band,
+  body[data-page="home"] #image-band { background-position: 44% center; }
 }
 
 /* Brand text inside the nav (the white brand band is gone) */
@@ -2132,9 +2146,6 @@ body {
 #image-band {
   position: relative;
 }
-#image-band img {
-  transform: none;
-}
 /* Soft gradient at the bottom of the banner that fades into the dark
    navbar — gives a continuous, immersive "horizon → chrome" feel
    instead of the hard image edge the original had. */
@@ -2189,10 +2200,6 @@ body {
   .reveal,
   .reveal-stagger > * {
     opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  #image-band img {
     transform: none !important;
     transition: none !important;
   }
